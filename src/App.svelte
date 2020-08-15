@@ -10,14 +10,19 @@
       scrollHeight: 0,
       heightNum: 2,
       background: "images/mountain.jpg",
-    },
-    {
-      scrollHeight: 0,
-      heightNum: 2,
+      el: {
+        conatiner: undefined,
+        sticky: undefined,
+      },
     },
     {
       scrollHeight: 0,
       heightNum: 3,
+      background: "images/preview.png",
+    },
+    {
+      scrollHeight: 0,
+      heightNum: 1,
     },
     {
       scrollHeight: 0,
@@ -49,6 +54,11 @@
   const playAnimation = () => {
     switch (sceneNow) {
       case 0:
+        if (1500 > yOffset && yOffset > 850) {
+          scene[0].el.sticky.style.color = "white";
+        } else {
+          scene[0].el.sticky.style.color = "#292931";
+        }
         break;
       case 1:
         break;
@@ -60,6 +70,7 @@
   };
   window.addEventListener("load", () => {
     setLayout();
+    console.log(scene);
   });
 
   window.addEventListener("scroll", () => {
@@ -68,43 +79,8 @@
   });
 </script>
 
-<style>
-  section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
-    margin: 0;
-  }
-  section.s0 {
-    background-position: top;
-    background-repeat: no-repeat;
-  }
-  .sticky-elem {
-    position: fixed;
-    top: 300px;
-    opacity: 0;
-    transition: color 1s, opacity 1s;
-  }
-  .page0 > .s0 > .sticky-elem {
-    opacity: 1;
-  }
-  neulhan {
-    font-size: 120px;
-    width: 800px;
-    font-weight: 900;
-    text-align: center;
-    color: #292931;
-  }
-  .sub {
-    color: #292931;
-    font-size: 36px;
-    font-weight: 100;
-    margin-top: 1rem;
-    text-align: center;
-  }
+<style lang="scss">
+  @import "./scss/main.scss";
 </style>
 
 <main class={`page${sceneNow}`}>
@@ -112,15 +88,54 @@
     class="s0 {scene[0].type}"
     style="height: {scene[0].scrollHeight}px; background-image: url('{scene[0].background}');
     background-size: auto {300 - (yOffset / scene[0].scrollHeight) * 300 < 100 ? 100 : 300 - (yOffset / scene[0].scrollHeight) * 300}%">
-    <div class="sticky-elem" style="top: {(window.innerHeight - 203) / 2}px;">
+    <div
+      class="sticky-elem"
+      bind:this={scene[0].el.sticky}
+      style="top: {(window.innerHeight - 203) / 2}px;">
       <neulhan>개발자 늘한</neulhan>
       <div class="sub">늘 한결같은 즐거움을 좇고 있습니다</div>
     </div>
   </section>
   <section class="s1" style="height: {scene[1].scrollHeight}px">
-    <input type="text" bind:value={text} />
-    <div>입력값은 {text}입니다.</div>
+    <div class="gallery-wrapper">
+      <div
+        class="img"
+        style={`background-image: url("${scene[1].background}")`} />
+      <div class="text">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
+        fugiat error suscipit accusantium quia laudantium quidem atque cumque,
+        inventore maxime sapiente esse reprehenderit magni harum neque eaque ab
+        quibusdam, provident sint repellat nam impedit. Eaque, iure nam. Non,
+        ducimus ea.
+      </div>
+    </div>
+    <div class="gallery-wrapper">
+      <div
+        class="img"
+        style={`background-image: url("${scene[1].background}")`} />
+      <div class="text">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
+        fugiat error suscipit accusantium quia laudantium quidem atque cumque,
+        inventore maxime sapiente esse reprehenderit magni harum neque eaque ab
+        quibusdam, provident sint repellat nam impedit. Eaque, iure nam. Non,
+        ducimus ea.
+      </div>
+    </div>
+    <div class="gallery-wrapper">
+      <div
+        class="img"
+        style={`background-image: url("${scene[1].background}")`} />
+      <div class="text">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
+        fugiat error suscipit accusantium quia laudantium quidem atque cumque,
+        inventore maxime sapiente esse reprehenderit magni harum neque eaque ab
+        quibusdam, provident sint repellat nam impedit. Eaque, iure nam. Non,
+        ducimus ea.
+      </div>
+    </div>
   </section>
-  <section class="s2" style="height: {scene[2].scrollHeight}px" />
+  <section class="s2" style="height: {scene[2].scrollHeight}px">
+    <div class="text">개발자 늘한</div>
+  </section>
   <section class="s3" style="height: {scene[3].scrollHeight}px" />
 </main>
