@@ -19,6 +19,23 @@
       scrollHeight: 0,
       heightNum: 3,
       background: "images/preview.png",
+      galleries: [
+        {
+          img: "images/vintage-sewing-tools.jpg",
+          text:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et officia alias eaque libero enim possimus tenetur velit? Deleniti ea esse consectetur minus sunt, illo porro, qui explicabo, sit eaque nobis molestiae enim non repudiandae earum. Dolore fugit ratione odio asperiores?",
+        },
+        {
+          img: "images/filling-wine-glasses-on-counter.jpg",
+          text:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et officia alias eaque libero enim possimus tenetur velit? Deleniti ea esse consectetur minus sunt, illo porro, qui explicabo, sit eaque nobis molestiae enim non repudiandae earum. Dolore fugit ratione odio asperiores?",
+        },
+        {
+          img: "images/sunset.jpg",
+          text:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et officia alias eaque libero enim possimus tenetur velit? Deleniti ea esse consectetur minus sunt, illo porro, qui explicabo, sit eaque nobis molestiae enim non repudiandae earum. Dolore fugit ratione odio asperiores?",
+        },
+      ],
     },
     {
       scrollHeight: 0,
@@ -97,43 +114,14 @@
     </div>
   </section>
   <section class="s1" style="height: {scene[1].scrollHeight}px">
-    <div class="gallery-wrapper">
-      <div
-        class="img"
-        style={`background-image: url("${scene[1].background}")`} />
-      <div class="text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
-        fugiat error suscipit accusantium quia laudantium quidem atque cumque,
-        inventore maxime sapiente esse reprehenderit magni harum neque eaque ab
-        quibusdam, provident sint repellat nam impedit. Eaque, iure nam. Non,
-        ducimus ea.
+    {#each scene[1].galleries as gallery}
+      <div class="gallery-wrapper">
+        <div class="img" style="background-image: url('{gallery.img}')" />
+        <div class="text">{gallery.text}</div>
       </div>
-    </div>
-    <div class="gallery-wrapper">
-      <div
-        class="img"
-        style={`background-image: url("${scene[1].background}")`} />
-      <div class="text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
-        fugiat error suscipit accusantium quia laudantium quidem atque cumque,
-        inventore maxime sapiente esse reprehenderit magni harum neque eaque ab
-        quibusdam, provident sint repellat nam impedit. Eaque, iure nam. Non,
-        ducimus ea.
-      </div>
-    </div>
-    <div class="gallery-wrapper">
-      <div
-        class="img"
-        style={`background-image: url("${scene[1].background}")`} />
-      <div class="text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
-        fugiat error suscipit accusantium quia laudantium quidem atque cumque,
-        inventore maxime sapiente esse reprehenderit magni harum neque eaque ab
-        quibusdam, provident sint repellat nam impedit. Eaque, iure nam. Non,
-        ducimus ea.
-      </div>
-    </div>
+    {/each}
   </section>
+
   <section class="s2" style="height: {scene[2].scrollHeight}px">
     <div class="text">개발자 늘한</div>
   </section>

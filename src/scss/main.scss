@@ -26,9 +26,12 @@ section {
   &.s1 {
     @include custom-flex(flex-start, center, column);
     opacity: 0;
+    padding-top: 300px;
     transition: opacity 0.5s;
+    overflow-x: hidden;
     .gallery-wrapper {
       height: 100vh;
+      width: 100%;
       @include custom-flex(center, center, column);
       .img {
         width: 600px;
