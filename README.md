@@ -1,11 +1,4 @@
 # 개발자 늘한
-
-- [portfolio](https://neulhan.github.io/Neulhan/)
-- [devlog](https://www.notion.so/Neulhan-46666db786fe4aa8b75b2e07c1461189)
-
-## 차트
-
-
 <table>
   <tr>
     <td><img src="https://wakatime.com/share/@neulhan/0bc0e3d5-e69e-4f4a-af8d-d7700c974982.svg" width="500"></td>
