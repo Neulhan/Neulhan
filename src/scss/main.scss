@@ -1,5 +1,12 @@
 @import "./def.scss";
 
+*:not(.sticky-elem, .s1) {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
 section {
   min-height: 100vh;
   overflow-x: hidden;
