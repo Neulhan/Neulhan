@@ -7,30 +7,24 @@
 ## 개발 스택
 <table>
   <tr>
-    <td>
+    <td width="500px">
       <h4>풀스택</h4>
       <ul>
         <li>django</li>
         <li>html, scss</li>
       </ul>
-    </td>
-    <td>
       <h4>프론트엔드</h4>
       <ul>
         <li>svelte</li>
         <li>Vue</li>
       </ul>
     </td>
-  </tr>
-  <tr>
-    <td>
+    <td width="500px">
       <h4>백엔드</h4>
       <ul>
         <li>Express</li>
         <li>Go (gin)</li>
       </ul>
-    </td>
-    <td>
       <h4>인프라</h4>
       <ul>
         <li>mysql</li>
