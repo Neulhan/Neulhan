@@ -5,25 +5,40 @@
 - 2019.12 ~ 
 
 ## 개발 스택
-#### 풀스택
-- django
-- html, scss
-
-#### 프론트엔드
-- vanila javascript
-- Svelte
-- Vuejs
-- ~React~
-
-#### 백엔드
-- Express
-- Go (gin)
-
-#### 인프라, 데이터베이스
-- mysql
-- EC2
-- S3
-- ~docker~
+<table>
+  <tr>
+    <td>
+      <h4>풀스택</h4>
+      <ul>
+        <li>django</li>
+        <li>html, scss</li>
+      </ul>
+    </td>
+    <td>
+      <h4>프론트엔드</h4>
+      <ul>
+        <li>svelte</li>
+        <li>Vue</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4>백엔드</h4>
+      <ul>
+        <li>Express</li>
+        <li>Go (gin)</li>
+      </ul>
+    </td>
+    <td>
+      <h4>인프라</h4>
+      <ul>
+        <li>mysql</li>
+        <li>EC2</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ## 개발환경
 #### 운영체제
