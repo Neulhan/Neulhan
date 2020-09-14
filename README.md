@@ -48,7 +48,7 @@
 
 ### 위한 개발팀 (2019.09 ~ )
 - 현재 개발팀장
-- nodejs, express, React
+- Express, React
 
 ### 포리프 멘토 (2020.03 ~ )
 - django 멘토, svelte 멘토
