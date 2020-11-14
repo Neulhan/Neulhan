@@ -62,3 +62,8 @@
 
 ### 포리프 svelte 멘토 (2020.09 ~ )
 - svelte 와 함께하는 힙한 프론트엔드 개발
+
+
+## 채널
+![](https://img.shields.io/static/v1?message=구독자: 42명&color=FF0000&logo=YouTube)
+[![]()](https://www.youtube.com/channel/UCdrsvg9_y6njpdQZsSP-Tbw)
