@@ -1,6 +1,6 @@
 ![header](https://capsule-render.vercel.app/api?type=soft&color=auto&height=200&section=header&text=Neulhan&fontSize=72)
 # 개발자 늘한
-> ### 문제상황에 일단 필요한 건 "몸통박치기"
+> ### 문제상황에 필요한 건 일단 "몸통박치기"
 
 올라운드 개발자가 되고 싶은 신한결입니다. 한양대학교 영어영문학과 휴학 후 스타트업 로앤굿에서 일하는 중입니다.
 
