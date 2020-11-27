@@ -72,8 +72,7 @@
 ### 한양대학교 종강시계 (2020.08)
 - 한양대학교 종강시계 Chrome, Whale 브라우저 확장 어플리케이션
 - vanila javascript, django
-- https://chrome.google.com/webstore/detail/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90-%EC%A2%85%EA%B0%95%EC%8B%9C%EA%B3%84/gjpmmcimpelilaeciicpfmbggloncipb?hl=ko
-- https://store.whale.naver.com/detail/jmkmnnboknkeinncefhkbfnenbpocaml
+- [한양대학교 종강시계 - 크롬 익스텐션](https://chrome.google.com/webstore/detail/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90-%EC%A2%85%EA%B0%95%EC%8B%9C%EA%B3%84/gjpmmcimpelilaeciicpfmbggloncipb?hl=ko), [한양대학교 종강시계 - 네이버 웨일 익스텐션](https://store.whale.naver.com/detail/jmkmnnboknkeinncefhkbfnenbpocaml)
 
 
 ### SnowyJS (2020.11 ~ )
