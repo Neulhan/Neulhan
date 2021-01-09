@@ -67,6 +67,10 @@
 - svelte 와 함께하는 힙한 프론트엔드 개발
 - https://github.com/Neulhan/forif-svelte
 
+### 피로그래밍 14기 세션 (2021.01)
+- python 크롤링 세션
+- https://colab.research.google.com/drive/1MGWsTMxh98rCSJbiV4DF8zTeW0nLOdA4#scrollTo=aSG3YESfhEv2
+
 ## 프로젝트
 
 ### 한양대학교 종강시계 (2020.08)
