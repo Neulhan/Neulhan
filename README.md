@@ -70,17 +70,24 @@
 ## 프로젝트
 
 ### 한양대학교 종강시계 (2020.08)
-- 프로젝트 매니저
 - 한양대학교 종강시계 Chrome, Whale 브라우저 확장 어플리케이션
+- 프로젝트 매니저
 - vanila javascript, django
 - [한양대학교 종강시계 - 크롬 익스텐션](https://chrome.google.com/webstore/detail/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90-%EC%A2%85%EA%B0%95%EC%8B%9C%EA%B3%84/gjpmmcimpelilaeciicpfmbggloncipb?hl=ko), [한양대학교 종강시계 - 네이버 웨일 익스텐션](https://store.whale.naver.com/detail/jmkmnnboknkeinncefhkbfnenbpocaml)
 
 
 ### SnowyJS (2020.11 ~ )
-- 오픈소스 프론트엔드 snow effect 라이브러리
+- 오픈소스 html5 snow effect 라이브러리
 - canvas, webpack
 - https://github.com/Neulhan/snowyjs
 - https://neulhan.github.io/snowyjs/
+
+
+### optical-timer (2020.12 ~ )
+- time-timer 데스크탑 어플리케이션
+- electron, svelte
+- https://github.com/Neulhan/optical-timer
+- https://neulhan.github.io/optical-timer/
 
 ## 채널
 [![](https://img.shields.io/static/v1?label=&message=YouTube&color=FF0000&logo=YouTube)](https://www.youtube.com/channel/UCdrsvg9_y6njpdQZsSP-Tbw)
