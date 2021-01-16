@@ -48,8 +48,8 @@
 - django, Vuejs
 - https://www.lawandgood.com
 
-### 위한 개발팀 (2019.09 ~ )
-- 현재 개발팀장
+### 위한 개발팀 (2019.09 ~ 2020.12)
+- 전 개발팀장
 - Express, React
 
 ## 강의
