@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=soft&color=auto&height=200&section=header&text=Neulhan&fontSize=72)
+![header](https://neulhans3.s3.ap-northeast-2.amazonaws.com/nh-logo.long.png)
 # 개발자 늘한
 > ### 문제상황에 필요한 건 일단 "몸통박치기"
 
