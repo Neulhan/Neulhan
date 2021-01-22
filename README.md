@@ -6,38 +6,14 @@
 - 2019.09 ~ 
 
 ## 개발 스택
-<table>
-  <tr>
-    <td width="500px">
-      <h4>풀스택</h4>
-      <ul>
-        <li>django</li>
-        <li>html, scss</li>
-      </ul>
-      <h4>프론트엔드</h4>
-      <ul>
-        <li>svelte</li>
-        <li>Vue</li>
-      </ul>
-    </td>
-    <td width="500px">
-      <h4>백엔드</h4>
-      <ul>
-        <li>Express</li>
-        <li>Go (gin)</li>
-      </ul>
-      <h4>인프라</h4>
-      <ul>
-        <li>mysql</li>
-        <li>EC2</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+- Python
+- Javascript (Typescript)
+- Go
+
 
 ## 개발환경
 #### 운영체제
-- macOS Big Sur 11.0.1, Kubuntu 20.0.4
+- macOS Big Sur 11.0.1
 
 
 ## 개발
@@ -77,13 +53,11 @@
 - vanila javascript, django
 - [한양대학교 종강시계 - 크롬 익스텐션](https://chrome.google.com/webstore/detail/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90-%EC%A2%85%EA%B0%95%EC%8B%9C%EA%B3%84/gjpmmcimpelilaeciicpfmbggloncipb?hl=ko), [한양대학교 종강시계 - 네이버 웨일 익스텐션](https://store.whale.naver.com/detail/jmkmnnboknkeinncefhkbfnenbpocaml)
 
-
 ### SnowyJS (2020.11)
 - 오픈소스 html5 snow effect 라이브러리
 - canvas, webpack
 - https://github.com/Neulhan/snowyjs
 - https://neulhan.github.io/snowyjs/
-
 
 ### optical-timer (2020.12 ~ 2021.01)
 - time-timer 데스크탑 어플리케이션
