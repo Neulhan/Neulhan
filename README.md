@@ -16,7 +16,7 @@
 - macOS Big Sur 11.0.1
 
 
-## 개발
+## 경력
 ### 로앤굿 (2019.12 ~ )
 - 법률 스타트업 로앤굿에서 `developer`로 재직중
 - django, Vuejs
