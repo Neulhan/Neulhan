@@ -9,8 +9,9 @@ Fullstack developer Neulhan. Working on a startup company Lawandgood.
 ## Skills
 - Python
 - Javascript (Typescript)
-- Go
-
+- Golang
+- AWS cloud computing
+- SQL
 
 ## Careers
 ### 로앤굿 (2019.12 ~ )
