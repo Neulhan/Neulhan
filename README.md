@@ -1,5 +1,5 @@
 ![header](https://neulhans3.s3.ap-northeast-2.amazonaws.com/nh-logo.long.png)
-# 개발자 늘한 申始终
+# Neulhan 申始终
 Fullstack developer Neulhan. Working on a startup company Lawandgood.  
 开发者申始终。我在创业公司Lawandgood工作。
 
