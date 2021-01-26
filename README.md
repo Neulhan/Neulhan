@@ -1,23 +1,18 @@
 ![header](https://neulhans3.s3.ap-northeast-2.amazonaws.com/nh-logo.long.png)
 # 개발자 늘한 申始终
-> ### 한국형 풀스택 개발자 신한결입니다. 한양대학교 영어영문학과 휴학 후 스타트업 로앤굿에서 개발자로 일하는 중입니다.
-> ### 开发者申始终。我在创业公司Lawandgood工作。
+Fullstack developer Neulhan. Working on a startup company Lawandgood.  
+开发者申始终。我在创业公司Lawandgood工作。
 
-## 개발자 경력
+## Developer Career
 - 2019.09 ~ 
 
-## 개발 스택
+## Skills
 - Python
 - Javascript (Typescript)
 - Go
 
 
-## 개발환경
-#### 운영체제
-- macOS Big Sur 11.0.1
-
-
-## 경력
+## Careers
 ### 로앤굿 (2019.12 ~ )
 - 법률 스타트업 로앤굿에서 `developer`로 재직중
 - django, Vuejs
