@@ -20,13 +20,17 @@ Fullstack developer Neulhan. Working on a startup company Lawandgood.
 - django, Vuejs, redis, rabbitmq, Rds, MySQL, EC2, Route53, S3, etc
 - https://www.lawandgood.com
 
-### 위한 개발팀 (2019.09 ~ 2020.12)
+## 활동
+### 위한 9기 개발팀 (2019.09 ~ 2020.12)
 - 전 개발팀장
 - Express, React
 
+### 피로그래밍 11기 (2019.07 ~ 2019.09)
+- django, python
+
 ## 강의
 ### 피로그래밍 12기 세션 (2020.02)
-- python 크롤링 강의
+- python 크롤링 세션
 
 ### 포리프 django 멘토 (2020.03 ~ 2020.07)
 - django 로 학교 지도/커뮤니티 페이지 만들기
