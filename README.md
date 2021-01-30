@@ -1,7 +1,7 @@
 ![header](https://neulhans3.s3.ap-northeast-2.amazonaws.com/nh-logo.long.png)
 # Neulhan 申始终
 Fullstack developer Neulhan. Working on a startup company Lawandgood.  
-开发者申始终。我在创业公司Lawandgood工作。
+开发者申始终。我在创业公司法与善工作。
 
 ## Developer Career
 - 2019.09 ~ 
