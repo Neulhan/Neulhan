@@ -69,7 +69,7 @@ Fullstack developer Neulhan. Working on a startup company Lawandgood.
 
 ### Neulhan-Commerce (2021.01 ~ )
 - 공부해오던 주제들을 현업 수준에서 다뤄보기 위한 커머스 제작 개인 프로젝트
-- AWS lambda, Docker, Postgresql, Golang, Typescript, NextJS
+- elastic beanstalk, rds, Docker, Postgresql, Golang, iris, Typescript, NextJS
 - https://github.com/Neulhan/neulhan-commerce-server
 - https://github.com/Neulhan/neulhan-commerce-app
 
