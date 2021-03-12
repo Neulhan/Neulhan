@@ -15,7 +15,7 @@ Fullstack developer Neulhan. Working on a startup company Lawandgood.
 ## Careers
 ### 로앤굿 (2019.12 ~ )
 - 법률 스타트업 로앤굿에서 `developer`로 재직중
-- zero base에서 MAU 10,000 까지 사이트 전반의 인프라, 백엔드, 프론트엔드 작업
+- zero base에서 MAU 20,000 까지 사이트 전반의 인프라, 백엔드, 프론트엔드 작업
 - django, Vuejs, redis, rabbitmq, Rds, MySQL, EC2, Route53, S3, etc
 - https://www.lawandgood.com
 
