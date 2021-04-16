@@ -1,6 +1,6 @@
 # Neulhan 申始终
-Fullstack developer Neulhan. Working on a startup company Lawandgood.  
-开发者申始终。我在创业公司法与善工作。
+풀스택 개발자 신한결입니다. 스타트업 로앤굿에서 개발자로 일하고 있습니다.
+좋은 조직 문화와, 새로운 기술들에 관심이 많습니다.
 
 ## Developer Career
 - 2019.09 ~ 
