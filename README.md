@@ -10,7 +10,7 @@
 - Javascript (Typescript)
 - Golang
 - AWS cloud computing
-- SQL
+- MYSQL
 
 ## Careers
 ### 로앤굿 (2019.12 ~ )
