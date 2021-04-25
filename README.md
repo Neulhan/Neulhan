@@ -72,6 +72,17 @@
 - https://github.com/Neulhan/neulhan-commerce-server
 - https://github.com/Neulhan/neulhan-commerce-app
 
+## 기타 정보
+### MBTI
+INTP (아이디어 뱅크형)
+- 주기능 : 내향 사고
+- 부기능 : 외향 직관
+- 열등기능 : 외향 감정
+
+### 축구팬
+응원팀: 맨체스터 시티
+
+
 ## 채널
 [![](https://img.shields.io/static/v1?label=&message=YouTube&color=FF0000&logo=YouTube)](https://www.youtube.com/channel/UCdrsvg9_y6njpdQZsSP-Tbw)
 [![](https://img.shields.io/static/v1?label=V&message=Blog&color=06D6A9)](https://velog.io/@neulhan)
