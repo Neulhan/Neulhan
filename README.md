@@ -15,7 +15,9 @@
 ## Careers
 ### 로앤굿 (2019.12 ~ )
 - 법률 스타트업 로앤굿에서 `developer`로 재직중
+- 로앤굿이 처음 시작했을 때 부터 개발자로 함께 수많은 작업을 진행
 - zero base에서 MAU 30,000 까지 사이트 전반의 인프라, 백엔드, 프론트엔드 작업
+- 자유와 책임을 가지고 개발 외에도 조직문화, 프로덕트 기획 등에 적극적으로 임함
 - django, Vuejs, redis, rabbitmq, Rds, MySQL, EC2, Route53, S3, etc
 - https://www.lawandgood.com
 
