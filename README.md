@@ -21,6 +21,7 @@
 - django, Vuejs, redis, rabbitmq, Rds, MySQL, EC2, Route53, S3, etc
 - https://www.lawandgood.com
 
+
 ## 활동
 ### 위한 9기 개발팀 (2019.09 ~ 2020.12)
 - 전 개발팀장
