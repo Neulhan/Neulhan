@@ -1,0 +1,12 @@
+$container-width: 1200px;
+$pantone-blue: #0f4c81;
+$noto-k: 'Noto Sans KR', sans-serif;
+$noto-c: 'Noto Sans TC', sans-serif;
+
+@mixin custom-flex($align, $justify, $direction: row, $wrap: wrap) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
