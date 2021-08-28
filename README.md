@@ -1,107 +1,96 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# 개발자 늘한
+한국형 풀스택 개발자 신한결입니다. 한양대학교 영어영문학과 휴학 후 스타트업 로앤굿에서 개발자로 일하는 중입니다.
 
----
+## 개발자 경력
+- 2019.09 ~ 
 
-# svelte app
+## 개발 스택
+<table>
+  <tr>
+    <td width="500px">
+      <h4>풀스택</h4>
+      <ul>
+        <li>django</li>
+        <li>html, scss</li>
+      </ul>
+      <h4>프론트엔드</h4>
+      <ul>
+        <li>svelte</li>
+        <li>Vue</li>
+      </ul>
+    </td>
+    <td width="500px">
+      <h4>백엔드</h4>
+      <ul>
+        <li>Express</li>
+        <li>Go (gin)</li>
+      </ul>
+      <h4>인프라</h4>
+      <ul>
+        <li>mysql</li>
+        <li>EC2</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
-
-## Get started
-
-Install the dependencies...
-
-```bash
-cd svelte-app
-npm install
-```
-
-...then start [Rollup](https://rollupjs.org):
-
-```bash
-npm run dev
-```
-
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
-```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+## 개발환경
+#### 운영체제
+- macOS Big Sur 11.0.1, Kubuntu 20.0.4
 
 
-## Single-page app mode
+## 개발
+### 로앤굿 (2019.12 ~ )
+- 법률 스타트업 로앤굿에서 `developer`로 재직중
+- django, Vuejs
+- https://www.lawandgood.com
 
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
+### 위한 개발팀 (2019.09 ~ 2020.12)
+- 전 개발팀장
+- Express, React
 
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
+## 강의
+### 피로그래밍 12기 세션 (2020.02)
+- python 크롤링 강의
 
-```js
-"start": "sirv public --single"
-```
+### 포리프 django 멘토 (2020.03 ~ 2020.07)
+- django 로 학교 지도/커뮤니티 페이지 만들기
+- http://hy-maps.com
 
-## Using TypeScript
+### 피로그래밍 13기 세션 (2020.07)
+- 기초부터 탄탄히 Git
 
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
+### 포리프 svelte 멘토 (2020.09 ~ )
+- svelte 와 함께하는 힙한 프론트엔드 개발
+- https://github.com/Neulhan/forif-svelte
 
-```bash
-node scripts/setupTypeScript.js
-```
+### 피로그래밍 14기 세션 (2021.01)
+- python 크롤링 세션
+- https://colab.research.google.com/drive/1MGWsTMxh98rCSJbiV4DF8zTeW0nLOdA4#scrollTo=aSG3YESfhEv2
 
-Or remove the script via:
+## 프로젝트
 
-```bash
-rm scripts/setupTypeScript.js
-```
+### 한양대학교 종강시계 (2020.08)
+- 한양대학교 종강시계 Chrome, Whale 브라우저 확장 어플리케이션
+- 프로젝트 매니저
+- vanila javascript, django
+- [한양대학교 종강시계 - 크롬 익스텐션](https://chrome.google.com/webstore/detail/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90-%EC%A2%85%EA%B0%95%EC%8B%9C%EA%B3%84/gjpmmcimpelilaeciicpfmbggloncipb?hl=ko), [한양대학교 종강시계 - 네이버 웨일 익스텐션](https://store.whale.naver.com/detail/jmkmnnboknkeinncefhkbfnenbpocaml)
 
-If you want to use `baseUrl` or `path` aliases within your `tsconfig`, you need to set up `@rollup/plugin-alias` to tell Rollup to resolve the aliases. For more info, see [this StackOverflow question](https://stackoverflow.com/questions/63427935/setup-tsconfig-path-in-svelte).
 
-## Deploying to the web
+### SnowyJS (2020.11 ~ )
+- 오픈소스 html5 snow effect 라이브러리
+- canvas, webpack
+- https://github.com/Neulhan/snowyjs
+- https://neulhan.github.io/snowyjs/
 
-### With [Vercel](https://vercel.com)
 
-Install `vercel` if you haven't already:
+### optical-timer (2020.12 ~ )
+- time-timer 데스크탑 어플리케이션
+- electron, svelte
+- https://github.com/Neulhan/optical-timer
+- https://neulhan.github.io/optical-timer/
 
-```bash
-npm install -g vercel
-```
+## 채널
+[![](https://img.shields.io/static/v1?label=&message=YouTube&color=FF0000&logo=YouTube)](https://www.youtube.com/channel/UCdrsvg9_y6njpdQZsSP-Tbw)
+[![](https://img.shields.io/static/v1?label=V&message=Blog&color=06D6A9)](https://velog.io/@neulhan)
 
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```

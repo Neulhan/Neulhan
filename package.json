@@ -1,12 +1,14 @@
 {
-  "name": "svelte-app",
+  "name": "neulhan",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://neulhan.github.io/Neulhan/",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "deploy": "gh-pages -d public"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^3.1.5",
@@ -15,6 +17,7 @@
     "@rollup/plugin-typescript": "^8.0.0",
     "@tsconfig/svelte": "^2.0.0",
     "autoprefixer": "^10.3.3",
+    "gh-pages": "^3.2.3",
     "postcss": "^8.3.6",
     "prettier": "^2.3.2",
     "prettier-plugin-svelte": "^2.4.0",
