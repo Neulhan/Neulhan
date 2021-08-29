@@ -12,9 +12,8 @@ main {
 
 <script>
 let WORD = '滿喫'
-let word1
 </script>
 
 <main>
-  <h1 bind:this="{word1}">{WORD}</h1>
+  <h1>{WORD}</h1>
 </main>
