@@ -39,6 +39,9 @@ var app = (function () {
     function element(name) {
         return document.createElement(name);
     }
+    function svg_element(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
     function text(data) {
         return document.createTextNode(data);
     }
@@ -303,13 +306,6 @@ var app = (function () {
         else
             dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
     }
-    function set_data_dev(text, data) {
-        data = '' + data;
-        if (text.wholeText === data)
-            return;
-        dispatch_dev('SvelteDOMSetData', { node: text, data });
-        text.data = data;
-    }
     function validate_slots(name, slot, keys) {
         for (const slot_key of Object.keys(slot)) {
             if (!~keys.indexOf(slot_key)) {
@@ -343,30 +339,36 @@ var app = (function () {
 
     function create_fragment$3(ctx) {
     	let main;
-    	let h1;
-    	let t;
+    	let svg;
+    	let path;
 
     	const block = {
     		c: function create() {
     			main = element("main");
-    			h1 = element("h1");
-    			t = text(/*WORD*/ ctx[0]);
-    			attr_dev(h1, "class", "svelte-xm454h");
-    			add_location(h1, file$3, 23, 2, 359);
-    			attr_dev(main, "class", "svelte-xm454h");
-    			add_location(main, file$3, 22, 0, 350);
+    			svg = svg_element("svg");
+    			path = svg_element("path");
+    			attr_dev(path, "d", "M37.5 277.8C49.8 248.4 63 213.9 72.9 181.8L44.1 163.2C32.4 198.3 16.5 236.4 5.4 259.5L37.5 277.8ZM67.8 109.2C57.6 99.9 36.3 89.4 19.8 83.1L0.3 109.2C16.8 116.7 37.2 128.7 47.1 138L67.8 109.2ZM151.2 53.1H202.5V70.2H151.2V53.1ZM241.8 144V219.9C232.8 205.5 228.9 182.1 228 153.9H198.3V175.8H212.1L212.7 183H206.4C205.2 197.4 201 212.4 191.4 223.2V144H241.8ZM119.1 153.9V175.8H132.6L133.2 183H126.9C125.7 198.6 121.8 215.1 111.6 226.8V144H160.2V216.9C152.7 202.5 149.4 180 148.8 153.9H119.1ZM237.3 99.9V53.1H278.4V22.2H237.3V0.899981H202.5V22.2H151.2V0.899981H117.9V22.2H77.1V29.4C66.3 20.7 47.1 9.89999 31.8 3.29999L11.7 29.7C28.2 37.2 48.6 50.4 58.2 60L77.1 34.2V53.1H117.9V99.9H160.2V114.3H81.3V280.5H111.6V233.7C115.2 237 119.1 241.5 121.2 244.8C129.6 237.3 135.6 227.4 139.2 216.3C142.5 226.2 146.4 234.6 151.8 241.2C153.6 238.5 156.9 235.2 160.2 232.2V279H191.4V231.3C195 234.6 198.3 238.8 200.1 241.8C208.8 234.6 214.8 225.3 218.7 214.8C221.7 225.3 226.2 234.3 231.9 240.9C234 237.9 237.9 234 241.8 230.7V250.5C241.8 253.5 240.6 254.4 237.6 254.4C234.6 254.7 224.7 254.7 215.4 254.4C218.7 261.6 222.3 272.4 223.2 280.5C240.6 280.5 252.9 280.2 261.6 275.7C270.6 271.2 273 264.6 273 250.5V114.3H191.4V99.9H237.3ZM357 59.4V163.2H336.9V59.4H357ZM384 195V27.6H309.9V218.7H336.9V195H384ZM576.3 204.6V174H496.2C497.4 165.9 498 157.2 498.6 148.2H488.7C516.9 127.2 524.1 94.2 526.5 48.3H545.7C544.5 96.6 542.7 114.6 539.4 119.7C537.3 122.4 535.2 123 532.2 123C528.6 123 522.9 123 515.7 122.1C519.9 129.3 522.6 141 522.9 149.4C533.1 149.7 542.4 149.4 548.1 148.2C555 147 560.4 144.6 565.2 138.3C571.8 129.3 573.9 102.6 575.4 31.8C575.7 28.5 575.7 20.4 575.7 20.4H480.9V48.3H497.1C495.9 80.1 492 103.2 476.7 119.7L475.8 108L450.3 111.6V93.3H474.9V68.4H450.3V51.3H475.8V25.5H450.3V2.69999H420.6V25.5H392.1V51.3H420.6V68.4H394.8V93.3H420.6V115.8C407.7 117.6 396 119.1 386.1 120L391.2 149.7C412.2 145.8 437.7 141 463.8 135.9C467.1 139.5 471 144 473.7 148.2H462.9C462.3 157.5 461.7 166.2 460.5 174H388.2V204.6H452.4C441.9 227.7 419.7 242.7 370.8 252.3C377.7 259.5 386.7 272.7 389.7 281.4C441 269.7 467.4 251.4 481.8 225C498 254.7 522.6 273 563.4 281.4C567.9 271.8 577.2 257.4 584.7 250.2C544.8 244.8 519.9 229.5 506.1 204.6H576.3Z");
+    			attr_dev(path, "fill", "black");
+    			add_location(path, file$3, 26, 4, 431);
+    			attr_dev(svg, "width", "585");
+    			attr_dev(svg, "height", "282");
+    			attr_dev(svg, "viewBox", "0 0 585 282");
+    			attr_dev(svg, "fill", "none");
+    			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg, "class", "svelte-19we4eu");
+    			add_location(svg, file$3, 20, 2, 307);
+    			attr_dev(main, "class", "svelte-19we4eu");
+    			add_location(main, file$3, 19, 0, 298);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, h1);
-    			append_dev(h1, t);
+    			append_dev(main, svg);
+    			append_dev(svg, path);
     		},
-    		p: function update(ctx, [dirty]) {
-    			if (dirty & /*WORD*/ 1) set_data_dev(t, /*WORD*/ ctx[0]);
-    		},
+    		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
@@ -385,37 +387,22 @@ var app = (function () {
     	return block;
     }
 
-    function instance$3($$self, $$props, $$invalidate) {
+    function instance$3($$self, $$props) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Main', slots, []);
-    	let { WORD } = $$props;
-    	const writable_props = ['WORD'];
+    	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Main> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$$set = $$props => {
-    		if ('WORD' in $$props) $$invalidate(0, WORD = $$props.WORD);
-    	};
-
-    	$$self.$capture_state = () => ({ WORD });
-
-    	$$self.$inject_state = $$props => {
-    		if ('WORD' in $$props) $$invalidate(0, WORD = $$props.WORD);
-    	};
-
-    	if ($$props && "$$inject" in $$props) {
-    		$$self.$inject_state($$props.$$inject);
-    	}
-
-    	return [WORD];
+    	return [];
     }
 
     class Main extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { WORD: 0 });
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -423,21 +410,6 @@ var app = (function () {
     			options,
     			id: create_fragment$3.name
     		});
-
-    		const { ctx } = this.$$;
-    		const props = options.props || {};
-
-    		if (/*WORD*/ ctx[0] === undefined && !('WORD' in props)) {
-    			console.warn("<Main> was created without expected prop 'WORD'");
-    		}
-    	}
-
-    	get WORD() {
-    		throw new Error("<Main>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set WORD(value) {
-    		throw new Error("<Main>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
 
