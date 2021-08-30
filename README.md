@@ -4,50 +4,17 @@
 ## 개발자 경력
 - 2019.09 ~ 
 
-## 개발 스택
-<table>
-  <tr>
-    <td width="500px">
-      <h4>풀스택</h4>
-      <ul>
-        <li>django</li>
-        <li>html, scss</li>
-      </ul>
-      <h4>프론트엔드</h4>
-      <ul>
-        <li>svelte</li>
-        <li>Vue</li>
-      </ul>
-    </td>
-    <td width="500px">
-      <h4>백엔드</h4>
-      <ul>
-        <li>Express</li>
-        <li>Go (gin)</li>
-      </ul>
-      <h4>인프라</h4>
-      <ul>
-        <li>mysql</li>
-        <li>EC2</li>
-      </ul>
-    </td>
-  </tr>
-</table>
 
-## 개발환경
-#### 운영체제
-- macOS Big Sur 11.0.1, Kubuntu 20.0.4
-
-
-## 개발
+## 경력
 ### 로앤굿 (2019.12 ~ )
-- 법률 스타트업 로앤굿에서 `developer`로 재직중
-- django, Vuejs
+- 법률 스타트업 로앤굿에서 `developer`로 초기에 조인
+- django, vuejs, aws, docker
 - https://www.lawandgood.com
 
 ### 위한 개발팀 (2019.09 ~ 2020.12)
 - 전 개발팀장
 - Express, React
+
 
 ## 강의
 ### 피로그래밍 12기 세션 (2020.02)
@@ -67,6 +34,11 @@
 ### 피로그래밍 14기 세션 (2021.01)
 - python 크롤링 세션
 - https://colab.research.google.com/drive/1MGWsTMxh98rCSJbiV4DF8zTeW0nLOdA4#scrollTo=aSG3YESfhEv2
+
+### 피로그래밍 15기 세션 (2021.07)
+- 피로그래밍 15기 웹스크래핑 & API 세션
+- https://night-voice-127.notion.site/15-API-e24ebfa0f8a5440cb64ed1605fd1e41b
+
 
 ## 프로젝트
 
