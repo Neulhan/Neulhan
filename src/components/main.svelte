@@ -1,17 +1,20 @@
 <style lang="scss">
 main {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: white;
   @include custom-flex(center, center);
   h1 {
     font-size: 200px;
+    @include mobile {
+      font-size: 24vw;
+    }
   }
 }
 </style>
 
-<script>
-let WORD = '滿喫'
+<script lang="ts">
+export let WORD
 </script>
 
 <main>

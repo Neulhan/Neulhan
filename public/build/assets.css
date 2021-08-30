@@ -11,6 +11,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Noto Sans KR", sans-serif;
+  word-wrap: break-word;
 }
 
 a {
@@ -64,4 +65,13 @@ button:not(:disabled):active {
 
 button:focus {
   border-color: #666;
+}
+
+.container {
+  width: 900px;
+}
+@media (max-width: 900px) {
+  .container {
+    width: calc(100% - 2 * 20px);
+  }
 }

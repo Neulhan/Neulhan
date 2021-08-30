@@ -3,7 +3,9 @@ import './scss/base.scss'
 
 const app = new App({
   target: document.body,
-  props: {},
+  props: {
+    WORD: '滿喫',
+  },
 })
 
 export default app

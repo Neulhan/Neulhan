@@ -1,4 +1,7 @@
-$container-width: 1200px;
+$container-width: 900px;
+$breakpoint-mobile: $container-width;
+$mobile-padding: 20px;
+
 $pantone-blue: #0f4c81;
 $noto-k: 'Noto Sans KR', sans-serif;
 $noto-c: 'Noto Sans TC', sans-serif;
@@ -9,4 +12,12 @@ $noto-c: 'Noto Sans TC', sans-serif;
   justify-content: $justify;
   flex-direction: $direction;
   flex-wrap: $wrap;
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    & {
+      @content;
+    }
+  }
 }
