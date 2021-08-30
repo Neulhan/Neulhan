@@ -2,7 +2,7 @@
   "name": "neulhan",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://neulhan.github.io/Neulhan/",
+  "homepage": "https://www.neulhan.com",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
