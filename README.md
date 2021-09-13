@@ -7,8 +7,8 @@
 
 ## 경력
 ### 로앤굿 (2019.12 ~ )
-- 법률 스타트업 로앤굿에서 `developer`로 초기에 조인
-- django, vuejs, aws, docker
+- 법률 스타트업 로앤굿에서 `developer`로 일하는 중
+- django, vuejs
 - https://www.lawandgood.com
 
 ### 위한 개발팀 (2019.09 ~ 2020.12)
@@ -49,14 +49,14 @@
 - [한양대학교 종강시계 - 크롬 익스텐션](https://chrome.google.com/webstore/detail/%ED%95%9C%EC%96%91%EB%8C%80%ED%95%99%EA%B5%90-%EC%A2%85%EA%B0%95%EC%8B%9C%EA%B3%84/gjpmmcimpelilaeciicpfmbggloncipb?hl=ko), [한양대학교 종강시계 - 네이버 웨일 익스텐션](https://store.whale.naver.com/detail/jmkmnnboknkeinncefhkbfnenbpocaml)
 
 
-### SnowyJS (2020.11 ~ )
+### SnowyJS (2020.11 ~ 2020.12)
 - 오픈소스 html5 snow effect 라이브러리
 - canvas, webpack
 - https://github.com/Neulhan/snowyjs
 - https://neulhan.github.io/snowyjs/
 
 
-### optical-timer (2020.12 ~ )
+### optical-timer (2020.12 ~ 2021.01)
 - time-timer 데스크탑 어플리케이션
 - electron, svelte
 - https://github.com/Neulhan/optical-timer
