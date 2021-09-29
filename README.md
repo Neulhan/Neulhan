@@ -8,7 +8,7 @@
 ## 경력
 ### 로앤굿 (2019.12 ~ )
 - 법률 스타트업 로앤굿에서 `developer`로 일하는 중
-- django, vuejs
+- django, vuejs, bigquery
 - https://www.lawandgood.com
 
 ### 위한 개발팀 (2019.09 ~ 2020.12)
