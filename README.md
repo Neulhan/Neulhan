@@ -1,5 +1,6 @@
 # 개발자 늘한
-한국형 풀스택 개발자 신한결입니다. 한양대학교 영어영문학과 휴학 후 스타트업 로앤굿에서 개발자로 일하는 중입니다.
+개발자 신한결입니다. 새로운 기술과 좋은 조직문화에 관심이 많습니다.
+
 
 ## 개발자 경력
 - 2019.09 ~ 
@@ -65,3 +66,4 @@
 ## 채널
 [![](https://img.shields.io/static/v1?label=&message=YouTube&color=FF0000&logo=YouTube)](https://www.youtube.com/channel/UCdrsvg9_y6njpdQZsSP-Tbw)
 [![](https://img.shields.io/static/v1?label=V&message=Blog&color=06D6A9)](https://velog.io/@neulhan)
+[![](https://img.shields.io/static/v1?label=V&message=Github&color=181717&logo=Github)](https://github.com/Neulhan/)
