@@ -5611,7 +5611,7 @@ var app = (function () {
     			footer = element("footer");
     			div = element("div");
     			h1 = element("h1");
-    			h1.textContent = "마음껏 먹고 마시자";
+    			h1.textContent = "마음껏 즐기며 살자";
     			attr_dev(h1, "class", "svelte-18t16lb");
     			add_location(h1, file$1, 18, 4, 318);
     			attr_dev(div, "class", "container");
