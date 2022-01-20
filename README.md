@@ -45,9 +45,12 @@
 - https://colab.research.google.com/drive/1MGWsTMxh98rCSJbiV4DF8zTeW0nLOdA4#scrollTo=aSG3YESfhEv2
 
 ### 피로그래밍 15기 세션 (2021.07)
-
 - 피로그래밍 15기 웹스크래핑 & API 세션
-- https://night-voice-127.notion.site/15-API-e24ebfa0f8a5440cb64ed1605fd1e41b
+
+
+### 피로그래밍 16기 세션 (2022.01)
+- 피로그래밍 16기 웹스크래핑 & API 세션
+
 
 ## 프로젝트
 
