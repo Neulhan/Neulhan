@@ -2,6 +2,8 @@ import adapter from '@sveltejs/adapter-static'
 import { vitePreprocess } from '@sveltejs/kit/vite'
 import { mdsvex } from 'mdsvex'
 
+const dev = process.env.ENV === 'dev'
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
     extensions: ['.md'],
@@ -20,6 +22,7 @@ const config = {
     },
     extensions: ['.svelte', '.md'],
     preprocess: [vitePreprocess({}), mdsvex(mdsvexOptions)],
+    // paths: { base: dev ? '' : '/Neulhan' },
 }
 
 export default config

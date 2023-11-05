@@ -2,6 +2,11 @@
     export let data;
   </script>
   
+
+
+
+
+  
   <svelte:head>
     <title>{data.meta.title}</title>
     <meta property="og:type" content="article" />
