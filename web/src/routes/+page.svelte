@@ -1,33 +1,35 @@
-<style lang="scss">
-</style>
+<script lang="ts">
+export let data
+</script>
+
 <svelte:head>
     <title>Developer Neulhan</title>
     <meta name="description" content="개발자 늘한입니다." />
 </svelte:head>
 
-<script lang="ts">
-    export let data;
-  </script>
-  
 <section>
-  <div class="container px-6 py-10 mx-auto">
-    <h1 class="text-2xl font-semibold capitalize">My Post Lists</h1>
-    <div class="flex flex-col mt-8 space-y-10">
-      {#each data.posts as post}
-        <div class="border">
-          <div class="flex flex-col justify-between p-4">
-            <a
-              href={post.slug}
-              class="text-xl font-semibold hover:underline py-2"
-            >
-              {post.title}
-            </a>
-            <p class="py-2">{post.description}</p>
+    <div class="container px-0 sm:px-8 py-6 mx-auto">
+        <h1 class="text-2xl font-semibold">글 목록</h1>
+        <div class="flex flex-col mt-8 space-y-4">
+            {#each data.posts as post}
+                <a class="border" href="{post.slug}">
+                    <div class="flex flex-col justify-between p-4">
+                        <div
+                            class="text-2xl font-semibold hover:underline pb-2">
+                            {post.title}
+                        </div>
+                        {#if post.description}
+                            <p class="py-2 opacity-70">{post.description}</p>
+                        {/if}
 
-            <span class="text-sm text-gray-500">On: {post.date}</span>
-          </div>
+                        <span class="text-sm opacity-50"
+                            >작성일: {post.date}</span>
+                    </div>
+                </a>
+            {/each}
         </div>
-      {/each}
     </div>
-  </div>
 </section>
+
+<style lang="scss">
+</style>

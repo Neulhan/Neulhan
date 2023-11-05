@@ -24,6 +24,6 @@ onMount(() => {
     <meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="text-column">
+<div class="container mx-auto">
     <div class="portfolio md">{@html portfolioHTML}</div>
 </div>

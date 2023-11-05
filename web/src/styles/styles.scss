@@ -31,3 +31,12 @@ a {
 a:hover {
     text-decoration: none;
 }
+
+.md {
+    * {
+        list-style: revert;
+        margin: revert;
+        padding: revert;
+        font-size: revert;
+    }
+}

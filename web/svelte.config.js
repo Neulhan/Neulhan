@@ -21,7 +21,7 @@ const config = {
         },
     },
     extensions: ['.svelte', '.md'],
-    preprocess: [vitePreprocess({}), mdsvex(mdsvexOptions)],
+    preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
     // paths: { base: dev ? '' : '/Neulhan' },
 }
 

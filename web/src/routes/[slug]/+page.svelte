@@ -1,33 +1,30 @@
 <script lang="ts">
-    export let data;
-  </script>
-  
+export let data
+</script>
 
-
-
-
-  
-  <svelte:head>
+<svelte:head>
     <title>{data.meta.title}</title>
     <meta property="og:type" content="article" />
-    <meta property="og:title" content={data.meta.title} />
-  </svelte:head>
-  
-  <article class="md">
+    <meta property="og:title" content="{data.meta.title}" />
+</svelte:head>
+
+<article class="container mx-auto">
     <div>
-      <h1 class="text-4xl">{data.meta.title}</h1>
-      <p>Published at {data.meta.date}</p>
+        <h1 class="text-4xl pb-2">{data.meta.title}</h1>
+        <p class="opacity-50 pb-2">Published at {data.meta.date}</p>
     </div>
-  
+
     <div class="my-4">
-      {#each data.meta.categories as category}
-        <span class="border rounded-xl py-2 px-4 mr-2 bg-slate-700"
-          >&num;{category}</span
-        >
-      {/each}
+        {#each data.meta.categories as category}
+            <span class="border rounded-xl py-1 px-2 mr-2 bg-slate-700"
+                >&num;{category}</span>
+        {/each}
     </div>
-  
-    <div>
-      <svelte:component this={data.content} />
+
+    <div class="md py-4">
+        <svelte:component this="{data.content}" />
     </div>
-  </article>
+</article>
+
+<style lang="scss">
+</style>
