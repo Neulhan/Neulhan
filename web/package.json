@@ -6,7 +6,8 @@
         "build": "vite build",
         "preview": "vite preview",
         "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+        "deploy": "npm run build && npx gh-pages -d build -t true"
     },
     "devDependencies": {
         "@fontsource/fira-mono": "^4.5.10",
@@ -16,6 +17,7 @@
         "@sveltejs/kit": "^1.20.4",
         "@types/cookie": "^0.5.1",
         "autoprefixer": "^10.4.14",
+        "gh-pages": "^6.0.0",
         "mdsvex": "^0.11.0",
         "postcss": "^8.4.24",
         "postcss-load-config": "^4.0.1",
