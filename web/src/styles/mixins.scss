@@ -1,0 +1,18 @@
+$container-width: 900px;
+$breakpoint-mobile: $container-width;
+
+@mixin custom-flex($align, $justify, $direction: row, $wrap: wrap) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+}
+
+@mixin mobile {
+    @media (max-width: $breakpoint-mobile) {
+        & {
+            @content;
+        }
+    }
+}

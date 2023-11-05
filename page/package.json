@@ -1,42 +1,42 @@
 {
-  "name": "neulhan",
-  "version": "1.0.0",
-  "private": true,
-  "homepage": "https://www.neulhan.com",
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "deploy": "gh-pages -d public"
-  },
-  "devDependencies": {
-    "@rollup/plugin-alias": "^3.1.5",
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
-    "@rollup/plugin-typescript": "^8.0.0",
-    "@tsconfig/svelte": "^2.0.0",
-    "autoprefixer": "^10.3.3",
-    "gh-pages": "^3.2.3",
-    "postcss": "^8.3.6",
-    "prettier": "^2.3.2",
-    "prettier-plugin-svelte": "^2.4.0",
-    "rollup": "^2.3.4",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-scss": "^3.0.0",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "sass": "^1.38.1",
-    "svelte": "^3.0.0",
-    "svelte-check": "^2.0.0",
-    "svelte-preprocess": "^4.0.0",
-    "tslib": "^2.0.0",
-    "typescript": "^4.0.0"
-  },
-  "dependencies": {
-    "fullpage.js": "^3.1.2",
-    "showdown": "^1.9.1",
-    "sirv-cli": "^1.0.0"
-  }
+    "name": "neulhan",
+    "version": "1.0.0",
+    "private": true,
+    "homepage": "https://www.neulhan.com",
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "start": "sirv public --no-clear",
+        "check": "svelte-check --tsconfig ./tsconfig.json",
+        "deploy": "gh-pages -d public"
+    },
+    "devDependencies": {
+        "@rollup/plugin-alias": "^3.1.5",
+        "@rollup/plugin-commonjs": "^17.0.0",
+        "@rollup/plugin-node-resolve": "^11.0.0",
+        "@rollup/plugin-typescript": "^8.0.0",
+        "@tsconfig/svelte": "^2.0.0",
+        "autoprefixer": "^10.3.3",
+        "gh-pages": "^3.2.3",
+        "postcss": "^8.3.6",
+        "prettier": "^2.3.2",
+        "prettier-plugin-svelte": "^2.4.0",
+        "rollup": "^2.3.4",
+        "rollup-plugin-css-only": "^3.1.0",
+        "rollup-plugin-livereload": "^2.0.0",
+        "rollup-plugin-scss": "^3.0.0",
+        "rollup-plugin-svelte": "^7.0.0",
+        "rollup-plugin-terser": "^7.0.0",
+        "sass": "^1.38.1",
+        "svelte": "^3.0.0",
+        "svelte-check": "^2.0.0",
+        "svelte-preprocess": "^4.0.0",
+        "tslib": "^2.0.0",
+        "typescript": "^4.0.0"
+    },
+    "dependencies": {
+        "fullpage.js": "^3.1.2",
+        "showdown": "^1.9.1",
+        "sirv-cli": "^1.0.0"
+    }
 }

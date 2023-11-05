@@ -1,10 +1,9 @@
 {
-  "singleQuote": true,
-  "tabWidth": 2,
-  "semi": false,
-  "svelteSortOrder": "options-styles-scripts-markup",
-  "svelteStrictMode": true,
-  "svelteBracketNewLine": false,
-  "svelteAllowShorthand": false,
-  "svelteIndentScriptAndStyle": false
+    "singleQuote": true,
+    "tabWidth": 4,
+    "semi": false,
+    "svelteStrictMode": true,
+    "svelteBracketNewLine": false,
+    "svelteAllowShorthand": false,
+    "svelteIndentScriptAndStyle": false
 }
