@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <urlset	xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"			
+                xmlns:xhtml="https://www.w3.org/1999/xhtml"			
+                xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0"			
+                xmlns:news="https://www.google.com/schemas/sitemap-news/0.9"			
+                xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"			
+                xmlns:video="https://www.google.com/schemas/sitemap-video/1.1">			
+                <url>
+                    <loc>http://blog.neulhan.com/</loc>
+                    <changefreq>daily</changefreq>
+                </url>	
+                <url>
+                    <loc>http://blog.neulhan.com/about</loc>
+                    <changefreq>daily</changefreq>
+                </url>
+                <url>
+                        <loc>http://blog.neulhan.com/posts/엘리트-작가의-마음가짐</loc>
+                        <lastmod>2023-11-06</lastmod>
+                    </url>
+                    ,<url>
+                        <loc>http://blog.neulhan.com/posts/sveltekit으로-블로그-만들기</loc>
+                        <lastmod>2023-11-05</lastmod>
+                    </url>
+                    ,<url>
+                        <loc>http://blog.neulhan.com/posts/글을-쓰는-습관을-만들자고-결심한지-N년째</loc>
+                        <lastmod>2023-11-05</lastmod>
+                    </url>
+                    ,<url>
+                        <loc>http://blog.neulhan.com/posts/불확실한-상황의-의사결정</loc>
+                        <lastmod>2023-11-05</lastmod>
+                    </url>
+                    
+        </urlset>
