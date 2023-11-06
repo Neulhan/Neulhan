@@ -8,7 +8,7 @@ export let data
 </svelte:head>
 
 <section>
-    <div class="container px-0 sm:px-8 py-6 mx-auto">
+    <div class="container mx-auto max-w-2xl">
         <h1 class="text-2xl font-semibold">글 목록</h1>
         <div class="flex flex-col mt-8 space-y-4">
             {#each data.posts as post}

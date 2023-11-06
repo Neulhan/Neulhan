@@ -8,7 +8,7 @@ export let data
     <meta property="og:title" content="{data.meta.title}" />
 </svelte:head>
 
-<article class="container mx-auto">
+<article class="container mx-auto max-w-2xl">
     <div>
         <h1 class="text-4xl pb-2">{data.meta.title}</h1>
         <p class="opacity-50 pb-2">Published at {data.meta.date}</p>

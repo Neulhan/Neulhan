@@ -5,4 +5,5 @@ export type Post = {
     date: string
     categories: string[]
     published: boolean
+    minuteSpentWriting: number
 }
