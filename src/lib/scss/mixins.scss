@@ -1,5 +1,8 @@
 $container-width: 900px;
 $breakpoint-mobile: $container-width;
+$color-sky: #00ffff;
+$color-dark: #111a1a;
+$color-green: #ccb29b;
 
 @mixin custom-flex($align, $justify, $direction: row, $wrap: wrap) {
     display: flex;

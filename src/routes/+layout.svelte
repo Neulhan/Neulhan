@@ -1,4 +1,23 @@
-<style>
+<script>
+import Header from './Header.svelte'
+import '@src/app.postcss'
+import '@src/lib/scss/styles.scss'
+import '@src/lib/scss/prism.scss'
+</script>
+
+<div class="app">
+    <Header />
+
+    <main>
+        <slot />
+    </main>
+
+    <footer>
+        <a href="mailto:neulhan@icloud.com">contact : neulhan@icloud.com</a>
+    </footer>
+</div>
+
+<style lang="scss">
 .app {
     display: flex;
     flex-direction: column;
@@ -22,10 +41,9 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 12px;
-}
-
-footer a {
-    font-weight: bold;
+    a {
+        font-weight: bold;
+    }
 }
 
 @media (min-width: 480px) {
@@ -34,22 +52,3 @@ footer a {
     }
 }
 </style>
-
-<script>
-import Header from './Header.svelte'
-import '@src/app.postcss'
-import '@src/styles/styles.scss'
-import '@src/styles/prism.scss'
-</script>
-
-<div class="app">
-    <Header />
-
-    <main>
-        <slot />
-    </main>
-
-    <footer>
-        <a href="mailto:neulhan@icloud.com">contact : neulhan@icloud.com</a>
-    </footer>
-</div>

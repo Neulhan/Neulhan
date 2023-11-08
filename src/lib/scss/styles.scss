@@ -1,8 +1,6 @@
+@use './mixins.scss' as *;
 @import '@fontsource/fira-mono';
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-
-$color-sky: #00ffff;
-$color-dark: #111a1a;
 
 :root {
     --font-body: 'Pretendard Variable', Pretendard, -apple-system,
