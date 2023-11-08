@@ -1,5 +1,23 @@
 <script lang="ts">
 export let data
+
+let categories = ['전체']
+data.posts.forEach((post) => {
+    categories = [...new Set([...categories, ...post.categories])]
+})
+
+let selectedCategory = '전체'
+
+$: posts =
+    selectedCategory === '전체'
+        ? data.posts
+        : data.posts.filter((post) =>
+              post.categories.includes(selectedCategory)
+          )
+
+function selectCategory(value: string) {
+    selectedCategory = value
+}
 </script>
 
 <svelte:head>
@@ -11,20 +29,19 @@ export let data
     <div class="container mx-auto max-w-3xl">
         <h1 class="text-2xl font-semibold">글 목록</h1>
         <div class="flex">
-            {#each data.categories as category}
-                <a href="?category={category}">
-                    <div
-                        class="category bg-white rounded-md text-sm mr-2 p-1 my-4 {category ==
-                        data.selectedCategory
-                            ? 'selected'
-                            : ''}">
-                        {category}
-                    </div>
-                </a>
+            {#each categories as category}
+                <button
+                    on:click="{() => selectCategory(category)}"
+                    class="category bg-white rounded-md text-sm mr-2 p-1 my-4 {category ==
+                    selectedCategory
+                        ? 'selected'
+                        : ''}">
+                    {category}
+                </button>
             {/each}
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {#each data.posts as post}
+            {#each posts as post}
                 <a href="{post.slug}">
                     <div
                         class="flex flex-col rounded-md justify-between bg-white overflow-hidden">
