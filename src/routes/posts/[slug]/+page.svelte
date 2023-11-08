@@ -10,7 +10,10 @@ export let data
 
 <article class="container pt-8 mx-auto max-w-2xl">
     <div>
-        <h1 class="text-4xl pb-2 font-medium">{data.meta.title}</h1>
+        <div class="flex">
+            <h1 class="text-4xl pb-2 font-medium">{data.meta.title}</h1>
+            <div class="dot rounded-xl w-2 h-2 ml-2"></div>
+        </div>
         <p class="opacity-50 pb-2">Published at {data.meta.date}</p>
     </div>
 
@@ -29,4 +32,7 @@ export let data
 </article>
 
 <style lang="scss">
+.dot {
+    background-color: $color-green;
+}
 </style>

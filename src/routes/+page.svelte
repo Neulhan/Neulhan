@@ -44,7 +44,7 @@ function selectCategory(value: string) {
             {#each posts as post}
                 <a href="{post.slug}">
                     <div
-                        class="flex flex-col rounded-md justify-between bg-white overflow-hidden">
+                        class="flex flex-col rounded-md justify-between bg-white overflow-hidden hover:-translate-y-1 duration-300">
                         <div class="h-24 bg-slate-300"></div>
                         <div class="card p-4">
                             <div class="text-sm truncate font-semibold pb-1">
