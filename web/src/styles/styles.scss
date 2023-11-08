@@ -20,11 +20,10 @@ $color-dark: #111a1a;
 }
 
 body {
+    overflow-x: hidden;
     min-height: 100vh;
     color: $color-dark;
-    background-attachment: fixed;
     background-color: $color-sky;
-    background-size: 100vw 100vh;
 }
 
 a {

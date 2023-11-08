@@ -28,7 +28,7 @@ import logo from '$lib/images/logo-full-light.svg'
 </header>
 
 <style lang="scss">
-@import '@src/styles/mixins.scss';
+@import '../styles/mixins.scss';
 
 nav {
     @include custom-flex(center, flex-start);
