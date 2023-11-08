@@ -12,14 +12,13 @@ export let data
         <h1 class="text-2xl font-semibold">글 목록</h1>
         <div class="flex flex-col mt-8 space-y-4">
             {#each data.posts as post}
-                <a class="border" href="{post.slug}">
-                    <div class="flex flex-col justify-between p-4">
-                        <div
-                            class="text-2xl font-semibold hover:underline pb-2">
+                <a href="{post.slug}">
+                    <div class="flex flex-col justify-between p-4 bg-white">
+                        <div class="text-2xl font-semibold pb-1">
                             {post.title}
                         </div>
                         {#if post.description}
-                            <p class="py-2 opacity-70">{post.description}</p>
+                            <p class="pb-2 opacity-70">{post.description}</p>
                         {/if}
 
                         <span class="text-sm opacity-50"

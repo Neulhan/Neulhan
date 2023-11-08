@@ -1,28 +1,6 @@
-<style lang="scss">
-@import '@src/styles/mixins.scss';
-
-nav {
-	@include custom-flex(center, flex-start);
-    .logo {
-        img {
-            width: 80px;
-        }
-    }
-    ul {
-        display: flex;
-        
-		li {
-            padding: 4px 8px;
-			list-style: none;
-        }
-    }
-}
-</style>
-
 <script>
 import { page } from '$app/stores'
-import github from '$lib/images/github.svg'
-import logo from '$lib/images/nh-logo.svg'
+import logo from '$lib/images/logo-full-light.svg'
 </script>
 
 <header>
@@ -48,3 +26,24 @@ import logo from '$lib/images/nh-logo.svg'
         </ul>
     </nav>
 </header>
+
+<style lang="scss">
+@import '@src/styles/mixins.scss';
+
+nav {
+    @include custom-flex(center, flex-start);
+    .logo {
+        img {
+            width: 140px;
+        }
+    }
+    ul {
+        display: flex;
+
+        li {
+            padding: 4px 8px;
+            list-style: none;
+        }
+    }
+}
+</style>

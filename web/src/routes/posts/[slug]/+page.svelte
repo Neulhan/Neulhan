@@ -8,16 +8,18 @@ export let data
     <meta property="og:title" content="{data.meta.title}" />
 </svelte:head>
 
-<article class="container mx-auto max-w-2xl">
+<article class="container pt-8 mx-auto max-w-2xl">
     <div>
-        <h1 class="text-4xl pb-2">{data.meta.title}</h1>
+        <h1 class="text-4xl pb-2 font-medium">{data.meta.title}</h1>
         <p class="opacity-50 pb-2">Published at {data.meta.date}</p>
     </div>
 
-    <div class="my-4">
+    <div class="my-4 flex">
         {#each data.meta.categories as category}
-            <span class="border rounded-xl py-1 px-2 mr-2 bg-slate-700"
-                >&num;{category}</span>
+            <button
+                class="rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium">
+                &num;{category}
+            </button>
         {/each}
     </div>
 

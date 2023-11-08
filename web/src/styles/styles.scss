@@ -1,5 +1,5 @@
 @import '@fontsource/fira-mono';
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
 $color-sky: #00ffff;
 $color-dark: #111a1a;
@@ -11,8 +11,8 @@ $color-dark: #111a1a;
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
     --font-mono: 'Fira Mono', monospace;
     font-family: var(--font-body);
-    color: var(--color-text);
     font-size: 18px;
+    transform: rotate(0.04deg);
 }
 
 * :not(.md *) {
@@ -21,9 +21,9 @@ $color-dark: #111a1a;
 
 body {
     min-height: 100vh;
-    color: $color-sky;
+    color: $color-dark;
     background-attachment: fixed;
-    background-color: $color-dark;
+    background-color: $color-sky;
     background-size: 100vw 100vh;
 }
 
@@ -43,9 +43,28 @@ a:hover {
         padding: revert;
         font-size: revert;
     }
+
     p {
         line-height: 22pt;
-        word-spacing: 0.08rem;
-        letter-spacing: 0.05rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 700;
+        margin-top: 3em;
+    }
+
+    code {
+        font-family: Roboto Mono, monospace;
+        line-height: normal;
+        background: rgba(135, 131, 120, 0.15);
+        color: #eb5757;
+        border-radius: 4px;
+        font-size: 85%;
+        padding: 0.2em 0.4em;
     }
 }
