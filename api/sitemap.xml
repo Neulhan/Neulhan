@@ -14,6 +14,10 @@
                     <changefreq>daily</changefreq>
                 </url>
                 <url>
+                        <loc>http://blog.neulhan.com/posts/Langchain-맛보기</loc>
+                        <lastmod>2023-11-08</lastmod>
+                    </url>
+                    ,<url>
                         <loc>http://blog.neulhan.com/posts/엘리트-작가의-마음가짐</loc>
                         <lastmod>2023-11-06</lastmod>
                     </url>
