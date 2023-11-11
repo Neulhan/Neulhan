@@ -55,7 +55,7 @@ a:hover {
         margin-top: 3em;
     }
 
-    code {
+    :not(pre) code {
         font-family: Roboto Mono, monospace;
         line-height: normal;
         background: rgba(135, 131, 120, 0.15);
