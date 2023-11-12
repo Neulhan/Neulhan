@@ -8,11 +8,10 @@ export let data
     <meta property="og:title" content="{data.meta.title}" />
 </svelte:head>
 
-<article class="container pt-8 mx-auto max-w-2xl">
+<article class="container p-8 mx-auto max-w-2xl bg-white rounded-xl">
     <div>
         <div class="flex">
             <h1 class="text-4xl pb-2 font-medium">{data.meta.title}</h1>
-            <div class="dot rounded-xl w-2 h-2 ml-2"></div>
         </div>
         <p class="opacity-50 pb-2">Published at {data.meta.date}</p>
     </div>
@@ -20,7 +19,7 @@ export let data
     <div class="my-4 flex">
         {#each data.meta.categories as category}
             <button
-                class="rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium">
+                class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium">
                 &num;{category}
             </button>
         {/each}
@@ -32,7 +31,8 @@ export let data
 </article>
 
 <style lang="scss">
-.dot {
+.category {
     background-color: $color-green;
+    color: white;
 }
 </style>

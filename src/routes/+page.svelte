@@ -32,7 +32,7 @@ function selectCategory(value: string) {
             {#each categories as category}
                 <button
                     on:click="{() => selectCategory(category)}"
-                    class="category bg-white rounded-md text-sm mr-2 p-1 my-4 {category ==
+                    class="category bg-white rounded-md text-xs font-medium mr-2 py-1 px-2 my-4 {category ==
                     selectedCategory
                         ? 'selected'
                         : ''}">
@@ -45,12 +45,23 @@ function selectCategory(value: string) {
                 <a href="{post.slug}">
                     <div
                         class="flex flex-col rounded-md justify-between bg-white overflow-hidden hover:-translate-y-1 duration-300">
-                        <div class="h-24 bg-slate-300"></div>
+                        <div class="h-24 bg-slate-300 relative">
+                            <div
+                                class="w-full h-full absolute bg-gradient-to-r from-gray-800 opacity-30">
+                            </div>
+                            {#if post.thumbnail}
+                                <img
+                                    src="{post.thumbnail}"
+                                    alt="{post.title}"
+                                    class="w-full h-full object-cover" />
+                            {/if}
+                        </div>
                         <div class="card p-4">
                             <div class="text-sm truncate font-semibold pb-1">
                                 {post.title}
                             </div>
-                            <p class="text-xs h-16 pb-2 opacity-70">
+                            <p
+                                class="text-xs h-12 pb-2 opacity-70 line-clamp-3">
                                 {post.description}
                             </p>
                             <span class="text-xs opacity-50"
