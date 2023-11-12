@@ -1,8 +1,15 @@
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono"
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+    "pasteImage.defaultName": "Y-MM-DD-HH-mm-ss",
+    "pasteImage.basePath": "${currentFileDir}",
+    "pasteImage.path": "${currentFileDir}/images/${currentFileNameWithoutExt}",
+    "markdown.editor.filePaste.copyIntoWorkspace": "never",
+    "markdown.editor.filePaste.enabled": false,
+    "pasteImage.suffix": "",
+    "pasteImage.prefix": "https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/"
 }

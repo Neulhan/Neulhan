@@ -2,12 +2,13 @@
     "name": "web",
     "version": "0.0.1",
     "scripts": {
-        "dev": "ENV=dev vite dev",
+        "dev": "ENV=dev vite dev & pnpm run syncs3",
         "build": "vite build",
         "preview": "vite preview",
         "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
-        "deploy": "pnpm run build && npx gh-pages -d build -t true"
+        "deploy": "pnpm run build && npx gh-pages -d build -t true",
+        "syncs3": "fswatch -rt src/posts/images | xargs -n1 -I{} aws s3 sync src/posts/images s3://neulhan-blog/images"
     },
     "devDependencies": {
         "@fontsource/fira-mono": "^4.5.10",
