@@ -6,6 +6,7 @@ categories:
     - langchain
     - llm
 published: true
+thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/Langchain-맛보기/2023-11-12-18-05-55.png
 ---
 
 생성형 AI 는 올해 아주 핫하다.
@@ -28,7 +29,7 @@ AI 모델을 직접 훈련시키는 건 비용이 아주 많이 들고, 전문�
 최근에는 langchain 에 관한 내용을 보았다.
 langchain 은 LLM 을 이용해서 어플리케이션을 만들 수 있는 Chain 을 제공한다.
 
-![langchain ecosystem](/images/langchain-ecosystem.png)
+![langchain ecosystem](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/Langchain-맛보기/2023-11-12-18-05-55.png)
 
 Langchain 은 public/private 한 데이터를 가져와서 사용자의 질문에 대답하거나, 특정 기능을 구현하는데 특화된 프레임워크이다.
 

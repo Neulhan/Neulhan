@@ -6,6 +6,7 @@ categories:
     - langchain
     - llm
 published: true
+thumbnail: https://python.langchain.com/assets/images/qa_intro-9b468dbffe1cbe7f0bd822b28648db9e.png
 ---
 
 Langchain 공식문서에서 제시하는 유스케이스 다수.
