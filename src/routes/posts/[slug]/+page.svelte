@@ -9,13 +9,12 @@ export let data
 </svelte:head>
 
 <article class="container p-8 mx-auto max-w-2xl bg-white rounded-xl">
-    <div>
+    <div class="content-head">
         <div class="flex">
-            <h1 class="text-4xl pb-2 font-medium">{data.meta.title}</h1>
+            <h1 class="text-4xl pb-2 font-semibold">{data.meta.title}</h1>
         </div>
-        <p class="opacity-50 pb-2">Published at {data.meta.date}</p>
+        <p class="opacity-50 pb-2">{data.meta.date}</p>
     </div>
-
     <div class="my-4 flex">
         {#each data.meta.categories as category}
             <button
@@ -24,7 +23,6 @@ export let data
             </button>
         {/each}
     </div>
-
     <div class="md py-4">
         <svelte:component this="{data.content}" />
     </div>
