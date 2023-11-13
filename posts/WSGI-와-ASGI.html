@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="../favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-TQE5NFT4DN"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            function gtag() {
+                dataLayer.push(arguments)
+            }
+            gtag('js', new Date())
+
+            gtag('config', 'G-TQE5NFT4DN')
+        </script>
+
+        
+		<link href="../_app/immutable/assets/0.7fb6297b.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/4.52881d62.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.c383cd73.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.63274e7e.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.9e03ec45.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.920e5956.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.68032c5d.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.7cacc891.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/each.e59479a4.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/4.693a2fa2.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.93323930.js"><title>WSGI 와 ASGI</title><!-- HEAD_svelte-11jjeuz_START --><meta property="og:type" content="article"><meta property="og:title" content="WSGI 와 ASGI"><!-- HEAD_svelte-11jjeuz_END -->
+    </head>
+    <body data-sveltekit-preload-data="hover">
+        <div style="display: contents">  <div class="app flex flex-col sm:flex-row"><div class="w-64 p-4 shrink-0"><div class="logo mb-4" data-svelte-h="svelte-f3eb4u"><a href="/"><img class="w-32" src="/_app/immutable/assets/logo-full-light-transparent.1de22219.svg" alt="neulhan logo"></a></div> <nav class="py-4 flex flex-col"><a class="bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer" href="/about">소개 </a><a class="bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank">예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"><h1 class="text-4xl pb-2 font-semibold">WSGI 와 ASGI</h1></div> <p class="opacity-50 pb-2">2023-11-13</p></div> <div class="my-4 flex"><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#python </button><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#PEP </button><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#WSGI &amp; ASGI </button></div> <div class="md py-4"><h1 data-svelte-h="svelte-bvizw">개요</h1> <p data-svelte-h="svelte-1h5j855">예전에 fastapi 소개글을 썼었는데, 그 과정에서 ASGI 에 흥미로움을 느껴서 정리해봤다.
+WSGI 와 ASGI 의 역사와 흥미로운 사실들을 알아보자.</p> <h1 data-svelte-h="svelte-gn8kz6">WSGI</h1> <p data-svelte-h="svelte-1b5nqlo">일단 WSGI 는 뭘까.</p> <ul data-svelte-h="svelte-1ifsbsh"><li>Web Server 와 Python Application 이 서로 통신하려면?<ul><li>여기서 말하는 Web Server 는 Web Application Server 가 아닌 Nginx, Apache HTTPd 와 같은 Web Server.</li></ul></li> <li>Java 진영에서는 서블렛 API가 Web Server 와 Java Application 을 연결해준다</li> <li>Python 진영에는 한동안 공식 인터페이스가 없어서 mod_python, Medusa, FastCGI 등 일관되지 않은 방식을 사용</li> <li><strong>Web Server 와 Python Application 이 소통하는 일관된 방식</strong>이 필요하다는 인식하에 <a href="https://peps.python.org/pep-0333/" rel="nofollow">PEP-333</a> 에서 Interface 를 정의</li> <li>그것이 WSGI (Web Server Gateway Interface)<ul><li>2003.12.07 - 무려 python2 일 때 정의된 interface</li> <li>이후 python3 가 나와서 수정된 <a href="https://peps.python.org/pep-3333/" rel="nofollow">PEP-3333</a> 이 바로 WSGI 라고 할 수 있다.</li></ul></li> <li>Django, Flask 등의 프레임워크는 WSGI 에 맞춰 인터페이스를 구현해놨다.</li></ul> <p data-svelte-h="svelte-10kv8jt"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/WSGI-%EC%99%80-ASGI/2023-11-13-00-32-49.png" alt="WSGI"></p> <br> <h2 data-svelte-h="svelte-1srp10g">WSGI 의 구조</h2> <p data-svelte-h="svelte-1scr1ep">아래는 WSGI 에 부합하는 Application 구현 예시이다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">def</span> <span class="token function">simple_app</span><span class="token punctuation">(</span>environ<span class="token punctuation">,</span> start_response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    status <span class="token operator">=</span> <span class="token string">'200 OK'</span>
+    response_headers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'Content-type'</span><span class="token punctuation">,</span> <span class="token string">'text/plain'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    start_response<span class="token punctuation">(</span>status<span class="token punctuation">,</span> response_headers<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">b"Hello world!&#92;n"</span><span class="token punctuation">]</span></code><!-- HTML_TAG_END --></pre> <ul data-svelte-h="svelte-1axuf8q"><li>environ(dict), start_response 라는 2개의 positional argument 을 가진 callable 한 형식으로 어플리케이션을 구현</li> <li><strong>request, response 를 묶어서 하나의 블럭 단위로 동작.</strong></li> <li>Streaming 기능을 구현하려면 OS 에 넘기거나, 스레딩으로 처리. 블럭 전송이 지연되어서는 안 됨.</li></ul> <br> <br> <h2 data-svelte-h="svelte-1l1qlh7">WSGI 에 무슨 문제가 있었을까?</h2> <ul data-svelte-h="svelte-1ewiq7o"><li>WSGI는 동기적으로 동작하는 Request-Response 구조를 가졌다.</li> <li><strong>websocket 과 같은 long-live connection 스펙이 고려되지 않았다.</strong></li> <li>2003년에 정의된 인터페이스라서, 2011년에 표준화된 WebSocket 을 지원할 수 없었던 것.</li> <li>또한 python3.5 에서 async 지원이 본격화 되면서, 이에 맞는 새 규격이 필요해지기도 했다.</li></ul> <br> <br> <h1 data-svelte-h="svelte-1x149zs">ASGI 의 등장</h1> <ul data-svelte-h="svelte-178fr3h"><li>위와 같은 WSGI 의 <strong>한계를 해결하기 위해 ASGI 가 등장</strong><ul><li>2015년 11월 13일 : python3.5 가 나오면서 async await 추가<ul><li>python 진영이 본격적으로 비동기를 구현하면서 ASGI 의 발판이 마련됨</li></ul></li> <li>2015년 12월 24일 : Django 측 개발자인 <a href="https://github.com/andrewgodwin" rel="nofollow">Andrew Godwin</a> 이 asgiref 의 첫 커밋을 작성</li> <li>2018년 : <a href="https://github.com/django/asgiref" rel="nofollow">asgiref</a> 레포에서 ASGI 버전 1을 릴리즈, ASGI 팀이 공식적으로 등장</li></ul></li> <li>재미있는 사실은 ASGI 를 정의하고 있는 곳이 django 조직에 있는 <a href="https://github.com/django/asgiref" rel="nofollow">asgiref</a> 레포지토리라는 것. (Django 가 근본이야!)</li> <li><strong>Asyncronous Server Gateway Interface</strong><ul><li>AWSGI 가 아닌 ASGI</li> <li>웹서버에 한정짓지 않겠다는 의지</li></ul></li></ul> <p data-svelte-h="svelte-q0xasl"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/WSGI-%EC%99%80-ASGI/2023-11-13-19-10-59.png" alt="asgiref"></p> <br> <p data-svelte-h="svelte-1qsg435"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/WSGI-%EC%99%80-ASGI/2023-11-12-23-53-00.png" alt="asgi"></p> <br> <ul data-svelte-h="svelte-1g484b"><li>ASGI 는 WSGI 의 정신을 계승했다.</li> <li><strong>WSGI 의 슈퍼셋으로 설계되었기 때문에, WSGI 어플리케이션도 ASGI 서버 내부에서 실행 가능</strong>.<ul><li>이 경우 두 인터페이스 사이에 wrapper 가 필요 (asgiref 라이브러리에서 제공)</li> <li>async event loop 에서 WSGI 어플리케이션을 실행할 때는 threadpool 을 사용</li></ul></li> <li>덕분에 WSGI 를 사용하던 여러 프레임워크들도 ASGI로의 전환을 비교적 쉽게 가져갈 수 있었다.<ul><li>Django 는 3.0 부터 ASGI 를 지원하기 시작. (2019.12.02)</li> <li>동기적으로 작성된 수많은 코드를 async 로 변경할 수 없었기에 일단 <a href="https://github.com/django/asgiref" rel="nofollow">asgiref</a> 에서 제공하는 <code>sync_to_async</code> 함수를 이용</li> <li>Django 4.1 부터는 <code>MyModel.objects.asave()</code> <code>MyModel.objecst.aget()</code> 과 같이 ORM 에서 직접 async 지원이 추가 (2022.08.03)</li></ul></li></ul> <br> <br> <h2 data-svelte-h="svelte-v5thqi">ASGI 의 동작 방식</h2> <p data-svelte-h="svelte-18pqma3">연결에 대한 세부정보(scope),<br>
+클라이언트에서 메세지를 받아오는 부분(receive)과<br>
+클라이언트에 메세지를 보내는 부분(send) 으로 구성되어있다.</p> <p data-svelte-h="svelte-1na3tsk"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/WSGI-%EC%99%80-ASGI/2023-11-12-23-55-59.png" alt="asgi work"></p> <br> <p data-svelte-h="svelte-q7c9ar">덕분에 어플리케이션에 여러개의 이벤트들이 동시에 왔다갔다 할 수 있어졌고, 심지어 redis 큐와 같은 외부 트리거에서 이벤트 수신 대기도 가능.</p> <br> <br> <h2 data-svelte-h="svelte-fc0erv">ASGI Server</h2> <p data-svelte-h="svelte-xoquhd">ASGI 는 인터페이스. 실제로 동작할려면 구현된 서버가 필요.<br>
+대표적으로 Uvicorn, Daphne, Hypercorn 이 있다.</p> <h3 data-svelte-h="svelte-m2u6f">1. Uvicorn</h3> <p data-svelte-h="svelte-cuv9o6"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/WSGI-%EC%99%80-ASGI/2023-11-13-00-00-32.png" alt="uvicorn"></p> <br> <ul data-svelte-h="svelte-yafgmt"><li>uvicorn 은 ASGI 기반의 웹 서버 구현체.</li> <li>현재 http1.1 과 websocket 을 지원한다.</li> <li>약간 의아한건 uvicorn 이 아직 HTTP/2 를 지원하지 않는다는 것.</li> <li>HTTP/2 지원은 같은 ASGI 생태계의 daphne 와 hypercorn 에게 양보하고, uvicorn 은 <strong>견고함, 안정적임</strong>을 지향하고 있다는 듯.</li> <li><a href="https://github.com/tomchristie" rel="nofollow">Tom Christie</a> 가 encode Organization 에서 개발<ul><li>이 아저씨는 encode 에서 drf, uvicorn, starlette, apistar(FastAPI 의 전신) 개발을 주도.</li></ul></li></ul> <h4 data-svelte-h="svelte-13neoe3">uvloop</h4> <p data-svelte-h="svelte-1fpdqb8">uvicorn 은 내부에서 uvloop 라는 것을 사용하는데, 이는 <strong>python 의 asyncio 를 대체</strong>함.<br>
+nodejs 에서 사용하는 다중 플랫폼 비동기 I/O 라이브러리(<strong>libuv</strong>) 위에 <strong>cython</strong> 으로 구현됨.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">import</span> uvloop
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Main entry-point.</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+uvloop<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-1hh00pe">벤치마크로 보면 다른 Python 비동기 프레임 워크보다 2~4배 이상 빠르다.<br>
+벤치마크 성능상으로만 본다면, uvloop 의 성능은 Node 보다 빠르고, <strong>Go 프로그램의 성능에 가까울 정도</strong>.</p> <p data-svelte-h="svelte-1cv7iyr"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/WSGI-%EC%99%80-ASGI/2023-11-13-16-17-54.png" alt="uvloop benchmark"></p> <br> <br> <h3 data-svelte-h="svelte-1jfmdvo">2. Daphne</h3> <p data-svelte-h="svelte-14it4p6"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/WSGI-%EC%99%80-ASGI/2023-11-13-16-12-03.png" alt="daphne"></p> <ul data-svelte-h="svelte-cinmsj"><li>Django 진영의 ASGI 서버</li> <li>Django Channels 를 지원하기 위해서 구현됨.<ul><li>Django 진영 소속. Django 코어 개발자인 <a href="https://github.com/andrewgodwin" rel="nofollow">Andrew Godwin</a> 이 대부분 구현.</li> <li>channels 도 이 아저씨가 만듬.</li></ul></li> <li>Http/2 를 지원</li></ul> <br> <br> <h3 data-svelte-h="svelte-k0h9rh">3. Hypercorn</h3> <p data-svelte-h="svelte-184n0t4"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/WSGI-%EC%99%80-ASGI/2023-11-13-16-12-43.png" alt="hypercorn"></p> <ul data-svelte-h="svelte-1f46w8x"><li>Flask 진영의 ASGI 서버</li> <li>무려 Http/1.1, Http/2, <strong>Http/3</strong>를 지원</li> <li>python 비동기 웹 프레임워크인 Quart 의 일부였다가, fork 된 후 자체적으로 개발중.</li> <li>이 corn 은 유니콘이 아니라 무려 옥수수의 corn</li></ul> <br> <br> <h2 data-svelte-h="svelte-1xytjku">ASGI 기반의 프레임워크</h2> <p data-svelte-h="svelte-9r53wq">ASGI 서버 위에 올려서 개발자들의 생산성을 올려주는 프레임워크들.<br>
+보통 홀로서기하기보다 ASGI 서버 위에 올려서 많이 사용한다.</p> <p data-svelte-h="svelte-157keji">ASGI 라는 표준을 맞췄기 때문에, uvicorn, daphne, hypercorn 무엇을 쓰던 잘 돌아가긴 한다.<br>
+다만 진영에 따라서 자기 진영의 ASGI 서버를 권장하기는 한다.</p> <ul data-svelte-h="svelte-exllbm"><li><strong>FastAPI</strong><ul><li>Starlette 위에 Pydantic 을 버무린 프레임워크</li> <li>생산성의 측면에서 각광받아서 현재는 제일 주류 Python 웹 프레임워크가 아닌가 싶다.</li> <li>Starlette 의 영향을 받아서 uvicorn 과 친하다.</li></ul></li> <li><strong>Django Channels</strong><ul><li>Django 에서 WebSocket 을 지원한다.</li> <li>주로 Daphne 와 같이 쓴다.</li> <li>ASGI 를 고안한 <a href="https://github.com/andrewgodwin" rel="nofollow">Andrew Godwin</a> 이 직접 만들어서 근본이 넘친다</li></ul></li> <li><strong>Quart</strong><ul><li>Flask 진영의 비동기 프레임워크</li> <li>같은 패밀리인 Hypercorn 과 같이 쓰길 권장하는 듯 하다.</li></ul></li> <li><strong>Starlette</strong><ul><li>FastAPI 의 근본이 되는 프레임워크.</li> <li>DRF, uvicorn 을 만든 <a href="https://github.com/tomchristie" rel="nofollow">Tom Christie</a> 가 만들어서 근본력이 남다르다.</li></ul></li> <li><strong>Sanic</strong><ul><li>ASGI 서버를 내장하고 있는 프레임워크</li> <li>nginx 같은 웹서버에 바로 꽂을 수 있다는 점이 매력적</li> <li>ASGI 인터페이스를 준수하기 때문에 다른 ASGI 서버랑 같이 쓸 수도 있다</li></ul></li> <li><strong>Falcon</strong><ul><li>마이크로 서비스를 위한 미니멀리즘 프레임워크.</li> <li>나름의 미니멀한 매력이 있어서 쓰는 곳이 있다는 소문을 들었다.</li></ul></li></ul> <br> <br> <h1 data-svelte-h="svelte-1v2omnb">WSGI 에서 ASGI 로 바꿔야 하나요?</h1> <ul data-svelte-h="svelte-1hw2dbz"><li>프로젝트를 새로 판다면, 처음부터 ASGI 서버와 함께 비동기로 구현을 하는 것이 좋을듯.</li> <li>대신 잘못 쓰면 문제가 생길수도 있다. <del>(뭐든 안 그렇겠냐만은..)</del><ul><li>예전에 회사에서 FastAPI 를 쓰는데, 간헐적으로 요청이 끊어지는 현상 발생.</li> <li>ASGI 서버를 사용했지만, 함수들은 동기식으로 구현된 상태.</li> <li>레이턴시가 높은 API 일부를 async 로 바꾸었더니 바로 증상이 호전.</li> <li>결국 시간을 들여 모든 API 를 async 로 바꾸었더니 문제가 해결.</li> <li>ASGI 가 좋은 기술인건 맞지만 async 환경에 익숙하지 않다면 서버가 불안정해질수도 있다.</li> <li><del>그 땐 잘 몰랐어서..</del></li></ul></li> <li>WSGI 로 잘 돌아가고 있다면, 성능향상을 목표로 ASGI 로 바꾸는 건 글쎄.<ul><li>이미 WSGI 환경에서 성능 최적화가 잘 되어있을 수 있음. (celery, caching 등)</li> <li>gunicorn 같은 잘 검증된 환경은 국밥같은 든든함과 견고함이 있다.</li></ul></li> <li>WebSocket 기능이 필요하다면?<ul><li>Django 에는 웹소켓 사용 부분은 ASGI, 기존 부분은 WSGI 로 각각 배포하는 방법도 있음.</li> <li>다만 정말 WebSocket 기능이 필요한지는 스펙 체크를 잘 해볼 것.</li> <li>WebSocket 이라는 스펙이 오버엔지니어링일 수도.</li> <li>작은 채팅 기능이라면 클라이언트에서 서버에 일정 시간마다 요청을 보내서 새 채팅이 있는지 확인하는 식으로도 구현이 가능했다</li></ul></li></ul> <br> <br> <h1 data-svelte-h="svelte-bn9628">참고자료</h1> <ul data-svelte-h="svelte-15s8f7e"><li><a href="https://peps.python.org/pep-3333/" rel="nofollow">https://peps.python.org/pep-3333/</a></li> <li><a href="https://github.com/django/asgiref" rel="nofollow">https://github.com/django/asgiref</a></li> <li><a href="https://asgi.readthedocs.io/en/latest/introduction.html" rel="nofollow">https://asgi.readthedocs.io/en/latest/introduction.html</a></li> <li><a href="https://www.uvicorn.org/" rel="nofollow">https://www.uvicorn.org/</a></li> <li><a href="https://github.com/MagicStack/uvloop" rel="nofollow">https://github.com/MagicStack/uvloop</a></li> <li><a href="https://www.fullstackpython.com/wsgi-servers.html" rel="nofollow">https://www.fullstackpython.com/wsgi-servers.html</a></li></ul></div> </article></main> </div> 
+			
+			<script>
+				{
+					__sveltekit_1n86ph8 = {
+						base: new URL("..", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("../_app/immutable/entry/start.c383cd73.js"),
+						import("../_app/immutable/entry/app.920e5956.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 4],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+    </body>
+</html>
