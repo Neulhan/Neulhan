@@ -1,9 +1,27 @@
-import { dev } from '$app/environment'
+import { error } from '@sveltejs/kit'
+import { Converter } from 'showdown'
 
-// we don't need any JS on this page, though we'll load
-// it in dev so that we get hot module replacement
-export const csr = dev
-
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
 export const prerender = true
+
+export async function load({ params }) {
+    try {
+        const portfolioURL =
+            'https://raw.githubusercontent.com/Neulhan/Neulhan/master/README.md'
+
+        const res = await fetch(portfolioURL)
+        if (res.body === null) return
+
+        const { value } = await res.body.getReader().read()
+        const converter = new Converter()
+        const portfolioHTML = converter.makeHtml(
+            new TextDecoder().decode(value)
+        )
+
+        return {
+            portfolioHTML,
+        }
+    } catch (e) {
+        console.error(e)
+        throw error(404, `Could not find`)
+    }
+}

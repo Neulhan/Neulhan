@@ -1,22 +1,5 @@
-<script>
-import { Converter } from 'showdown'
-import { onMount } from 'svelte'
-
-let portfolioHTML = ''
-
-onMount(() => {
-    const portfolioURL =
-        'https://raw.githubusercontent.com/Neulhan/Neulhan/master/README.md'
-    const getPortfolio = async () => {
-        const res = await fetch(portfolioURL)
-        if (res.body === null) return
-
-        const { value } = await res.body.getReader().read()
-        const converter = new Converter()
-        portfolioHTML = converter.makeHtml(new TextDecoder().decode(value))
-    }
-    getPortfolio()
-})
+<script lang="ts">
+export let data
 </script>
 
 <svelte:head>
@@ -24,6 +7,6 @@ onMount(() => {
     <meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="container mx-auto max-w-2xl">
-    <div class="portfolio md">{@html portfolioHTML}</div>
+<div class="container mx-auto max-w-3xl min-h-screen p-4 sm:p-8 bg-white">
+    <div class="portfolio md">{@html data.portfolioHTML}</div>
 </div>

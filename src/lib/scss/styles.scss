@@ -41,8 +41,14 @@ a:hover {
         font-size: revert;
     }
 
-    p {
-        line-height: 22pt;
+    ul,
+    ol {
+        padding-left: 24px;
+    }
+
+    p,
+    li {
+        line-height: 2rem;
     }
 
     h1,
@@ -62,5 +68,16 @@ a:hover {
         border-radius: 4px;
         font-size: 85%;
         padding: 0.2em 0.4em;
+    }
+
+    a {
+        color: blue;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    del {
+        color: gray;
     }
 }

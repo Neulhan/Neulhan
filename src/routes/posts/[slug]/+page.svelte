@@ -8,7 +8,7 @@ export let data
     <meta property="og:title" content="{data.meta.title}" />
 </svelte:head>
 
-<article class="container p-8 mx-auto max-w-2xl bg-white rounded-xl">
+<article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white">
     <div class="content-head">
         <div class="flex">
             <h1 class="text-4xl pb-2 font-semibold">{data.meta.title}</h1>
