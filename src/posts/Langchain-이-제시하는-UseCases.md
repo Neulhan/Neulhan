@@ -1,6 +1,6 @@
 ---
 title: Langchain 이 제시하는 UseCases
-description: Langchain 이 공식문서에서 제시하는 UseCase 들을 알아보자
+description: Langchain 공식문서에서 제시하는 유스케이스 다수. 1. 데이터 참조해서 답변하기 Langchain 을 이용하면 RAG 어플리케이션을 쉽게 구현 가능 존재하는 데이터 소스 (SQL, GraphQL, API, 파일데이터, 검색데이터 등등) 를 연결만 해주면, LLM 은 데이터에서
 date: '2023-11-11'
 categories:
     - langchain

@@ -1,6 +1,6 @@
 ---
 title: Langchain 맛보기
-description: 귀여운 Langchain 을 새롭게 배우기 시작합니다.
+description: 생성형 AI 는 올해 아주 핫하다. 나는 개발자로 일하면서 꽤 오랜 시간동안 곁눈질 하다가 이제서야 LLM 을 제대로 들여다보고 있다. LLM 어플리케이션을 만들기 위해 뒤늦게 기술들을 살펴보고 있는 경험을 공유한다.
 date: '2023-11-08'
 categories:
     - langchain

@@ -1,5 +1,6 @@
 ---
 title: sveltekit으로 블로그 만들기
+description: 상세히 가이드를 써둔 블로그 글이 있어서 거의 그대로 따라 만들었다. 프론트엔드는 진짜 조금만 손 놓고 있어도 뭐가 너무 많이 바뀐다.. 예전에 svelte 로 만들었던 블로그는 너무 구형 svelte 라서 그냥 폐기하고 새로 프로젝트를 팠다.
 date: '2023-11-05'
 categories:
     - sveltekit
