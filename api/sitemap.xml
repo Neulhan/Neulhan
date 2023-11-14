@@ -8,12 +8,12 @@
                 <url>
                     <loc>http://blog.neulhan.com/</loc>
                     <changefreq>daily</changefreq>
-                </url>	
-                <url>
-                    <loc>http://blog.neulhan.com/about</loc>
-                    <changefreq>daily</changefreq>
                 </url>
                 <url>
+                        <loc>http://blog.neulhan.com/posts/PEP1</loc>
+                        <lastmod>2023-11-15</lastmod>
+                    </url>
+                    ,<url>
                         <loc>http://blog.neulhan.com/posts/WSGI-와-ASGI</loc>
                         <lastmod>2023-11-13</lastmod>
                     </url>

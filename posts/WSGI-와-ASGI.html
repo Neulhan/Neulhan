@@ -20,22 +20,21 @@
         </script>
 
         
-		<link href="../_app/immutable/assets/0.7fb6297b.css" rel="stylesheet">
-		<link href="../_app/immutable/assets/4.52881d62.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.c383cd73.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.63274e7e.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.9e03ec45.js">
+		<link href="../_app/immutable/assets/0.eec74ce4.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/3.52881d62.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.7bc6b0ff.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.7c4769d9.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.eca0a7ee.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.920e5956.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.08bd64a3.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.a4192956.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index.68032c5d.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.7cacc891.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.cc557082.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.082ab3a4.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/each.e59479a4.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/4.693a2fa2.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index.93323930.js"><title>WSGI 와 ASGI</title><!-- HEAD_svelte-11jjeuz_START --><meta property="og:type" content="article"><meta property="og:title" content="WSGI 와 ASGI"><!-- HEAD_svelte-11jjeuz_END -->
+		<link rel="modulepreload" href="../_app/immutable/nodes/3.4e700202.js"><title>WSGI 와 ASGI</title><!-- HEAD_svelte-11jjeuz_START --><meta property="og:type" content="article"><meta property="og:title" content="WSGI 와 ASGI"><!-- HEAD_svelte-11jjeuz_END -->
     </head>
     <body data-sveltekit-preload-data="hover">
-        <div style="display: contents">  <div class="app flex flex-col sm:flex-row"><div class="w-64 p-4 shrink-0"><div class="logo mb-4" data-svelte-h="svelte-f3eb4u"><a href="/"><img class="w-32" src="/_app/immutable/assets/logo-full-light-transparent.1de22219.svg" alt="neulhan logo"></a></div> <nav class="py-4 flex flex-col"><a class="bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer" href="/about">소개 </a><a class="bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank">예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"><h1 class="text-4xl pb-2 font-semibold">WSGI 와 ASGI</h1></div> <p class="opacity-50 pb-2">2023-11-13</p></div> <div class="my-4 flex"><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#python </button><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#PEP </button><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#WSGI &amp; ASGI </button></div> <div class="md py-4"><h1 data-svelte-h="svelte-bvizw">개요</h1> <p data-svelte-h="svelte-1h5j855">예전에 fastapi 소개글을 썼었는데, 그 과정에서 ASGI 에 흥미로움을 느껴서 정리해봤다.
+        <div style="display: contents">  <div class="app flex flex-col sm:flex-row"><div class="w-64 p-4 shrink-0"><div class="logo mb-4" data-svelte-h="svelte-f3eb4u"><a href="/"><img class="w-32" src="/_app/immutable/assets/logo-full-light-transparent.1de22219.svg" alt="neulhan logo"></a></div> <nav class="py-4 flex flex-col"><a class="flex items-center bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer" href="https://github.com/Neulhan" target="_blank"><img class="rounded-2xl w-8 mr-2" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="늘한 소개"> 소개 </a><a class="flex items-center bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank"><img class="rounded-2xl w-8 mr-2" src="https://images.velog.io/images/wwwssj0309/post/e2262211-93c1-46a2-b72c-345c5c22a683/1.jpg" alt="늘한 예전 블로그"> 예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"><h1 class="text-4xl pb-2 font-semibold">WSGI 와 ASGI</h1></div> <p class="opacity-50 pb-2">2023-11-13</p></div> <div class="my-4 flex"><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#python </button><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#PEP </button><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#WSGI &amp; ASGI </button></div> <div class="md py-4"><h1 data-svelte-h="svelte-bvizw">개요</h1> <p data-svelte-h="svelte-1h5j855">예전에 fastapi 소개글을 썼었는데, 그 과정에서 ASGI 에 흥미로움을 느껴서 정리해봤다.
 WSGI 와 ASGI 의 역사와 흥미로운 사실들을 알아보자.</p> <h1 data-svelte-h="svelte-gn8kz6">WSGI</h1> <p data-svelte-h="svelte-1b5nqlo">일단 WSGI 는 뭘까.</p> <ul data-svelte-h="svelte-1ifsbsh"><li>Web Server 와 Python Application 이 서로 통신하려면?<ul><li>여기서 말하는 Web Server 는 Web Application Server 가 아닌 Nginx, Apache HTTPd 와 같은 Web Server.</li></ul></li> <li>Java 진영에서는 서블렛 API가 Web Server 와 Java Application 을 연결해준다</li> <li>Python 진영에는 한동안 공식 인터페이스가 없어서 mod_python, Medusa, FastCGI 등 일관되지 않은 방식을 사용</li> <li><strong>Web Server 와 Python Application 이 소통하는 일관된 방식</strong>이 필요하다는 인식하에 <a href="https://peps.python.org/pep-0333/" rel="nofollow">PEP-333</a> 에서 Interface 를 정의</li> <li>그것이 WSGI (Web Server Gateway Interface)<ul><li>2003.12.07 - 무려 python2 일 때 정의된 interface</li> <li>이후 python3 가 나와서 수정된 <a href="https://peps.python.org/pep-3333/" rel="nofollow">PEP-3333</a> 이 바로 WSGI 라고 할 수 있다.</li></ul></li> <li>Django, Flask 등의 프레임워크는 WSGI 에 맞춰 인터페이스를 구현해놨다.</li></ul> <p data-svelte-h="svelte-10kv8jt"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/WSGI-%EC%99%80-ASGI/2023-11-13-00-32-49.png" alt="WSGI"></p> <br> <h2 data-svelte-h="svelte-1srp10g">WSGI 의 구조</h2> <p data-svelte-h="svelte-1scr1ep">아래는 WSGI 에 부합하는 Application 구현 예시이다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">def</span> <span class="token function">simple_app</span><span class="token punctuation">(</span>environ<span class="token punctuation">,</span> start_response<span class="token punctuation">)</span><span class="token punctuation">:</span>
     status <span class="token operator">=</span> <span class="token string">'200 OK'</span>
     response_headers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'Content-type'</span><span class="token punctuation">,</span> <span class="token string">'text/plain'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
@@ -57,7 +56,7 @@ uvloop<span class="token punctuation">.</span>run<span class="token punctuation"
 			
 			<script>
 				{
-					__sveltekit_1n86ph8 = {
+					__sveltekit_43npsv = {
 						base: new URL("..", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -67,11 +66,11 @@ uvloop<span class="token punctuation">.</span>run<span class="token punctuation"
 					const data = [null,null];
 
 					Promise.all([
-						import("../_app/immutable/entry/start.c383cd73.js"),
-						import("../_app/immutable/entry/app.920e5956.js")
+						import("../_app/immutable/entry/start.7bc6b0ff.js"),
+						import("../_app/immutable/entry/app.08bd64a3.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
-							node_ids: [0, 4],
+							node_ids: [0, 3],
 							data,
 							form: null,
 							error: null

@@ -1,4 +1,4 @@
-import{s as le,n as bt}from"./scheduler.63274e7e.js";import{S as pe,i as oe,g as a,s as p,H as V,h as l,x as i,c as o,j as D,C as K,f as e,k as N,a as s}from"./index.68032c5d.js";function ie($t){let u,Mt=`생성형 AI 는 올해 아주 핫하다.
+import{s as le,n as bt}from"./scheduler.7c4769d9.js";import{S as pe,i as oe,g as a,s as p,H as V,h as l,x as i,c as o,j as D,C as K,f as e,k as N,a as s}from"./index.cc557082.js";function ie($t){let u,Mt=`생성형 AI 는 올해 아주 핫하다.
 나는 개발자로 일하면서 꽤 오랜 시간동안 곁눈질 하다가 이제서야 LLM 을 제대로 들여다보고 있다.
 LLM 어플리케이션을 만들기 위해 뒤늦게 기술들을 살펴보고 있는 경험을 공유한다.`,j,c,Pt="LLM",G,r,Et=`몇 달 전에 “ChatGPT Prompt Engineering for Developers” 라는 강의를 보면서 LLM 에 대한 개념은 좀 탑재했었다.
 LLM 은 Large Language Model 의 약자이다.
