@@ -16,10 +16,6 @@ export async function GET() {
                 <url>
                     <loc>http://blog.neulhan.com/</loc>
                     <changefreq>daily</changefreq>
-                </url>	
-                <url>
-                    <loc>http://blog.neulhan.com/about</loc>
-                    <changefreq>daily</changefreq>
                 </url>
                 ${posts.map((post) => {
                     return `<url>
