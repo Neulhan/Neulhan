@@ -1,6 +1,6 @@
 ---
 title: django-ninja 1.0 릴리즈
-description: PEP 는 Python 커뮤니티에서 Python 언어의 발전을 위해서 제안된 문서이다. PEP-1, PEP-8 처럼 번호가 붙어서 관리된다. PEP 가 무엇인지에 대해서도 PEP-1 을 통해서 정의되어있다.
+description: 내가 좋아하는 django-ninja 가 드디어 1.0 릴리즈. 뭐가 바뀌었는지 알아보자.
 date: '2023-11-17'
 categories:
     - django
