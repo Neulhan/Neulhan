@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="../favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-TQE5NFT4DN"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            function gtag() {
+                dataLayer.push(arguments)
+            }
+            gtag('js', new Date())
+
+            gtag('config', 'G-TQE5NFT4DN')
+        </script>
+
+        
+		<link href="../_app/immutable/assets/0.fe75f0cf.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/3.52881d62.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.bec55feb.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.7c4769d9.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.ae45437e.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.eae2f157.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.cc557082.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.413a5337.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/each.e59479a4.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/3.4e256df4.js"><title>Flutter 의존성 주입과 테스트</title><!-- HEAD_svelte-11jjeuz_START --><meta property="og:type" content="article"><meta property="og:title" content="Flutter 의존성 주입과 테스트"><!-- HEAD_svelte-11jjeuz_END -->
+    </head>
+    <body data-sveltekit-preload-data="hover">
+        <div style="display: contents">  <div class="app flex flex-col sm:flex-row"><div class="w-64 p-4 shrink-0"><div class="logo mb-4" data-svelte-h="svelte-f3eb4u"><a href="/"><img class="w-32" src="/_app/immutable/assets/logo-full-light-transparent.1de22219.svg" alt="neulhan logo"></a></div> <nav class="py-4 flex flex-col"><a class="flex items-center bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer" href="https://github.com/Neulhan" target="_blank"><img class="rounded-2xl w-8 mr-2" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="늘한 소개"> 소개 </a><a class="flex items-center bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank"><img class="rounded-2xl w-8 mr-2" src="https://images.velog.io/images/wwwssj0309/post/e2262211-93c1-46a2-b72c-345c5c22a683/1.jpg" alt="늘한 예전 블로그"> 예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"><h1 class="text-4xl pb-2 font-semibold">Flutter 의존성 주입과 테스트</h1></div> <p class="opacity-50 pb-2">2023-11-20</p></div> <div class="my-4 flex"><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#langchain </button><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#llm </button></div> <div class="md py-4"><h1 data-svelte-h="svelte-1ls67hg">들어가며</h1> <p data-svelte-h="svelte-kka6c8">개인 프로젝트에서 플러터를 사용중인데 의존성 주입을 적용해볼 일이 생겼다.</p> <p data-svelte-h="svelte-1ihjguo">백엔드를 지금은 FireStore 를 쓰고 있는데, 나중에 직접 백엔드 서버를 구축할 예정이다.</p> <p data-svelte-h="svelte-gwrt9i"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/2023-11-19-04-13-57.png" alt="flutter 의존성 주입"></p> <p data-svelte-h="svelte-1930b79">이런 상황에서 잘못하면 코드가 덕지덕지 붙어서 껌딱지처럼 떼어내기가 어려워진다.</p> <p data-svelte-h="svelte-ky4xqf">이럴 때 필요한게 의존성 주입을 통한 느슨한 연결.</p> <p data-svelte-h="svelte-1tz8l27">서버와 연결되는 부분을 <strong>인터페이스를 통해서 정의</strong>해두고, 필요에 맞게 인터페이스에 맞는 구현체를 <strong>의존성 주입을 통해 사용</strong>하면 나중에 간단하게 백엔드 교체가 가능하다.</p> <br> <br> <h1 data-svelte-h="svelte-plwwnb">Interface</h1> <ul data-svelte-h="svelte-re7l0q"><li>먼저 필요한 기능들을 인터페이스로 만든다.</li> <li>아직은 CRUD 만 존재한다</li></ul> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">abstract</span> <span class="token keyword">interface</span> <span class="token keyword">class</span> <span class="token class-name">CapsulePackageRepo</span> <span class="token punctuation">&#123;</span>
+  <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">CapsulePackageData</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">getCapsulePackageList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CapsulePackageData</span><span class="token operator">?</span><span class="token punctuation">></span></span> <span class="token function">getCapsulePackage</span><span class="token punctuation">(</span>
+      <span class="token punctuation">&#123;</span>required <span class="token class-name">CapsulePackageId</span> packageId<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token keyword">void</span><span class="token punctuation">></span></span> <span class="token function">createCapsulePackage</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>required <span class="token class-name">CapsulePackageData</span> package<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token keyword">void</span><span class="token punctuation">></span></span> <span class="token function">deleteCapsulePackage</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>required <span class="token class-name">CapsulePackageId</span> packageId<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token keyword">void</span><span class="token punctuation">></span></span> <span class="token function">updateCapsulePackage</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>required <span class="token class-name">CapsulePackageData</span> package<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre> <br> <h1 data-svelte-h="svelte-17cwu8d">Implement</h1> <ul data-svelte-h="svelte-17kbztm"><li>그리고 해당 인터페이스를 구현한 repository 구현체를 만든다.</li> <li>현재는 <code>FireStore</code> 를 사용중이기 때문에 <code>FireStoreCapsulePackageRepo</code> 로 구현</li></ul> <p data-svelte-h="svelte-1paoc72"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/2023-11-19-01-37-25.png" alt="flutter implements"></p> <br> <h1 data-svelte-h="svelte-1koqdv5">Injectable</h1> <p data-svelte-h="svelte-4q3vsv">이제 의존성 주입을 해보자.<br>
+의존성 주입을 쉽게 할 수 있도록 도와주는 <strong><code>Injectable</code></strong> 이라는 라이브러리가 있다.<br>
+좋아요 1,000개짜리라 거의 공식 라이브러리라고 할 수 있다.</p> <p data-svelte-h="svelte-1wpc01w"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/2023-11-19-02-27-06.png" alt="Injectable"></p> <br> <p data-svelte-h="svelte-1ttoaj2">공식문서에 나와있는대로 설치를 해주고,</p> <pre class="language-yaml"><!-- HTML_TAG_START --><code class="language-yaml"><span class="token key atrule">dependencies</span><span class="token punctuation">:</span>  
+  <span class="token comment"># add injectable to your dependencies  </span>
+  <span class="token key atrule">injectable</span><span class="token punctuation">:</span>  
+  <span class="token comment"># add get_it  </span>
+  <span class="token key atrule">get_it</span><span class="token punctuation">:</span>  
+  
+<span class="token key atrule">dev_dependencies</span><span class="token punctuation">:</span>  
+  <span class="token comment"># add the generator to your dev_dependencies  </span>
+  <span class="token key atrule">injectable_generator</span><span class="token punctuation">:</span>  
+  <span class="token comment"># add build runner if not already added  </span>
+  build_runner<span class="token punctuation">:</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-uptige"><code>lib/injectable.dart</code> 에 아래 코드를 적어주고</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get_it/get_it.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:injectable/injectable.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">final</span> getIt <span class="token operator">=</span> <span class="token class-name">GetIt</span><span class="token punctuation">.</span>instance<span class="token punctuation">;</span>
+ 
+<span class="token metadata function">@InjectableInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">void</span> <span class="token function">configureDependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> getIt<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-xyfrfw">빌드 러너도 돌려주고</p> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">flutter pub run build_runner build</code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-hwkpxw"><code>lib/main.dart</code> 에 <code>configureDependencies</code> 를 해주면 기본 준비는 끝</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token comment">// ...</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:capsule_todo_app/injectable.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  
+ <span class="token function">configureDependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+
+ <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre> <br> <br> <h1 data-svelte-h="svelte-x0j9nd">의존성 주입 사용하기</h1> <p data-svelte-h="svelte-17q4mqj">다음과 같이 <code>FireStoreCapsulePackageRepo</code> 를 <code>CapsulePackageRepo</code> 로서 사용한다고 써준다.</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:capsule_todo_app/app/repos/interfaces.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:injectable/injectable.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// 여기</span>
+<span class="token metadata function">@Injectable</span><span class="token punctuation">(</span><span class="token operator">as</span><span class="token punctuation">:</span> <span class="token class-name">CapsulePackageRepo</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">FireStoreCapsulePackageRepo</span> <span class="token keyword">implements</span> <span class="token class-name">CapsulePackageRepo</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ...</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-1isdob5">이렇게 의존성이 주입되면 아래와 같이 <code>FireStoreCapsuleRepo</code> 를 코드에서 직접 언급하지 않아도 된다.<br> <code>CapsuleRepo</code> 인터페이스의 구현체로 <code>FireStoreCapsuleRepo</code> 를 쓰겠다고 써놨기 때문에 <code>getIt</code> 을 통해 초기화 하면 <code>FireStoreCapsuleRepo</code> 가 사용되는 것이다.</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token comment">// 의존성 주입 하기 전</span>
+<span class="token keyword">final</span> repo <span class="token operator">=</span> <span class="token class-name">FireStoreCapsuleRepo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 의존성 주입 후</span>
+<span class="token keyword">final</span> <span class="token class-name">CapsuleRepo</span> repo <span class="token operator">=</span> <span class="token function">getIt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-1gdpu3q">나중에 백엔드가 바뀔 때 <code>@Injectable</code> 코드만 옮겨주면 사용처의 코드를 변경하지 않고도 일괄 변경이 가능하다.</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:capsule_todo_app/app/repos/interfaces.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:injectable/injectable.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">FireStoreCapsulePackageRepo</span> <span class="token keyword">implements</span> <span class="token class-name">CapsulePackageRepo</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ...</span>
+
+<span class="token comment">// 여기</span>
+<span class="token metadata function">@Injectable</span><span class="token punctuation">(</span><span class="token operator">as</span><span class="token punctuation">:</span> <span class="token class-name">CapsulePackageRepo</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">FastAPICapsulePackageRepo</span> <span class="token keyword">implements</span> <span class="token class-name">CapsulePackageRepo</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ...</span></code><!-- HTML_TAG_END --></pre> <br> <br> <h1 data-svelte-h="svelte-15fyrui">테스트</h1> <p data-svelte-h="svelte-1twbz3z">이게 끝이 아니다. 느슨한 연결의 진짜 장점 중 하나는 <strong>테스트 구현이 쉬워진다는 것</strong>. 내친김에 테스트까지 작성해보자.</p> <p data-svelte-h="svelte-1lofsth"><code>test/repo/capsule_package_repo_test.dart</code> 를 만들어서 테스트 구현을 시작한다.</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token comment">// test/repo/capsule_package_repo_test.dart</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token class-name">TestWidgetsFlutterBinding</span><span class="token punctuation">.</span><span class="token function">ensureInitialized</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// environment 를 test 로 설정</span>
+  globals<span class="token punctuation">.</span>environment <span class="token operator">=</span> <span class="token class-name"><span class="token namespace">globals<span class="token punctuation">.</span></span>EnvironmentEnum</span><span class="token punctuation">.</span>test<span class="token punctuation">;</span>
+  <span class="token comment">// Injectable config </span>
+  <span class="token function">configureDependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// Test 에서 사용할 State</span>
+  <span class="token keyword">final</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CapsulePackageData</span><span class="token punctuation">></span></span> createdPackageList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token comment">// Repo 를 초기화</span>
+  late <span class="token keyword">final</span> <span class="token class-name">CapsulePackageRepo</span> capsulePackageRepo <span class="token operator">=</span> <span class="token function">getIt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">//...</span>
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre> <p data-svelte-h="svelte-16fyypr"><code>environment</code> 를 test 로 설정한다.</p> <p data-svelte-h="svelte-cpq2oi">test 로 설정되면 <code>FireStoreCapsulePackageRepo</code> 가 내부적으로 <code>FakeFireStore</code> 를 사용하도록 구현해놨다.</p> <p data-svelte-h="svelte-fbtxzx">나중에 다른 백엔드의 레포지토리를 구현할 때에도, 생성자 내부에서 환경에 따라 다른 client 를 사용하도록 할 수 있을 것이다.</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token metadata function">@Injectable</span><span class="token punctuation">(</span><span class="token operator">as</span><span class="token punctuation">:</span> <span class="token class-name">CapsuleRepo</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">FireStoreCapsuleRepo</span> <span class="token keyword">implements</span> <span class="token class-name">CapsuleRepo</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">final</span> <span class="token class-name">FirebaseFirestore</span> instance<span class="token punctuation">;</span>
+
+  <span class="token class-name">FireStoreCapsuleRepo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">:</span> instance <span class="token operator">=</span> globals<span class="token punctuation">.</span>environment <span class="token operator">==</span> <span class="token class-name"><span class="token namespace">globals<span class="token punctuation">.</span></span>EnvironmentEnum</span><span class="token punctuation">.</span>prod
+            <span class="token operator">?</span> <span class="token class-name">FirebaseFirestore</span><span class="token punctuation">.</span>instance
+            <span class="token punctuation">:</span> <span class="token class-name">FakeFirebaseFirestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-1m5d6c0">create repo 테스트</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// ...</span>
+  <span class="token function">test</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'createCapsulePackage'</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">final</span> package <span class="token operator">=</span> <span class="token class-name">CapsulePackageData</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>
+      name<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"TEST PACKAGE"</span></span><span class="token punctuation">,</span>
+      description<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"DESCRIPTION"</span></span><span class="token punctuation">,</span>
+      color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>black<span class="token punctuation">,</span>
+      userId<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"TEST USER"</span></span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">await</span> capsulePackageRepo<span class="token punctuation">.</span><span class="token function">createCapsulePackage</span><span class="token punctuation">(</span>package<span class="token punctuation">:</span> package<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> result <span class="token operator">=</span>
+        <span class="token keyword">await</span> capsulePackageRepo<span class="token punctuation">.</span><span class="token function">getCapsulePackage</span><span class="token punctuation">(</span>packageId<span class="token punctuation">:</span> package<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span> package<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    createdPackageList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>package<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span>
+</code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-vut832">다른 메서드 구현도 테스트한다.</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//...</span>
+  <span class="token function">test</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'getCapsulePackage'</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">final</span> first <span class="token operator">=</span> createdPackageList<span class="token punctuation">.</span>first<span class="token punctuation">;</span>
+    <span class="token keyword">final</span> result <span class="token operator">=</span>
+        <span class="token keyword">await</span> capsulePackageRepo<span class="token punctuation">.</span><span class="token function">getCapsulePackage</span><span class="token punctuation">(</span>packageId<span class="token punctuation">:</span> first<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">test</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'getCapsulePackageList'</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">final</span> result <span class="token operator">=</span> <span class="token keyword">await</span> capsulePackageRepo<span class="token punctuation">.</span><span class="token function">getCapsulePackageList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>createdPackageList<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">test</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'deleteCapsulePackage'</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">await</span> capsulePackageRepo<span class="token punctuation">.</span><span class="token function">deleteCapsulePackage</span><span class="token punctuation">(</span>
+        packageId<span class="token punctuation">:</span> createdPackageList<span class="token punctuation">.</span>first<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    createdPackageList
+        <span class="token punctuation">.</span><span class="token function">removeWhere</span><span class="token punctuation">(</span><span class="token punctuation">(</span>package<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> package<span class="token punctuation">.</span>id <span class="token operator">==</span> createdPackageList<span class="token punctuation">.</span>first<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> result <span class="token operator">=</span> <span class="token keyword">await</span> capsulePackageRepo<span class="token punctuation">.</span><span class="token function">getCapsulePackageList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>createdPackageList<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+</code><!-- HTML_TAG_END --></pre> <br><br> <p data-svelte-h="svelte-1v187jn">이렇게 테스트를 구성하면 나중에 다른 Repository 를 변경해도 테스트 코드를 수정하지 않아도 된다.</p> <p data-svelte-h="svelte-89vxm8">나중에 아래와 같이 Injectable 에서 어떤 구현체를 쓸지만 바꿔주면 <strong>새 구현체가 잘 작성되었는지 테스트</strong>도 자동으로 가능하다.</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:capsule_todo_app/app/repos/interfaces.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:injectable/injectable.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">FireStoreCapsulePackageRepo</span> <span class="token keyword">implements</span> <span class="token class-name">CapsulePackageRepo</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ...</span>
+
+<span class="token metadata function">@Injectable</span><span class="token punctuation">(</span><span class="token operator">as</span><span class="token punctuation">:</span> <span class="token class-name">CapsulePackageRepo</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">FastAPICapsulePackageRepo</span> <span class="token keyword">implements</span> <span class="token class-name">CapsulePackageRepo</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ...</span></code><!-- HTML_TAG_END --></pre> <br> <br> <h1 data-svelte-h="svelte-1e19bhm">Eqautable</h1> <p data-svelte-h="svelte-7b1t17">잊을 뻔 했는데 방금 작성된 테스트가 가능하게 해준건 <code>Equatable</code> 이라는 패키지 덕분이다.
+dart 에서는 equal 메서드와 hashcode 메서드를 간단하게 만들기가 어렵다.</p> <p data-svelte-h="svelte-1b1ufc2">이 패키지도 like 가 2,700개 가까이 되는 근본 패키지이다.</p> <p data-svelte-h="svelte-7ifgxu"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/2023-11-19-23-53-23.png" alt="equatable"></p> <h3 data-svelte-h="svelte-16a04nc">사용법</h3> <p data-svelte-h="svelte-h5tz3i">모델로 사용하고 있는 클래스가 <code>Equatable</code> 을 상속받도록 한 다음 <code>props</code> 를 오버라이딩 해주면된다.</p> <p data-svelte-h="svelte-dppyiz"><code>props</code> 에 적힌 프로퍼티를 가지고 hashcode 를 만들기 때문에, 여기 적힌 프로퍼티들의 값만 동일하면 나중에 비교할 때 같은 객체로 취급된다.</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:equatable/equatable.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CapsulePackageData</span> <span class="token keyword">extends</span> <span class="token class-name">Equatable</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//...</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> <span class="token keyword">get</span> props <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>id<span class="token punctuation">,</span> name<span class="token punctuation">,</span> description<span class="token punctuation">,</span> createdAt<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre> <p data-svelte-h="svelte-i3n2qq">그럼 아래처럼 객체간 비교가 가능하게 해줘서 테스트 코드를 작성하기가 매우 편해진다.</p> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//...</span>
+  <span class="token function">test</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'getCapsulePackage'</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">final</span> <span class="token class-name">CapsulePackageData</span> first <span class="token operator">=</span> createdPackageList<span class="token punctuation">.</span>first<span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">CapsulePackageData</span> result <span class="token operator">=</span>
+        <span class="token keyword">await</span> capsulePackageRepo<span class="token punctuation">.</span><span class="token function">getCapsulePackage</span><span class="token punctuation">(</span>packageId<span class="token punctuation">:</span> first<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// CapsulePackageData 끼리의 비교</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">//...</span>
+<span class="token punctuation">&#125;</span>
+</code><!-- HTML_TAG_END --></pre> <br><br> <h1 data-svelte-h="svelte-1hmxnju">마무리</h1> <p data-svelte-h="svelte-w28h4e">끝!</p></div> </article></main> </div> 
+			
+			<script>
+				{
+					__sveltekit_72rk1k = {
+						base: new URL("..", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("../_app/immutable/entry/start.bec55feb.js"),
+						import("../_app/immutable/entry/app.eae2f157.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+    </body>
+</html>

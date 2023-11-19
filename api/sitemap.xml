@@ -10,6 +10,10 @@
                     <changefreq>daily</changefreq>
                 </url>
                 <url>
+                        <loc>http://blog.neulhan.com/posts/flutter-의존성-주입과-테스트</loc>
+                        <lastmod>2023-11-20</lastmod>
+                    </url>
+                    ,<url>
                         <loc>http://blog.neulhan.com/posts/django-ninja-1-릴리즈</loc>
                         <lastmod>2023-11-17</lastmod>
                     </url>
