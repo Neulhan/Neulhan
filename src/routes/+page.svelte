@@ -40,7 +40,8 @@ function selectCategory(value: string) {
                 </button>
             {/each}
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div
+            class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
             {#each posts as post}
                 <a href="{post.slug}">
                     <div
