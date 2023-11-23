@@ -22,23 +22,23 @@
         
 		<link href="../_app/immutable/assets/0.fe75f0cf.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/3.52881d62.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.bec55feb.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.204abcc0.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.7c4769d9.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.ae45437e.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.13a9e7ae.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.eae2f157.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.e057c789.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.a4192956.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index.cc557082.js">
 		<link rel="modulepreload" href="../_app/immutable/nodes/0.413a5337.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/each.e59479a4.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/3.4e256df4.js"><title>Langchain 이 제시하는 UseCases</title><!-- HEAD_svelte-11jjeuz_START --><meta property="og:type" content="article"><meta property="og:title" content="Langchain 이 제시하는 UseCases"><!-- HEAD_svelte-11jjeuz_END -->
+		<link rel="modulepreload" href="../_app/immutable/nodes/3.65895404.js"><title>Langchain 이 제시하는 UseCases</title><!-- HEAD_svelte-11jjeuz_START --><meta property="og:type" content="article"><meta property="og:title" content="Langchain 이 제시하는 UseCases"><!-- HEAD_svelte-11jjeuz_END -->
     </head>
     <body data-sveltekit-preload-data="hover">
         <div style="display: contents">  <div class="app flex flex-col sm:flex-row"><div class="w-64 p-4 shrink-0"><div class="logo mb-4" data-svelte-h="svelte-f3eb4u"><a href="/"><img class="w-32" src="/_app/immutable/assets/logo-full-light-transparent.1de22219.svg" alt="neulhan logo"></a></div> <nav class="py-4 flex flex-col"><a class="flex items-center bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer" href="https://github.com/Neulhan" target="_blank"><img class="rounded-2xl w-8 mr-2" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="늘한 소개"> 소개 </a><a class="flex items-center bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank"><img class="rounded-2xl w-8 mr-2" src="https://images.velog.io/images/wwwssj0309/post/e2262211-93c1-46a2-b72c-345c5c22a683/1.jpg" alt="늘한 예전 블로그"> 예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"><h1 class="text-4xl pb-2 font-semibold">Langchain 이 제시하는 UseCases</h1></div> <p class="opacity-50 pb-2">2023-11-11</p></div> <div class="my-4 flex"><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#langchain </button><button class="category rounded-md py-1 px-2 align-middle mr-2 bg-white font-medium svelte-17b5yfn">#llm </button></div> <div class="md py-4"><p data-svelte-h="svelte-1gc80u5">Langchain 공식문서에서 제시하는 유스케이스 다수.</p> <h3 data-svelte-h="svelte-duz6m6">1. 데이터 참조해서 답변하기</h3> <ul data-svelte-h="svelte-19ngxoy"><li>Langchain 을 이용하면 RAG 어플리케이션을 쉽게 구현 가능</li> <li>존재하는 데이터 소스 (SQL, GraphQL, API, 파일데이터, 검색데이터 등등) 를 연결만 해주면, LLM 은 데이터에서 찾아서 응답 가능</li> <li>다만 보통 LLM 에 한 번에 넘겨줄 수 있는 토큰 수 제한이 있는데, Langchain 은 토큰 제한을 극복하는 방법들을 쉽게 제공</li> <li>Phind 처럼 검색 데이터를 처리해서 응답을 줄 수도 있고, 로앤봇처럼 법령 데이터를 연결해서 제공할 수도 있음.</li> <li>제공된 Document 를 기반으로 응답이 되기 때문에 할루시네이션이 줄어든다는 장점.</li></ul> <p data-svelte-h="svelte-5t50my"><img src="https://python.langchain.com/assets/images/qa_intro-9b468dbffe1cbe7f0bd822b28648db9e.png" alt="RAG"></p> <h3 data-svelte-h="svelte-1h1c95r">2. API 와 상호작용</h3> <ul data-svelte-h="svelte-1nxg0ij"><li>위의 RAG 와도 연결되는 부분이 있다.</li> <li>사용자의 질문에 답변하기 위해서 API 를 호출할 수 있음.</li> <li>그런데 검색보다 더 기대되는 부분은, 자연어 채팅으로 비행기표 예매와 같은 API 도 호출할 수 있게 된다는 것.</li> <li>Agent 와 Tool 을 미리미리 만들어두면 가능하다.</li></ul> <p data-svelte-h="svelte-1sttg83"><img src="https://python.langchain.com/assets/images/api_use_case-31a2dfef42f82ed801c28a73a66de74e.png" alt="API 와 상호작용"></p> <h3 data-svelte-h="svelte-vdbqn6">3. 요약</h3> <ul data-svelte-h="svelte-1p3fpmc"><li>Langchain 으로 요약 어플리케이션도 쉽게 구현가능</li> <li>RAG 와 마찬가지로, 기본적으로 Langchain 이 Document 를 가져와서 LLM 과 상호작용 하는 과정의 인터페이스를 잘 만들어놨기 때문. 덕분에 여러 Data Source 를 쉽게 연결해서 붙일 수 있다.</li></ul> <p data-svelte-h="svelte-17eo6mf"><img src="https://python.langchain.com/assets/images/summarization_use_case_1-cdb1b94b53af261bd997a9934a8c3703.png" alt="요약"></p> <h3 data-svelte-h="svelte-p1madk">4. 추출</h3> <ul data-svelte-h="svelte-1i6zrg"><li>자연어에서 데이터를 추출할 수 있다.</li> <li>Langchain 에서 Output Parsing 관련해서도 인터페이스를 잘 만들어둠.</li> <li>LLM 을 여러겹으로 쓸 경우 Output 을 구조화된 데이터로 만들어서 아래 계층으로 넘겨줘야하는데 이런 처리도 간편.</li></ul> <p data-svelte-h="svelte-5tbebv"><img src="https://python.langchain.com/assets/images/extraction-f94dadc4bef17c7d73ce5d056eab70c8.png" alt="추출"><br> <img src="https://python.langchain.com/assets/images/tagging-93990e95451d92b715c2b47066384224.png" alt="태그설정"></p> <h2 data-svelte-h="svelte-9wfzbx">REF</h2> <ul data-svelte-h="svelte-jx7pig"><li><a href="https://python.langchain.com/docs/use_cases/qa_structured/sql" rel="nofollow">https://python.langchain.com/docs/use_cases/qa_structured/sql</a></li></ul></div> </article></main> </div> 
 			
 			<script>
 				{
-					__sveltekit_72rk1k = {
+					__sveltekit_1g62bv5 = {
 						base: new URL("..", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -48,8 +48,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("../_app/immutable/entry/start.bec55feb.js"),
-						import("../_app/immutable/entry/app.eae2f157.js")
+						import("../_app/immutable/entry/start.204abcc0.js"),
+						import("../_app/immutable/entry/app.e057c789.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
