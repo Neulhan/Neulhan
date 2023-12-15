@@ -10,6 +10,10 @@
                     <changefreq>daily</changefreq>
                 </url>
                 <url>
+                        <loc>http://blog.neulhan.com/posts/세상은-풀스택-장인을-필요로-합니다</loc>
+                        <lastmod>2023-12-16</lastmod>
+                    </url>
+                    ,<url>
                         <loc>http://blog.neulhan.com/posts/flutter-의존성-주입과-테스트</loc>
                         <lastmod>2023-11-20</lastmod>
                     </url>
