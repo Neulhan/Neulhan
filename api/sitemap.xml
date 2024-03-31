@@ -10,6 +10,10 @@
                     <changefreq>daily</changefreq>
                 </url>
                 <url>
+                        <loc>http://blog.neulhan.com/posts/js라이브러리-rust로-재작성-후기</loc>
+                        <lastmod>2024-03-31</lastmod>
+                    </url>
+                    ,<url>
                         <loc>http://blog.neulhan.com/posts/세상은-풀스택-장인을-필요로-합니다</loc>
                         <lastmod>2023-12-16</lastmod>
                     </url>
