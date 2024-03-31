@@ -1,9 +1,13 @@
 ---
-title: JS라이브러리 Rust로 재작성 후기
-description:
+title: JS 라이브러리 Rust로 재작성 후기
+description:JS 코드를 Rust 로 바꾸는 과정은 생각보다는 간단했다. 몇가지 함정만 제외하면... Rust 의 크레이트를 WASM 환경에서 사용하려면 코드가 달라지는 경우도 있었고, 심지어 아예 쓸 수 없는 패키지도 있었다.
 date: '2024-03-30'
 categories:
-published: false
+    - rust
+    - wasm
+    - canvas
+    - animation
+published: true
 ---
 
 Rust 를 새로 배우면서, "앞으로 Rust 를 어떻게 사용할까" 에 대해 고민을 해봤다.  
