@@ -11,7 +11,7 @@ thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-�
 
 # 들어가며
 
-개인 프로젝트에서 플러터를 사용중인데 의존성 주입을 적용해볼 일이 생겼다.  
+개인 프로젝트에서 플러터를 사용중인데 의존성 주입을 적용해볼 일이 생겼다.
 
 백엔드를 지금은 FireStore 를 쓰고 있는데, 나중에 직접 백엔드 서버를 구축할 예정이다.
 
@@ -19,17 +19,17 @@ thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-�
 
 이런 상황에서 잘못하면 코드가 덕지덕지 붙어서 껌딱지처럼 떼어내기가 어려워진다.
 
-이럴 때 필요한게 의존성 주입을 통한 느슨한 연결.  
+이럴 때 필요한게 의존성 주입을 통한 느슨한 연결.
 
-서버와 연결되는 부분을 **인터페이스를 통해서 정의**해두고, 필요에 맞게 인터페이스에 맞는 구현체를 **의존성 주입을 통해 사용**하면 나중에 간단하게 백엔드 교체가 가능하다.  
-
+서버와 연결되는 부분을 **인터페이스를 통해서 정의**해두고, 필요에 맞게 인터페이스에 맞는 구현체를 **의존성 주입을 통해 사용**하면 나중에 간단하게 백엔드 교체가 가능하다.
 
 <br>
 <br>
 
 # Interface
-- 먼저 필요한 기능들을 인터페이스로 만든다.   
-- 아직은 CRUD 만 존재한다
+
+-   먼저 필요한 기능들을 인터페이스로 만든다.
+-   아직은 CRUD 만 존재한다
 
 ```dart
 abstract interface class CapsulePackageRepo {
@@ -42,55 +42,53 @@ abstract interface class CapsulePackageRepo {
 }
 ```
 
-
 <br>
 
 # Implement
-- 그리고 해당 인터페이스를 구현한 repository 구현체를 만든다.
-- 현재는 `FireStore` 를 사용중이기 때문에 `FireStoreCapsulePackageRepo` 로 구현
 
+-   그리고 해당 인터페이스를 구현한 repository 구현체를 만든다.
+-   현재는 `FireStore` 를 사용중이기 때문에 `FireStoreCapsulePackageRepo` 로 구현
 
 ![flutter implements](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-01-37-25.png)
-
-
 
 <br>
 
 # Injectable
+
 이제 의존성 주입을 해보자.  
 의존성 주입을 쉽게 할 수 있도록 도와주는 **`Injectable`** 이라는 라이브러리가 있다.  
 좋아요 1,000개짜리라 거의 공식 라이브러리라고 할 수 있다.
 
 ![Injectable](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-02-27-06.png)
 
-
 <br>
 
 공식문서에 나와있는대로 설치를 해주고,
 
 ```yaml title="pubspec.yaml"
-dependencies:  
-  # add injectable to your dependencies  
-  injectable:  
-  # add get_it  
-  get_it:  
-  
-dev_dependencies:  
-  # add the generator to your dev_dependencies  
-  injectable_generator:  
-  # add build runner if not already added  
-  build_runner:
+dependencies:
+    # add injectable to your dependencies
+    injectable:
+    # add get_it
+    get_it:
+
+dev_dependencies:
+    # add the generator to your dev_dependencies
+    injectable_generator:
+    # add build runner if not already added
+    build_runner:
 ```
 
 <br>
 
-`lib/injectable.dart` 에 아래 코드를 적어주고 
+`lib/injectable.dart` 에 아래 코드를 적어주고
+
 ```dart title="lib/injectable.dart"
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
 final getIt = GetIt.instance;
- 
+
 @InjectableInit()
 void configureDependencies() => getIt.init();
 ```
@@ -98,22 +96,23 @@ void configureDependencies() => getIt.init();
 <br>
 
 빌드 러너도 돌려주고
+
 ```shell
 flutter pub run build_runner build
 ```
 
 <br>
 
-`lib/main.dart` 에 `configureDependencies` 를 해주면 기본 준비는 끝  
+`lib/main.dart` 에 `configureDependencies` 를 해주면 기본 준비는 끝
 
 ```dart hl_lines="2"
 // ...
 import 'package:capsule_todo_app/injectable.dart';
 
-void main() {  
- configureDependencies();  
+void main() {
+ configureDependencies();
 
- runApp(MyApp());  
+ runApp(MyApp());
 }
 ```
 
@@ -147,12 +146,9 @@ final repo = FireStoreCapsuleRepo();
 final CapsuleRepo repo = getIt();
 ```
 
-
 <br>
 
-
-
-나중에 백엔드가 바뀔 때 `@Injectable` 코드만 옮겨주면 사용처의 코드를 변경하지 않고도 일괄 변경이 가능하다.  
+나중에 백엔드가 바뀔 때 `@Injectable` 코드만 옮겨주면 사용처의 코드를 변경하지 않고도 일괄 변경이 가능하다.
 
 ```dart
 import 'package:capsule_todo_app/app/repos/interfaces.dart';
@@ -167,32 +163,30 @@ class FastAPICapsulePackageRepo implements CapsulePackageRepo {
     // ...
 ```
 
-
 <br>
 <br>
 
 # 테스트
+
 이게 끝이 아니다. 느슨한 연결의 진짜 장점 중 하나는 **테스트 구현이 쉬워진다는 것**. 내친김에 테스트까지 작성해보자.
 
-
 `test/repo/capsule_package_repo_test.dart` 를 만들어서 테스트 구현을 시작한다.
-
 
 ```dart hl_lines="7"
 // test/repo/capsule_package_repo_test.dart
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  
+
   // environment 를 test 로 설정
   globals.environment = globals.EnvironmentEnum.test;
-  // Injectable config 
+  // Injectable config
   configureDependencies();
   // Test 에서 사용할 State
   final List<CapsulePackageData> createdPackageList = [];
   // Repo 를 초기화
   late final CapsulePackageRepo capsulePackageRepo = getIt();
-  
+
   //...
 }
 ```
@@ -212,7 +206,7 @@ class FireStoreCapsuleRepo implements CapsuleRepo {
       : instance = globals.environment == globals.EnvironmentEnum.prod
             ? FirebaseFirestore.instance
             : FakeFirebaseFirestore();
-  
+
   // ...
 }
 ```
@@ -220,6 +214,7 @@ class FireStoreCapsuleRepo implements CapsuleRepo {
 <br>
 
 create repo 테스트
+
 ```dart
 void main() {
   // ...
@@ -244,6 +239,7 @@ void main() {
 <br>
 
 다른 메서드 구현도 테스트한다.
+
 ```dart
 void main() {
   //...
@@ -271,7 +267,6 @@ void main() {
 
 ```
 
-
 <br><br>
 
 이렇게 테스트를 구성하면 나중에 다른 Repository 를 변경해도 테스트 코드를 수정하지 않아도 된다.
@@ -296,12 +291,11 @@ class FastAPICapsulePackageRepo implements CapsulePackageRepo {
 # Eqautable
 
 잊을 뻔 했는데 방금 작성된 테스트가 가능하게 해준건 `Equatable` 이라는 패키지 덕분이다.
-dart 에서는 equal 메서드와 hashcode 메서드를 간단하게 만들기가 어렵다.  
+dart 에서는 equal 메서드와 hashcode 메서드를 간단하게 만들기가 어렵다.
 
-이 패키지도 like 가 2,700개 가까이 되는 근본 패키지이다.  
+이 패키지도 like 가 2,700개 가까이 되는 근본 패키지이다.
 
 ![equatable](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-23-53-23.png)
-
 
 ### 사용법
 

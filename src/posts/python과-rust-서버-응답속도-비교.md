@@ -65,6 +65,7 @@ django-ninja 는 내가 좋아하고 자주 사용하기 때문에 그냥 같이
 |wsgi server|uvicorn 0.24.0|
 |serializer|pydantic 2.5.2|
 
+
 ## [rust]
 |||  
 |---|---| 
