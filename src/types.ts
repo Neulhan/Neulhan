@@ -7,4 +7,5 @@ export type Post = {
     published: boolean
     minuteSpentWriting: number
     thumbnail: string
+    timeEstimates: number
 }

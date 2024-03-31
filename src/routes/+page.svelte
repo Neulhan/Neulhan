@@ -12,7 +12,7 @@ $: posts =
     selectedCategory === '전체'
         ? data.posts
         : data.posts.filter((post) =>
-              post.categories.includes(selectedCategory)
+              post.categories.includes(selectedCategory),
           )
 
 function selectCategory(value: string) {
@@ -58,16 +58,27 @@ function selectCategory(value: string) {
                             {/if}
                         </div>
                         <div class="card p-4">
+                            <div class="mb-2">
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded">
+                                    {post.timeEstimates > 1
+                                        ? `${post.timeEstimates}분`
+                                        : '1분 미만'}
+                                </span>
+                            </div>
                             <div class="text-lg truncate font-semibold mb-1">
                                 {post.title}
                             </div>
 
                             <div
-                                class="text-sm h-16 mb-2 opacity-70 line-clamp-3">
+                                class="text-sm h-15 mb-2 opacity-70 line-clamp-3">
                                 {post.description}
                             </div>
 
-                            <span class="text-sm opacity-50">{post.date}</span>
+                            <div class="flex justify-between">
+                                <span class="text-sm opacity-50"
+                                    >{post.date}</span>
+                            </div>
                         </div>
                     </div>
                 </a>
