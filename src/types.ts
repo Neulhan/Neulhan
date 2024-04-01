@@ -1,4 +1,5 @@
 export type Post = {
+    emoji: string | null
     title: string
     slug: string
     description: string

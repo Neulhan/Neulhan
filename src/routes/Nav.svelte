@@ -1,6 +1,4 @@
 <script>
-import logo from '$lib/images/logo-full-light-transparent.svg'
-
 const navList = [
     {
         icon: 'https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png',
@@ -17,20 +15,21 @@ const navList = [
 ]
 </script>
 
-<div class="w-64 p-4 shrink-0">
-    <div class="logo mb-4">
-        <a href="/">
-            <img class="w-32" src="{logo}" alt="neulhan logo" />
+<div
+    class="bg-white w-full p-4 shrink-0 flex justify-between content-center border-b border-slate-200">
+    <div class="logo">
+        <a href="/" class="font-semibold text-2xl flex flex-nowrap">
+            <span class="tf mr-2">🦉</span> 개발자 늘한
         </a>
     </div>
-    <nav class="py-4 flex flex-col">
+    <nav class="flex">
         {#each navList as nav}
             <a
-                class="flex items-center bg-white py-1 px-2 mb-1 hover:bg-slate-100 cursor-pointer"
+                class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer"
                 href="{nav.href}"
                 target="{nav.target}">
                 <img
-                    class="rounded-2xl w-8 mr-2"
+                    class="rounded-2xl w-6 mr-2"
                     src="{nav.icon}"
                     alt="늘한 {nav.text}" />
                 {nav.text}

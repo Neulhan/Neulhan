@@ -1,4 +1,5 @@
 ---
+emoji: 📃
 title: WSGI 와 ASGI
 description: 예전에 fastapi 소개글을 썼었는데, 그 과정에서 ASGI 에 흥미로움을 느껴서 정리해봤다. WSGI 와 ASGI 의 역사와 흥미로운 사실들을 알아보자.
 date: '2023-11-13'

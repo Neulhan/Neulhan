@@ -12,7 +12,9 @@
     // font-size: 18px;
     transform: rotate(0.04deg);
 }
-
+.tf {
+    font-family: Tossface;
+}
 * :not(.md *) {
     box-sizing: border-box;
 }
@@ -21,12 +23,16 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
     color: $color-dark;
-    background-color: $color-sky;
+    background-color: #fafafa;
 }
 
 a {
     color: var(--color-theme-1);
     text-decoration: none;
+}
+
+hr {
+    margin: 2rem 0;
 }
 
 a:hover {

@@ -27,8 +27,10 @@ function selectCategory(value: string) {
 
 <section>
     <div class="container mx-auto p-4 sm:p-8">
-        <h1 class="text-2xl font-semibold">글 목록</h1>
-        <div class="flex flex-wrap my-6">
+        <h1 class="text-2xl font-semibold mb-6">
+            <span class="tf mr-2">📃</span> 글 목록
+        </h1>
+        <div class="categories flex flex-wrap">
             {#each categories as category}
                 <button
                     on:click="{() => selectCategory(category)}"
@@ -40,12 +42,11 @@ function selectCategory(value: string) {
                 </button>
             {/each}
         </div>
-        <div
-            class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+        <div class="grid grid-cols-1 mt-6 md:grid-cols-3 xl:grid-cols-4 gap-4">
             {#each posts as post}
                 <a href="{post.slug}">
                     <div
-                        class="flex flex-col rounded-md justify-between bg-white overflow-hidden hover:-translate-y-1 duration-300">
+                        class="flex flex-col rounded-md justify-between shadow-md bg-white overflow-hidden hover:-translate-y-1 hover:shadow-lg duration-300">
                         <div class="h-32 bg-slate-300 relative">
                             <div
                                 class="w-full h-full absolute bg-gradient-to-r from-gray-800 opacity-30">
@@ -67,6 +68,7 @@ function selectCategory(value: string) {
                                 </span>
                             </div>
                             <div class="text-lg truncate font-semibold mb-1">
+                                <span class="tf">{post.emoji ?? ''}</span>
                                 {post.title}
                             </div>
 
@@ -88,8 +90,14 @@ function selectCategory(value: string) {
 </section>
 
 <style lang="scss">
+@use '../lib/scss/mixins.scss' as *;
 .category.selected {
     background-color: $color-green;
     color: white;
+}
+@include mobile {
+    .categories {
+        display: none;
+    }
 }
 </style>

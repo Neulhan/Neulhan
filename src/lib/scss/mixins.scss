@@ -14,8 +14,12 @@ $color-green: #ccb29b;
 
 @mixin mobile {
     @media (max-width: $breakpoint-mobile) {
-        & {
-            @content;
-        }
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $breakpoint-mobile) {
+        @content;
     }
 }
