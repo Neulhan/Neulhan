@@ -10,6 +10,10 @@
                     <changefreq>daily</changefreq>
                 </url>
                 <url>
+                        <loc>http://blog.neulhan.com/posts/rust-wasm-pack-malloc-error</loc>
+                        <lastmod>2024-04-02</lastmod>
+                    </url>
+                    ,<url>
                         <loc>http://blog.neulhan.com/posts/js라이브러리-rust로-재작성-후기</loc>
                         <lastmod>2024-03-31</lastmod>
                     </url>

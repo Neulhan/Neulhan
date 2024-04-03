@@ -27,18 +27,18 @@
         </script>
 
         
-		<link href="../_app/immutable/assets/0.2ef96c21.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/0.02b6b099.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/3.23bda755.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.df16a0d8.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.259ced9d.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.7c4769d9.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.2717f220.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.0bb36aec.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.9a17ed00.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.7deffec1.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.a4192956.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index.cc557082.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.eeb91016.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.1176bf89.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/each.e59479a4.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/3.d220c796.js"><title>Flutter 의존성 주입과 테스트</title><!-- HEAD_svelte-15uyux5_START --><meta property="og:type" content="article"><meta property="og:title" content="Flutter 의존성 주입과 테스트"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-04-13-57.png"><!-- HEAD_svelte-15uyux5_END -->
+		<link rel="modulepreload" href="../_app/immutable/nodes/3.db40cf1f.js"><title>Flutter 의존성 주입과 테스트</title><!-- HEAD_svelte-15uyux5_START --><meta property="og:type" content="article"><meta property="og:title" content="Flutter 의존성 주입과 테스트"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-04-13-57.png"><!-- HEAD_svelte-15uyux5_END -->
     </head>
     <body data-sveltekit-preload-data="hover">
         <div style="display: contents">  <div class="app flex flex-col"><div class="bg-white w-full p-4 shrink-0 flex justify-between content-center border-b border-slate-200"><div class="logo" data-svelte-h="svelte-1lqcucv"><a href="/" class="font-semibold text-2xl flex flex-nowrap"><span class="tf mr-2">🦉</span> 개발자 늘한</a></div> <nav class="flex"><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://github.com/Neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="늘한 소개"> 소개 </a><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://images.velog.io/images/wwwssj0309/post/e2262211-93c1-46a2-b72c-345c5c22a683/1.jpg" alt="늘한 예전 블로그"> 예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"> <h1 class="text-4xl pb-2 font-semibold"><span class="tf">🧪</span> Flutter 의존성 주입과 테스트</h1></div> <p class="opacity-50 pb-2">2023-11-20</p></div> <div class="my-4 flex gap-1"><div class="rounded-md bg-slate-50 border border-slate-200 px-0.5 text-sm text-slate-500"># flutter </div><div class="rounded-md bg-slate-50 border border-slate-200 px-0.5 text-sm text-slate-500"># dart </div></div> <div class="content-container md py-4 svelte-a35t19"><h1 data-svelte-h="svelte-1ls67hg">들어가며</h1> <p data-svelte-h="svelte-1ll0u1k">개인 프로젝트에서 플러터를 사용중인데 의존성 주입을 적용해볼 일이 생겼다.</p> <p data-svelte-h="svelte-1ihjguo">백엔드를 지금은 FireStore 를 쓰고 있는데, 나중에 직접 백엔드 서버를 구축할 예정이다.</p> <p data-svelte-h="svelte-gwrt9i"><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/2023-11-19-04-13-57.png" alt="flutter 의존성 주입"></p> <p data-svelte-h="svelte-1930b79">이런 상황에서 잘못하면 코드가 덕지덕지 붙어서 껌딱지처럼 떼어내기가 어려워진다.</p> <p data-svelte-h="svelte-1e2wguf">이럴 때 필요한게 의존성 주입을 통한 느슨한 연결.</p> <p data-svelte-h="svelte-1a19fkv">서버와 연결되는 부분을 <strong>인터페이스를 통해서 정의</strong>해두고, 필요에 맞게 인터페이스에 맞는 구현체를 <strong>의존성 주입을 통해 사용</strong>하면 나중에 간단하게 백엔드 교체가 가능하다.</p> <br> <br> <h1 data-svelte-h="svelte-plwwnb">Interface</h1> <ul data-svelte-h="svelte-zlb2nc"><li>먼저 필요한 기능들을 인터페이스로 만든다.</li> <li>아직은 CRUD 만 존재한다</li></ul> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">abstract</span> <span class="token keyword">interface</span> <span class="token keyword">class</span> <span class="token class-name">CapsulePackageRepo</span> <span class="token punctuation">&#123;</span>
@@ -184,11 +184,11 @@ dart 에서는 equal 메서드와 hashcode 메서드를 간단하게 만들기�
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment">//...</span>
 <span class="token punctuation">&#125;</span>
-</code><!-- HTML_TAG_END --></pre> <br><br> <h1 data-svelte-h="svelte-1hmxnju">마무리</h1> <p data-svelte-h="svelte-w28h4e">끝!</p></div> <hr> <div class="flex justify-between flex-col sm:flex-row sm:content-start"><button data-svelte-h="svelte-gz3tfw"><span class="tf">👈</span> 목록으로 돌아가기</button> <button class="sm:mt-0 mt-2 relative" data-svelte-h="svelte-nh3p3l"><span class="tf pointer-events-none">😁</span> 부족한 글 읽어주셔서 감사합니다</button></div> <hr> <script src="https://giscus.app/client.js" data-repo="Neulhan/Neulhan" data-repo-id="MDEwOlJlcG9zaXRvcnkyODc0NzE2OTA=" data-category="Announcements" data-category-id="DIC_kwDOESJ4Ss4CeXnk" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="ko" data-loading="lazy" crossorigin="anonymous" async data-svelte-h="svelte-1yl8hiy"></script> </article></main> </div> 
+</code><!-- HTML_TAG_END --></pre> <br><br> <h1 data-svelte-h="svelte-1hmxnju">마무리</h1> <p data-svelte-h="svelte-w28h4e">끝!</p></div> <hr> <div class="flex justify-between flex-col sm:flex-row sm:content-start"><button data-svelte-h="svelte-gz3tfw"><span class="tf">👈</span> 목록으로 돌아가기</button> <button class="sm:mt-0 mt-2 relative" data-svelte-h="svelte-1x325mu"><span class="tf pointer-events-none">😁</span> 부족한 글 읽어주셔서 감사합니다</button></div> <hr> <script src="https://giscus.app/client.js" data-repo="Neulhan/Neulhan" data-repo-id="MDEwOlJlcG9zaXRvcnkyODc0NzE2OTA=" data-category="Announcements" data-category-id="DIC_kwDOESJ4Ss4CeXnk" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="ko" data-loading="lazy" crossorigin="anonymous" async data-svelte-h="svelte-1yl8hiy"></script> </article></main> </div> 
 			
 			<script>
 				{
-					__sveltekit_6rvdr1 = {
+					__sveltekit_l0gsgs = {
 						base: new URL("..", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -198,8 +198,8 @@ dart 에서는 equal 메서드와 hashcode 메서드를 간단하게 만들기�
 					const data = [null,null];
 
 					Promise.all([
-						import("../_app/immutable/entry/start.df16a0d8.js"),
-						import("../_app/immutable/entry/app.9a17ed00.js")
+						import("../_app/immutable/entry/start.259ced9d.js"),
+						import("../_app/immutable/entry/app.7deffec1.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
