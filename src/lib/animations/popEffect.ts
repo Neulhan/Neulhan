@@ -48,7 +48,7 @@ class Particle {
     }
 }
 
-export class PopEffect {
+class PopEffect {
     particles: Particle[] = []
     canvas: HTMLCanvasElement
     ctx: CanvasRenderingContext2D
@@ -93,4 +93,7 @@ export class PopEffect {
     delete() {
         this.canvas.remove()
     }
+}
+export const popEffect = (e: MouseEvent) => {
+    new PopEffect(e)
 }

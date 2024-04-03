@@ -1,18 +1,17 @@
 <script lang="ts">
-import { PopEffect } from '@src/lib/animations/popEffect.js'
+import { popEffect } from '@src/lib/animations/popEffect.js'
 
 export let data
 
-const back = () => {
-    if (document.referrer && document.referrer.includes('mysite.com')) {
-        history.back()
-    } else {
-        location.href = '/'
-    }
-}
-
-const popEffect = (e: MouseEvent) => {
-    new PopEffect(e)
+const back = (e: MouseEvent) => {
+    popEffect(e)
+    setTimeout(() => {
+        if (document.referrer && document.referrer.includes('mysite.com')) {
+            history.back()
+        } else {
+            location.href = '/'
+        }
+    }, 500)
 }
 </script>
 

@@ -44,12 +44,12 @@ function selectCategory(value: string) {
         </div>
         <div class="grid grid-cols-1 mt-6 md:grid-cols-3 xl:grid-cols-4 gap-4">
             {#each posts as post}
-                <a href="{post.slug}">
+                <a href="{post.slug}" class="post-card" data-slug="{post.slug}">
                     <div
                         class="flex flex-col rounded-md justify-between shadow-md bg-white overflow-hidden hover:-translate-y-1 hover:shadow-lg duration-300">
                         <div class="h-32 bg-slate-300 relative">
                             <div
-                                class="w-full h-full absolute bg-gradient-to-r from-gray-800 opacity-30">
+                                class="w-full h-full absolute bg-gradient-to-r from-gray-800 opacity-10">
                             </div>
                             {#if post.thumbnail}
                                 <img
