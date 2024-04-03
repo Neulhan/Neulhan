@@ -19,8 +19,10 @@ export async function GET() {
                 </url>
                 ${posts.map((post) => {
                     return `<url>
-                        <loc>http://blog.neulhan.com/${post.slug}</loc>
                         <lastmod>${post.date}</lastmod>
+                        <loc>http://blog.neulhan.com/${post.slug}/</loc>
+                        <changefreq>monthly</changefreq>
+                        <priority>1</priority>
                     </url>
                     `
                 })}
