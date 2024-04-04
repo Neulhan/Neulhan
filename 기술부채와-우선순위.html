@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="./favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+        <link
+            href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-TQE5NFT4DN"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            function gtag() {
+                dataLayer.push(arguments)
+            }
+            gtag('js', new Date())
+
+            gtag('config', 'G-TQE5NFT4DN')
+        </script>
+
+        
+		<link href="./_app/immutable/assets/0.15d80dd9.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/3.23bda755.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.6fb32af2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.1916e345.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.4a562f45.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.93cc2e76.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.5c9dac44.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.7a0085c8.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/each.e59479a4.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.9f2f2447.js"><title>기술부채와 우선순위</title><!-- HEAD_svelte-15uyux5_START --><meta property="og:type" content="article"><meta property="og:title" content="기술부채와 우선순위"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/기술부채와-우선순위/2023-11-12-17-17-43.png"><!-- HEAD_svelte-15uyux5_END -->
+    </head>
+    <body data-sveltekit-preload-data="hover">
+        <div style="display: contents">  <div class="app flex flex-col"><div class="bg-white w-full p-4 shrink-0 flex justify-between content-center border-b border-slate-200"><div class="logo" data-svelte-h="svelte-1lqcucv"><a href="/" class="font-semibold text-2xl flex flex-nowrap"><span class="tf mr-2">🦉</span> 개발자 늘한</a></div> <nav class="flex"><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://github.com/Neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="늘한 소개"> 소개 </a><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://images.velog.io/images/wwwssj0309/post/e2262211-93c1-46a2-b72c-345c5c22a683/1.jpg" alt="늘한 예전 블로그"> 예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"> <h1 class="text-4xl pb-2 font-semibold"><span class="tf">🛠️</span> 기술부채와 우선순위</h1></div> <p class="opacity-50 pb-2">2023-11-12</p></div> <div class="content-container md py-4 svelte-a35t19"><h1 data-svelte-h="svelte-190wqwm">인트로</h1> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">지긋지긋해 사는게~ 기술부채에서 사는게~</code><!-- HTML_TAG_END --></pre> <p data-svelte-h="svelte-m4bgp8">IT 업계가 대부분 그렇겠지만 특히 초기 스타트업은 매 순간이 기술 부채와의 전쟁이다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-05-42.png" alt="alt" loading="lazy"> <img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-06-03.png" alt="alt" loading="lazy"></p> <p data-svelte-h="svelte-pk3svm">당장 기술 부채를 해결할 만큼 충분한 자원을 투자할 수 없거나, 비즈니스 로드맵 상 아직 기술 부채가 중요하게 여겨지지 않는 지점에 위치하기 때문에 초기 스타트업의 개발자들은 딜레마에 빠진다.</p> <hr> <br> <p data-svelte-h="svelte-11de8pw">그렇게 축적된 기술 부채는 개발자들의 사기를 떨어뜨리고, 프로덕트 개발 효율을 떨어뜨린다.</p> <p data-svelte-h="svelte-12cd7u0">개발자 처우가 좋지 않은 상황이나 마찬가지이다 보니 좋은 개발자를 새로 데려오기도 힘들다.</p> <p data-svelte-h="svelte-p7rtnu"><strong>“우리 팀은 비즈니스적 가치를 최우선을 생각합니다. 빠른 개발을 위해 스택은 LAMP에 jquery를 쓰고 있습니다.”</strong></p> <p data-svelte-h="svelte-yqy65n">성장의 의지가 강하고 열정있고 실력도 좋은 개발자를 데려올 수 있을까? 글쎄.</p> <br> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-10-17.png" alt="alt" loading="lazy"></p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token string">"열심히 연습하는 자신을 놔두고 동시대가 휙 지나가버렸다는걸"</span> 뒤늦게
+깨닫게 될때의 절망감은 말로 표현하기 어렵다<span class="token punctuation">.</span>
+
+그렇게 되면 사랑스러웠던 회사와 서비스도 더이상은 사랑할 수 없게 된다<span class="token punctuation">.</span>
+
+내가 속한 조직의 구성원들이 동시대를 살아가는 개발자가 아니게 될까봐
+정말 많은 걱정이 되었다<span class="token punctuation">.</span>
+
+이 문제가 전문성이 필요한 개발자에게 정말로<span class="token punctuation">,</span> 정말로 중요하다<span class="token punctuation">.</span>
+
+서비스는 성장하는데 구성원이 성장하지 못하는 상황
+종국엔 아무 회사에서도 받아주지 않는 사람들만 남게되는 상황
+이런 상황이 바깥 세상과 단절하고 우리만의 힙함을 강조하는
+스타트업에서는 비일비재하게 발생한다<span class="token punctuation">.</span>
+
+<span class="token operator">-</span> 향로님 블로그 발췌</code><!-- HTML_TAG_END --></pre> <hr> <br> <p data-svelte-h="svelte-1hfde95">반면에 과도한 기술 부채 개선, 과도한 개인의 성장 지향 또한 회사에 도움이 되지 않는다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-15-37.png" alt="alt" loading="lazy"></p> <br> <p data-svelte-h="svelte-mftc9k">결국 개발자는 비즈니스적인 가치를 뽑아내기 위해서 고용되어 있는 것인데, 그보다 기술적인 완성도에 집중하게 되면 오버엔지니어링이 될 가능성이 크다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python">얼마전에 한 스타트업 CTO 가 쓴 기술 스택과 구현 과정이 인터넷페이스북
+상에서 많이 공유되었는데<span class="token punctuation">,</span> 솔직히 과도했다고 느껴졌다<span class="token punctuation">.</span>
+
+뭐 나름대로 그렇게 한 이유는 다양하겠지만<span class="token punctuation">,</span> 그 서비스의 엔지니어링 스펙을
+실제로는 <span class="token number">20</span><span class="token operator">%</span>도 다 못쓰고 있을거라는 것이 자명했다<span class="token punctuation">.</span>
+
+본질적으로 해당 서비스는 쇼핑몰이었다<span class="token punctuation">.</span> 동영상이 들어간 쇼핑몰<span class="token punctuation">.</span>
+아마 그 정도는 카X24 혹은 고X몰고자몰? 로도 충분히 만들 수 있고
+안정적으로 운영할 수 있었을 것이다<span class="token punctuation">.</span> 물론 기왕 만들거 잘 만들면 좋겠지만<span class="token punctuation">,</span>
+장담컨데 들어간 엔지니어링 혹은 개발자에 비해 트래픽은 상대적으로 낮을것이다<span class="token punctuation">.</span>
+그렇다면 굳이 왜 그렇게 만들어야 했을까?
+
+<span class="token operator">-</span> 김석준님 블로그 발췌</code><!-- HTML_TAG_END --></pre> <hr> <br> <p data-svelte-h="svelte-uxp3a7">이렇듯 기술 부채를 언제 어떻게 얼마나 해소할지, 우선순위를 어떻게 둬야할지는 IT 씬에서 논의가 많이 되는 주제이기에 다른 회사, 개발자들은 어떻게 생각하고 있는지를 정리해 보았다.</p> <br> <h1 data-svelte-h="svelte-1qtgiv2">1. Prioritizing Technical Debt As If Time And Money Matters</h1> <p data-svelte-h="svelte-17wfpo2">Software Design X-ray 의 저자 Adam Tornhill 의 강연이다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-17-12.png" alt="alt" loading="lazy"></p> <p data-svelte-h="svelte-tccn63">아담 톤힐은 결국 기술 부채의 우선순위를 지정하기 위해서는 정량적인 측정이 필요하다고 이야기 한다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-17-43.png" alt="alt" loading="lazy"></p> <br> <br> <br> <p data-svelte-h="svelte-mmdyyz">그리고 그 방법으로 깃과 같은 버전 관리 시스템의 메타데이터를 활용하는 사례를 이야기한다.</p> <p data-svelte-h="svelte-2ni4i3">특정 파일의 코드 줄 수, contribue 한 개발자 수, 커밋의 빈도, 최근 수정일을 분석해서 Hotspot 이라고 불리는 높은 온도의 기술 부채를 파악할 수 있다는 것이다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-20-09.png" alt="alt" loading="lazy"></p> <br> <br> <br> <p data-svelte-h="svelte-1j7p30o">흥미로운 주제였고 도움이 될만한 내용도 있지만 결국 내가 원하는 답과는 조금 거리가 있는 것 같다.</p> <p data-svelte-h="svelte-2qj42u">내가 생각했던 문제점은 “비즈니스 vs 기술부채” 상황에서 기술부채의 우선순위를 정하는 방법이었는데, 아담 톤힐은 “기술부채 vs 기술부채” 기술부채 중에서 더 우선순위가 높은 것을 판단하는 방법을 설명한다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-21-22.png" alt="alt" loading="lazy"></p> <br> <br> <br> <p>?
+<img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-21-52.png" alt="alt" loading="lazy"></p> <p data-svelte-h="svelte-18w3jbo">(아차차..! 광고였다! )</p> <p data-svelte-h="svelte-icr01v">codescene 이라는 곳에서 해당 시각화를 제공하고 있다고 하니 관심이 있다면 한 번 시도해보는 것도 나쁘지 않을 것 같다. free 트라이얼이 제공되고 있고, 이후에는 contributer 1인당 한 달에 18유로 이다.</p> <br> <br> <br> <h1 data-svelte-h="svelte-18ldimo">2. A Practical Prioritization Approach for Technical Debt</h1> <p data-svelte-h="svelte-1qrk5za">다음은 기술 부채에 관한 한 블로그 글이다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-22-33.png" alt="alt" loading="lazy"> <img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-22-58.png" alt="alt" loading="lazy"></p> <p data-svelte-h="svelte-1jwzyv1">“새로운 비즈니스 피처 요청이 있는데, 개발팀이 기술부채를 먼저 해결하기를 원한다면 어떻게 할 것인가요?”</p> <br> <br> <p data-svelte-h="svelte-1b9arvi">글쓴이는 기술부채를 크게 두가지로 나눠서 보고 있다.</p> <p data-svelte-h="svelte-15n5qjn"><strong>1. The ‘Deliberate Tech Debts’</strong></p> <p data-svelte-h="svelte-1wn40g3"><strong>2. The ‘Accidental Tech Debts’</strong></p> <br> <br> <p data-svelte-h="svelte-1p50sbe">그 중 우연한 기술 부채는 줄이기 힘들고, 고의적인 기술 부채를 줄일 수 있다고 한다.</p> <p data-svelte-h="svelte-fjhjfr">본질적으로, ‘고의적인 기술 부채’를 실제 금융 부채처럼 취급하는 것이 요령이다.</p> <p data-svelte-h="svelte-1dnuf8m">금융부채가 많을 때는 투자금을 낮추고 빚을 먼저 갚는 것이 가장 현명한 방법이다. 왜냐하면 일반적으로 이자부담금이 투자수익률보다 높기 때문이다. 마찬가지로, 고의적인 기술 부채의 경우에도 긴급한 비즈니스 요구사항에 영향을 미치지 않으면서 이를 줄이고 가능한 한 빨리 제거하는 것이 가장 좋은 방법이다.</p> <br> <br> <br> <p data-svelte-h="svelte-7y6oyt">그리고 글쓴이는 기술부채 우선순위 결정 트리를 만들어놨다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-23-29.png" alt="alt" loading="lazy"></p> <ol data-svelte-h="svelte-1xoyf49"><li>기술부채를 고치는 것이 필요한 것으로 여겨지나요? (이 기술 부채가 있으면 프로덕트를 진행할 수 없는가)</li> <li>기술 부채가 실현 가능한 작업 없이 기능 개발을 가로막고 있는가?</li> <li>계획된 스프린트 스코프에 영향을 주지 않고 현재 스프린트에 추가할 수 있을 정도로 충분히 작은가?</li> <li>이 기술부채를 해결하려는 투두가 백로그에 계획되어있는가?</li> <li>이 기술부채의 영향을 받는 새로운 기능을 다음 스프린트에 넣을 수 있는가?</li></ol> <br> <br> <br> <hr> <p data-svelte-h="svelte-1pl4tjq">비즈니스 vs 기술부채의 딱 내가 원하는 구도에서의 우선순위 선정 방식이라서 좋았다.</p> <p data-svelte-h="svelte-fu6ewe">괜찮은 우선순위 선정 방식인 것 같고, 일단 도입해보고 차차 우리 조직에 맞게 개선해보면 좋을 것 같다.</p> <h1 data-svelte-h="svelte-tcfse3">3. <strong>오버 엔지니어링과 기술 부채</strong></h1> <p data-svelte-h="svelte-hi3ezd">기술부채를 판단하는 알고리즘을 만들어놨다는 점에서 비슷한 글이 있어서 가져왔다.</p> <p data-svelte-h="svelte-10xpm2k"><a href="http://op.gg" rel="nofollow">op.gg</a> 에서 일하고 계시는 김석준님의 블로그 글이다.</p> <p data-svelte-h="svelte-1e868fk">일단 이분은 기술부채를 더 많이 감당해도 괜찮다는 스탠스(더 비즈니스 지향적인)를 가지고 계신다.</p> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">솔직히 말해서 나도 한번씩 다 해보고 싶은 것들이다. 뛰어난 개발자일수록
+이러한 유혹에 빠지기 쉬운데, 가장 큰 이유는 꼭 필요해서가 아니라,
+해보고 싶고 또 할 수 있기 때문이라는 것을 부정할 수 없을 것이다.
+
+반면 CEO 라면 필요한 것의 대부분은 이미 저렴한 가격에 디자인만 입히면
+(심지어 디자인도 저렴하다)
+바로 서비스를 시작할 수 있는데 왜 저렇게 해야 하나 하는 의문이 생길 것이다.</code><!-- HTML_TAG_END --></pre> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-25-18.png" alt="alt" loading="lazy"></p> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">나는 어플리케이션 개발자로서 엔지니어링과 서비스 운영이라는 두가지 토끼를
+쫓아야 한다고 생각한다. 개발자로서 서비스를 운영을 게을리 해서도 안되고,
+엔지니어링에 집착해서 빠르게 방향전환을 못해서도 안된다.
+
+하지만 둘 중 하나를 꼭 선택해야 한다면 당연히 서비스 운영이어야 한다.
+개발자도 월급이 필요하다. 월급을 받으려면 회사가 기능해야 하고 회사로서
+발빠르게 고객에 대처하려면 개발의 도움이 반드시 필요하다.</code><!-- HTML_TAG_END --></pre> <br> <br> <br> <p data-svelte-h="svelte-uuhy09">그래도 존재하는 <strong>기술부채를 해결해야만 하는 상황</strong></p> <ol data-svelte-h="svelte-il8edc"><li>단독 서비스에 한계가 왔다.<ul><li>추가적인 서비스를 개발해야 하는데 레거시 코드를 손보기가 매우 어렵다.</li> <li>이미 매출이 발생하는 레거시를 버릴수는 없고, 이걸 건드리자니 너무나 고생스럽고 그러다보니 당연히 버그가 많다.</li></ul></li> <li>트래픽과 서버 유지/보수 비용이 동시에 가파르게 증가한다.<ul><li>트래픽이 늘어나는 건 확실한데 서버 유지/보수 비용 또한 함께 증가한다.</li> <li>가상화가 되어있지 않아서, 빠르게 스케일 아웃 할 수 없고 다시 줄일수도 없다.</li> <li>데이터베이스를 확장하다보니 서비스 중단이 발생한다.</li></ul></li> <li>신기술 도입이 필요하다.<ul><li>실시간성이 중요해져서 소켓을 도입하려니, 현재 기술 스택에서 개발기간이 크게 늘어난다.</li> <li>차세대를 할만한 여유는 없는데, 지금 기술로는 성장에 방해가 될 정도에 이르렀다.</li> <li>오래된 기술 때문에 좋은 개발자들이 지원하지 않는다.</li></ul></li></ol> <br> <br> <p data-svelte-h="svelte-i1bekv">기술 부채를 해결할지 결정하는 기준.</p> <ol data-svelte-h="svelte-1im7qcz"><li>이 기술이 없으면 서비스가 불가능한가?<ul><li>가능하다 : 0점</li> <li>불편하다 : 3점</li> <li>불가능하다 : 5점</li></ul></li> <li>이 서비스는 단기간 내에 복잡도가 증가할 것인가?<ul><li>그렇지 않다 : 0점</li> <li>잘 모르겠다 : 1점</li> <li>그렇다 : 3점</li> <li>매우 그렇다 : 5점</li></ul></li> <li>이 기술을 감당할 개발자가 나 말고 또 있는가?<ul><li>그렇지 않다 : -1점</li> <li>1명 : 1점</li> <li>2명 이상 : 3점</li></ul></li> <li>이 서비스의 고객은 어떠한 사람인가?<ul><li>무료 사용자 : 0점</li> <li>유료 사용자 : 3점</li></ul></li> <li>해보고 싶고 일정을 지킬 수 있는가?<ul><li>해보고 싶다 : 1점</li> <li>해보고 싶지만 자신 없다 : 0점</li> <li>두마리 토끼 둘다 가능하다 : 3점</li></ul></li></ol> <br> <p data-svelte-h="svelte-1esrlzd"><strong>결과</strong></p> <ul data-svelte-h="svelte-1q9afme"><li>8점 이하 : 오버 엔지니어링</li> <li>8점~11점 : 기술 부채를 쌓아도 괜찮다</li> <li>12점 이상 : 적정 엔지니어링</li></ul> <br> <br> <br> <p data-svelte-h="svelte-1iob562">2번 글과 달리 기준에서 개발자 리소스를 고려했고,</p> <p data-svelte-h="svelte-1tf7kne">개발자들이 기술부채를 해결하는 것을 비즈니스적인 문제 해결을 위해서보다 해보고 싶어서 한다는 생각을 고려해서 나온 기준이라 설득력이 더 있었던 것 같다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-25-48.png" alt="alt" loading="lazy"></p> <p data-svelte-h="svelte-56bh89">직접 창업을 하고 엑싯까지 해보신 개발자분이라서 그런지, 블로그에 비즈니스에 중심을 둔 개발적인 생각들이 많았고 대부분 흥미롭게 읽었다.</p> <p data-svelte-h="svelte-nms19d">오늘 정리한 글 중에서 가장 마음이 많이 가는 방식이었다.</p> <br> <br> <br> <br> <h1 data-svelte-h="svelte-8wwddl">4. <strong>화해 개발팀이 협업하는 방법</strong></h1> <p data-svelte-h="svelte-m3k1z2">네번째 글은 화해의 글이다. 협업 방법이라고 써있지만 기술부채와 관련된 내용이 있어서 읽어봤다.</p> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">원하는 만큼의 기술을 원하는 시기에 모두 개선하거나 교체해나갈 수 있다면 좋겠지만,
+늘 사람이 부족할 수밖에 없는 스타트업 실행 조직의 상황에서
+기술 부채 개선을 위한 과제 실행은 당장 비즈니스 성장 측면에서는
+오히려 실행속도가 저하된 상황을 연출하게 됩니다.
+
+따라서 이 두 가지를 잘 조율하면서 실행해나갈 수 있도록
+시기적절한 의사결정들을 해나간다는 것은 늘 어려운 일 같습니다.</code><!-- HTML_TAG_END --></pre> <p data-svelte-h="svelte-1chqtbr">완전 공감되는 문구이다.</p> <br> <br> <br> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">화해팀은 우리가 하는 일들이 우리가 추구하는 가치와 맞닿아있는지를 고민합니다.
+
+화해 개발팀이 추구하는 가치 : “회사, 비즈니스, 팀, 개인의 성장”
+가치 판단 기준 : “지속성, 연속성”</code><!-- HTML_TAG_END --></pre> <br> <br> <p data-svelte-h="svelte-krv0so">회사, 비즈니스, 팀, 개인의 성장을 모두 추구하는데, 그 사이에서 상충하는 상황이 생긴다면 어떻게 하는지는 글에 나와있지가 않다.</p> <p data-svelte-h="svelte-15p5e5p">당연히 회사 &gt; 비즈니스 &gt; 팀 &gt; 개인 순 이겠거니 싶기는 하다.</p> <p data-svelte-h="svelte-1e72ncr">그래도 좋게 느낀 점 중 하나는, 팀, 개인의 성장까지도 추구하는 가치로 써놓고 놓치지 않을려고 한다는 점이 인상깊었다.</p> <br> <br> <br> <h1 data-svelte-h="svelte-1hmxnju">마무리</h1> <p data-svelte-h="svelte-1ovldvj">나는 한 동안 회사와 비즈니스의 성장을 최우선 가치로 두고 행동했었다.</p> <p data-svelte-h="svelte-1ksq8s7">그게 좀 과해서 팀과 개인의 성장을 거의 무시하게 될 정도였다.</p> <p data-svelte-h="svelte-v7sc8k">그런데 최근에 개발자를 채용하기 위해서 JD를 쓰는데, 약간 현타가 왔다. “아 이런 개발팀에 개발자가 지원하고 싶을까? 아닐 것 같은데..”</p> <p data-svelte-h="svelte-elhwev">나랑 범수형이야 회사에서 초기멤버고 스톡옵션을 크게 가지고 있기 때문에 회사에서 받아갈 큼지막한 보상을 보고 일할 수 있다.</p> <p data-svelte-h="svelte-1073sxr">그런데 새로 들어올 개발자들에게도 그런식으로 일하기를 강요할 수는 없겠다, 애초에 좋은 개발자가 들어오고 싶지 않겠다 싶은 생각이 들었다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/%EA%B8%B0%EC%88%A0%EB%B6%80%EC%B1%84%EC%99%80-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84/2023-11-12-17-28-16.png" alt="alt" loading="lazy"></p> <p data-svelte-h="svelte-1xcgwk7">결정적으로 영향을 받은건 jojoldu 의 글과 이 페이스북 글.</p> <p data-svelte-h="svelte-1p4hdhi"><strong>동시대를 살아가는 개발자가 아니게 된다</strong></p> <p data-svelte-h="svelte-7wlm7r">회사에서 스톡옵션을 실현하기 위해 나는 개발자이기를 포기했다. 현재 회사에서 서버 개발자로 동시대를 살 수 있을거라는 생각이 들지를 않았다.</p> <p data-svelte-h="svelte-zkm17m">동시에 개발자의 커리어보다 자유로운 창업가가 되고 싶은 마음도 한 몫하기는 했지만.</p> <br> <br> <p data-svelte-h="svelte-qbyjl9">이제는 나만 개발하는게 아니라, 매니징 해야하는 팀원도 있고, 새로 들어올 사람들도 있다. 그 과정에서 기술적인 성장을 놓치지는 말아야 겠다는 생각이 들었고, 기술 부채 우선순위를 잘 설정해서 개발팀, 개발자 개인의 성장과 결부되는 투두들을 만들어야겠다.</p> <p data-svelte-h="svelte-5ujc4q">전에 만났던 토스의 도환님이 그런 이야기를 해줬었다.</p> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">토스에 들어오면 오히려 성장을 하기가 힘들어요. 대부분 경력직으로 들어오는데,
+성과에 대한 압박이 심하니까 익숙한 스택으로 빨리 빨리 개발을 하게 되더라구요.
+
+그런데 그 와중에도 새로운 스택과 기술로 듀데이트와 요구사항을 다 맞춰내는
+개발자들이 있어요. 저는 그런 사람들이 진짜 잘하는 사람이라고 생각해요.</code><!-- HTML_TAG_END --></pre> <br> <br> <p data-svelte-h="svelte-d7sjdh">앞으로는 프로덕트, 비즈니스 요구사항을 잘 지켜내는 선에서 팀과 개인의 성장을 위해서 다양한 시도들을 해봐야 할 것 같다.</p> <p data-svelte-h="svelte-zmccwl">성장이 힘든 상황에서도 요구사항을 다 맞춰내면서 성장해내는 팀이 잘하는 팀이고, 잘하는 개발자이니까.</p> <p data-svelte-h="svelte-cl1jjv">아무튼 오늘은 그런 관점에서 글을 작성하다보니, 기술 부채와 개발자의 성장에 대한 내용이 조금 섞인 것 같다.</p> <p data-svelte-h="svelte-w2f9sw">끗!</p> <h1 data-svelte-h="svelte-bn9628">참고자료</h1> <ul data-svelte-h="svelte-144xhuo"><li><a href="https://kadensungbincho.tistory.com/72" rel="nofollow">레거시를 파악하고 변경해나가기: 우선순위와 고려사항들</a></li> <li><a href="https://productcoalition.com/a-practical-prioritization-approach-for-technical-debt-f1eb31b8e409" rel="nofollow">A Practical Prioritization Approach for Technical Debt</a></li> <li><a href="https://seokjun.kim/over-engineering-vs-techincal-debt/" rel="nofollow">오버 엔지니어링과 기술 부채</a></li> <li><a href="https://jojoldu.tistory.com/626" rel="nofollow">2021년 CTO 회고</a> <a href="http://blog.hwahae.co.kr/all/tech/tech-tech/6560/" rel="nofollow">화해 개발팀이 협업하는 방법 - 화해 블로그 | 기술 블로그</a></li> <li><a href="https://medium.com/swlh/how-product-manager-can-help-reduce-technical-debt-202b2e571d6f" rel="nofollow">How Product Manager Can Help Reduce Technical Debt</a></li></ul> </div> <hr> <div class="flex justify-between flex-col sm:flex-row sm:content-start"><button data-svelte-h="svelte-1anfkcs"><span class="tf">👈</span> 목록으로 돌아가기</button> <button class="sm:mt-0 mt-2 relative" data-svelte-h="svelte-wc677q"><span class="tf pointer-events-none">😁</span> 부족한 글 읽어주셔서 감사합니다</button></div> <hr> <div data-svelte-h="svelte-ofcyfb"><script src="https://giscus.app/client.js" data-repo="Neulhan/Neulhan" data-repo-id="MDEwOlJlcG9zaXRvcnkyODc0NzE2OTA=" data-category="Announcements" data-category-id="DIC_kwDOESJ4Ss4CeXnk" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="ko" data-loading="lazy" crossorigin="anonymous" async></script></div></article></main> </div> 
+			
+			<script>
+				{
+					__sveltekit_zeo0qg = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.6fb32af2.js"),
+						import("./_app/immutable/entry/app.93cc2e76.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+    </body>
+</html>
