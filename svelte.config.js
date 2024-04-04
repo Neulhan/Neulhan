@@ -7,6 +7,9 @@ const dev = process.env.ENV === 'dev'
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
     extensions: ['.md'],
+    layout: {
+        _: './src/lib/mdsvex/mdsvex.svelte',
+    },
 }
 
 /** @type {import('@sveltejs/kit').Config} */

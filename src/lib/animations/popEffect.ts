@@ -5,8 +5,7 @@ import {
     getRandomInt,
 } from '../utils/random'
 
-const colorPool = ['#FFFF00', '#00FFFF', '#FF00FF']
-
+const colorPool = ['#8294C4', '#ACB1D6', '#DBDFEA', '#FFEAD2']
 class Particle {
     x: number
     y: number

@@ -42,7 +42,8 @@ function selectCategory(value: string) {
                 </button>
             {/each}
         </div>
-        <div class="grid grid-cols-1 mt-6 md:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div
+            class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
             {#each posts as post}
                 <a href="{post.slug}" class="post-card" data-slug="{post.slug}">
                     <div

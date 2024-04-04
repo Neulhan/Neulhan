@@ -6,10 +6,12 @@
     },
     "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
     "pasteImage.defaultName": "Y-MM-DD-HH-mm-ss",
-    "pasteImage.basePath": "${currentFileDir}",
-    "pasteImage.path": "${currentFileDir}/images/${currentFileNameWithoutExt}",
+    "pasteImage.basePath": "${projectRoot}/tmp",
+    "pasteImage.path": "${projectRoot}/tmp",
     "markdown.editor.filePaste.copyIntoWorkspace": "never",
     "markdown.editor.filePaste.enabled": false,
-    "pasteImage.suffix": "",
-    "pasteImage.prefix": "https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/"
+    "pasteImage.suffix": ".webp",
+    "pasteImage.prefix": "https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/",
+    "pasteImage.showFilePathConfirmInputBox": true,
+    "pasteImage.insertPattern": "${imageSyntaxPrefix}${imageFilePath}${imageSyntaxSuffix}"
 }
