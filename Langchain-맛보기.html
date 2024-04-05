@@ -20,18 +20,18 @@
         </script>
 
         
-		<link href="./_app/immutable/assets/0.8787021b.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/0.f4fda45a.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/3.23bda755.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.f9f444d6.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.6c9ae62a.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.1916e345.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.22046840.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.a72bc741.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.6ed06edd.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.7637d4d7.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.5c9dac44.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.616f7b9f.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.0bad7cb1.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/each.e59479a4.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/3.291c8447.js"><title>Langchain 맛보기</title><!-- HEAD_svelte-ujbvpk_START --><meta name="description" content="생성형 AI 는 올해 아주 핫하다. 나는 개발자로 일하면서 꽤 오랜 시간동안 곁눈질 하다가 이제서야 LLM 을 제대로 들여다보고 있다. LLM 어플리케이션을 만들기 위해 뒤늦게 기술들을 살펴보고 있는 경험을 공유한다."><meta property="og:type" content="article"><meta property="og:title" content="Langchain 맛보기"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/Langchain-맛보기/2023-11-12-18-05-55.png.webp"><!-- HEAD_svelte-ujbvpk_END -->
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.116dbab8.js"><title>Langchain 맛보기</title><!-- HEAD_svelte-ujbvpk_START --><meta name="description" content="생성형 AI 는 올해 아주 핫하다. 나는 개발자로 일하면서 꽤 오랜 시간동안 곁눈질 하다가 이제서야 LLM 을 제대로 들여다보고 있다. LLM 어플리케이션을 만들기 위해 뒤늦게 기술들을 살펴보고 있는 경험을 공유한다."><meta property="og:type" content="article"><meta property="og:title" content="Langchain 맛보기"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/Langchain-맛보기/2023-11-12-18-05-55.png.webp"><!-- HEAD_svelte-ujbvpk_END -->
     </head>
     <body data-sveltekit-preload-data="hover">
         <div style="display: contents">  <div class="app flex flex-col"><div class="bg-white w-full p-4 shrink-0 flex justify-between content-center border-b border-slate-200"><div class="logo" data-svelte-h="svelte-1lqcucv"><a href="/" class="font-semibold text-2xl flex flex-nowrap"><span class="tf mr-2">🦉</span> 개발자 늘한</a></div> <nav class="flex"><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://github.com/Neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="늘한 소개"> 소개 </a><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://images.velog.io/images/wwwssj0309/post/e2262211-93c1-46a2-b72c-345c5c22a683/1.jpg" alt="늘한 예전 블로그"> 예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"> <h1 class="text-4xl pb-2 font-semibold"><span class="tf"></span> Langchain 맛보기</h1></div> <p class="opacity-50 pb-2">2023-11-08</p></div> <div class="content-container md py-4 svelte-a35t19"><p data-svelte-h="svelte-1arc6h6">생성형 AI 는 올해 아주 핫하다.
@@ -40,7 +40,7 @@ LLM 어플리케이션을 만들기 위해 뒤늦게 기술들을 살펴보고 �
 LLM 은 Large Language Model 의 약자이다.
 LLM 은 쉽게 말해 다음에 나올 단어를 예측하는 거대한 언어모델이다.</p> <p data-svelte-h="svelte-1i1fayc">AI 모델을 직접 훈련시키는 건 비용이 아주 많이 들고, 전문인력이 필요한 일이다.
 그런데 LLM 은 prompt engineering 와 fine tuning 을 통해서 간단하게 AI 를 다룰 수 있게 해주었다.</p> <p data-svelte-h="svelte-1wrasyr">다음에 나올 단어를 예측하는건 LLM 이 하고, 우리는 LLM 에게 맥락만 전달해주면 된다.</p> <h2 data-svelte-h="svelte-7pmgah">Langchain</h2> <p data-svelte-h="svelte-ulq2ol">최근에는 langchain 에 관한 내용을 보았다.
-langchain 은 LLM 을 이용해서 어플리케이션을 만들 수 있는 Chain 을 제공한다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/Langchain-%EB%A7%9B%EB%B3%B4%EA%B8%B0/2023-11-12-18-05-55.png.webp" alt="langchain ecosystem"></p> <p data-svelte-h="svelte-vdmucu">Langchain 은 public/private 한 데이터를 가져와서 사용자의 질문에 대답하거나, 특정 기능을 구현하는데 특화된 프레임워크이다.</p> <h3 data-svelte-h="svelte-11r4c1t">Agent</h3> <p data-svelte-h="svelte-1ovxi98">Agent 는 tool 을 직접 사용해서 작업을 수행한다.
+langchain 은 LLM 을 이용해서 어플리케이션을 만들 수 있는 Chain 을 제공한다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/Langchain-%EB%A7%9B%EB%B3%B4%EA%B8%B0/2023-11-12-18-05-55.png.webp" alt="langchain ecosystem" width="700"></p> <p data-svelte-h="svelte-vdmucu">Langchain 은 public/private 한 데이터를 가져와서 사용자의 질문에 대답하거나, 특정 기능을 구현하는데 특화된 프레임워크이다.</p> <h3 data-svelte-h="svelte-11r4c1t">Agent</h3> <p data-svelte-h="svelte-1ovxi98">Agent 는 tool 을 직접 사용해서 작업을 수행한다.
 예를 들어 “구글에서 검색하기” 라는 함수를 만들어서 툴로 쥐어주면,
 자기가 알아서 필요할 때 구글에서 검색해서 결과를 가져다가 쓴다.</p> <p data-svelte-h="svelte-t0n8vg">verbose 를 True 로 주면 자기가 무슨 생각 하면서 뭘 하고 있는지 줄줄이 읊는데 보고있으면 꽤나 신기하고 재미있다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python">tool_names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
 tools <span class="token operator">=</span> load_tools<span class="token punctuation">(</span>tool_names<span class="token punctuation">)</span>
@@ -76,7 +76,7 @@ Summarizing, Document QnA 같은 기능은 구현이 너무 쉬워서 이쪽 위
 			
 			<script>
 				{
-					__sveltekit_14cph21 = {
+					__sveltekit_1fhjy67 = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -86,8 +86,8 @@ Summarizing, Document QnA 같은 기능은 구현이 너무 쉬워서 이쪽 위
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.f9f444d6.js"),
-						import("./_app/immutable/entry/app.6ed06edd.js")
+						import("./_app/immutable/entry/start.6c9ae62a.js"),
+						import("./_app/immutable/entry/app.7637d4d7.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],

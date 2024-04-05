@@ -10,6 +10,12 @@
                     <changefreq>daily</changefreq>
                 </url>
                 <url>
+                        <lastmod>2024-04-05</lastmod>
+                        <loc>https://blog.neulhan.com//블로그-이미지-Webp-로-싹-변경하기/</loc>
+                        <changefreq>monthly</changefreq>
+                        <priority>1</priority>
+                    </url>
+                    ,<url>
                         <lastmod>2024-04-02</lastmod>
                         <loc>https://blog.neulhan.com//rust-wasm-pack-malloc-error/</loc>
                         <changefreq>monthly</changefreq>
