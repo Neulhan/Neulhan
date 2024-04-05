@@ -7,10 +7,10 @@ categories:
     - python
     - PEP
 published: true
-thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/PEP1/2023-11-15-02-20-40.png
+thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/PEP1/2023-11-15-02-20-40.png.webp
 ---
 
-![PEP-1 thumbnail](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/PEP1/2023-11-15-02-20-40.png)
+![PEP-1 thumbnail](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/PEP1/2023-11-15-02-20-40.png.webp)
 <br>
 <br>
 

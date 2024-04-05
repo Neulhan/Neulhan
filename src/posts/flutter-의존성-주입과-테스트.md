@@ -7,7 +7,7 @@ categories:
     - flutter
     - dart
 published: true
-thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-04-13-57.png
+thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-04-13-57.png.webp
 ---
 
 # 들어가며
@@ -16,7 +16,7 @@ thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-�
 
 백엔드를 지금은 FireStore 를 쓰고 있는데, 나중에 직접 백엔드 서버를 구축할 예정이다.
 
-![flutter 의존성 주입](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-04-13-57.png)
+![flutter 의존성 주입](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-04-13-57.png.webp)
 
 이런 상황에서 잘못하면 코드가 덕지덕지 붙어서 껌딱지처럼 떼어내기가 어려워진다.
 
@@ -50,7 +50,7 @@ abstract interface class CapsulePackageRepo {
 -   그리고 해당 인터페이스를 구현한 repository 구현체를 만든다.
 -   현재는 `FireStore` 를 사용중이기 때문에 `FireStoreCapsulePackageRepo` 로 구현
 
-![flutter implements](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-01-37-25.png)
+![flutter implements](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-01-37-25.png.webp)
 
 <br>
 
@@ -60,7 +60,7 @@ abstract interface class CapsulePackageRepo {
 의존성 주입을 쉽게 할 수 있도록 도와주는 **`Injectable`** 이라는 라이브러리가 있다.  
 좋아요 1,000개짜리라 거의 공식 라이브러리라고 할 수 있다.
 
-![Injectable](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-02-27-06.png)
+![Injectable](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-02-27-06.png.webp)
 
 <br>
 
@@ -296,7 +296,7 @@ dart 에서는 equal 메서드와 hashcode 메서드를 간단하게 만들기�
 
 이 패키지도 like 가 2,700개 가까이 되는 근본 패키지이다.
 
-![equatable](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-23-53-23.png)
+![equatable](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-23-53-23.png.webp)
 
 ### 사용법
 

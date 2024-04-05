@@ -7,10 +7,10 @@ categories:
     - django
     - django-ninja
 published: true
-thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-06-43.png
+thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-06-43.png.webp
 ---
 
-![django-ninja 1.0](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-06-43.png)
+![django-ninja 1.0](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-06-43.png.webp)
 
 # django-ninja 1.0 릴리즈
 
@@ -33,7 +33,7 @@ Pydantic v2 가 러스트로 완전히 다시 작성되고, 이런 개선점이 
 
 그리고 Pydantic 의 새 기능 덕에 resolve 과정에서 django request 객체를 쓸 수 있어졌다고 한다.
 
-![pydantic context](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-23-45.png)
+![pydantic context](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-23-45.png.webp)
 
 <br>
 
@@ -44,7 +44,7 @@ Django 의 ModelForm 과 유사한 `class Meta` 를 사용.
 
 Django 치고는 너무 FastAPI 스러운 감이 있었는데 요런 디테일들 좋다.
 
-![django-ninja Schema.Meta](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-19-16.png)
+![django-ninja Schema.Meta](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-19-16.png.webp)
 
 <br>
 
@@ -52,7 +52,7 @@ Django 치고는 너무 FastAPI 스러운 감이 있었는데 요런 디테일�
 
 Form 데이터를 받아오는 코드가 깔끔해졌다.
 
-![django-ninja Shorter / cleaner parameters syntax](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-47-06.png)
+![django-ninja Shorter / cleaner parameters syntax](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-47-06.png.webp)
 
 <br>
 
@@ -61,7 +61,7 @@ Form 데이터를 받아오는 코드가 깔끔해졌다.
 authenticate 에 async 가 지원된다.  
 전에 쓸 때는 async 로 안 썼어서 몰랐는데 안 됐었나보다. 아무튼 이제는 가능.
 
-![django-ninja async auth](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-48-33.png)
+![django-ninja async auth](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-02-48-33.png.webp)
 
 <br>
 
@@ -76,7 +76,7 @@ authenticate 에 async 가 지원된다.
 
 문서도 swagger 고정이 아니라 redoc 같은걸로 플러그인 끌어다 쓸 수 있게 변경
 
-![django-ninja docs](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-03-02-33.png)
+![django-ninja docs](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-03-02-33.png.webp)
 
 <br>
 
@@ -85,7 +85,7 @@ authenticate 에 async 가 지원된다.
 라우터에 소소한 string path 지원.  
 django 스러워졌다. 굿.
 
-![django-ninja router](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-03-03-03.png)
+![django-ninja router](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-03-03-03.png.webp)
 
 <br>
 
@@ -93,7 +93,7 @@ django 스러워졌다. 굿.
 
 FastAPI 가 Response 객체를 리턴하는게 아니라, 직렬화 가능한 객체를 리턴하는 바람에 데코레이터를 위 처럼 쓰기 어려웠다.  
 이번 패치로 이제 decorator_view 안에 넣어주면 쓸 수 있게 됨. 굿.
-![django-ninja decorator](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-03-16-35.png)
+![django-ninja decorator](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/django-ninja-1-릴리즈/2023-11-17-03-16-35.png.webp)
 
 <br>
 

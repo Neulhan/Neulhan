@@ -8,10 +8,10 @@ categories:
     - wasm
     - debugging
 published: true
-thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-41-53.png
+thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-41-53.png.webp
 ---
 
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-41-53.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-41-53.png.webp)
 
 아래 명령어로 rust 프로젝트를 번들링, npm 에 배포해서 사용해왔다.
 
@@ -33,13 +33,13 @@ Uncaught TypeError: malloc is not a function
     at index.html:35:25
 ```
 
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-02-11-04-34.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-02-11-04-34.png.webp)
 
 <br>
 
 ?? 멀쩡히 되던놈이 왜이래?
 
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-02-11-13-25.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-02-11-13-25.png.webp)
 
 ```js
 export class FallingConfig {
@@ -96,7 +96,7 @@ fallingjs 에서 dependency 로 가져와서 webpack 으로 번들링을 했기 
 
 ### 2. 코드 수정
 
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-03-14.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-03-14.png.webp)
 
 wasm-pack 의 빌드 타겟이 web 인 경우 wasm 이 init 되는 걸 체크하고 이후에 wasm 코드를 사용해야한다.
 

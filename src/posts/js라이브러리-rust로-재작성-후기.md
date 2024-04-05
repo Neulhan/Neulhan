@@ -95,10 +95,10 @@ requestAnimationFrame 은 기본적으로 1초에 60번 호출되지만, 사용�
 내가 사용중인 모니터는 주사율이 60Hz 여서, 1초에 600개의 눈송이를 생성한다고 볼 수 있다.
 
 **JS 초당 600 개 스폰**
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-10-42-18.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-10-42-18.png.webp)
 
 **Rust-WASM 초당 600 개 스폰**
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-10-59-17.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-10-59-17.png.webp)
 
 결과는 놀랍게도 JS 의 압승.
 육안으로 볼 때 큰 차이가 없긴 해도 퍼포먼스 도구로 확인해보면 2배정도 차이가 난다.
@@ -107,17 +107,17 @@ requestAnimationFrame 은 기본적으로 1초에 60번 호출되지만, 사용�
 <br>
 
 **JS 의 퍼포먼스 상세**
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-11-01-42.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-11-01-42.png.webp)
 
 **Rust-WASM 의 퍼포먼스 상세**
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-11-02-19.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-11-02-19.png.webp)
 
 <br>
 <br>
 
 퍼포먼스 상세를 보면 WASM 을 불러와서 실행하는데 오버헤드가 상당히 많은 걸로 보인다.
 
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-11-05-23.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-11-05-23.png.webp)
 
 <br>
 <br>
@@ -163,7 +163,7 @@ pub fn animation_loop_1(&mut self) {
 <br>
 
 그러나 무한 loop 가 실행을 blocking 하여 아예 첫 렌더링조차 되지 않았다.
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-11-16-29.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-11-16-29.png.webp)
 
 <br>
 
@@ -209,7 +209,7 @@ requestAnimationFrame(animate)
 <br>
 
 **Rust-WASM 초당 600개 스폰**
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-14-11-25.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-14-11-25.png.webp)
 
 눈송이의 위치를 계산하는게 생각보다 무거운 작업이 아니라서 wasm 을 이용하는 오버헤드가 오히려 큰 것 같다.
 
@@ -225,18 +225,18 @@ requestAnimationFrame(animate)
 자원을 거의 다 쓰는건 비슷한데, 육안으로 봤을 때 rust-wasm 쪽 프레임 드랍이 확실히 더 크게 느껴졌다.
 
 **JS 초당 6,000개 스폰**
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-14-24-35.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-14-24-35.png.webp)
 
 **Rust-WASM 초당 6,000개 스폰**
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-14-24-53.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-14-24-53.png.webp)
 
 <br>
 
 **JS 초당 12,000개 스폰**
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-14-32-43.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-14-32-43.png.webp)
 
 **Rust-WASM 초당 12,000개 스폰**
-![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-14-33-49.png)
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/js라이브러리-rust로-재작성-후기/2024-03-29-14-33-49.png.webp)
 
 어떻게 봐도 현재 내가 구현할 수 있는 코드 안에서는 Rust 쪽의 퍼포먼스가 더 안 좋았다.
 
