@@ -22,16 +22,16 @@
         
 		<link href="./_app/immutable/assets/0.f4fda45a.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/3.23bda755.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.6c9ae62a.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.665a81b3.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.1916e345.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.a72bc741.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.6cb3a9ca.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.7637d4d7.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.2654125c.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.5c9dac44.js">
 		<link rel="modulepreload" href="./_app/immutable/nodes/0.0bad7cb1.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/each.e59479a4.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/3.116dbab8.js"><title>PEP-1</title><!-- HEAD_svelte-ujbvpk_START --><meta name="description" content="PEP 는 Python 커뮤니티에서 Python 언어의 발전을 위해서 제안된 문서이다. PEP-1, PEP-8 처럼 번호가 붙어서 관리된다. PEP 가 무엇인지에 대해서도 PEP-1 을 통해서 정의되어있다."><meta property="og:type" content="article"><meta property="og:title" content="PEP-1"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/PEP1/2023-11-15-02-20-40.png.webp"><!-- HEAD_svelte-ujbvpk_END -->
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.0a61e7db.js"><title>PEP-1</title><!-- HEAD_svelte-ujbvpk_START --><meta name="description" content="PEP 는 Python 커뮤니티에서 Python 언어의 발전을 위해서 제안된 문서이다. PEP-1, PEP-8 처럼 번호가 붙어서 관리된다. PEP 가 무엇인지에 대해서도 PEP-1 을 통해서 정의되어있다."><meta property="og:type" content="article"><meta property="og:title" content="PEP-1"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/PEP1/2023-11-15-02-20-40.png.webp"><!-- HEAD_svelte-ujbvpk_END -->
     </head>
     <body data-sveltekit-preload-data="hover">
         <div style="display: contents">  <div class="app flex flex-col"><div class="bg-white w-full p-4 shrink-0 flex justify-between content-center border-b border-slate-200"><div class="logo" data-svelte-h="svelte-1lqcucv"><a href="/" class="font-semibold text-2xl flex flex-nowrap"><span class="tf mr-2">🦉</span> 개발자 늘한</a></div> <nav class="flex"><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://github.com/Neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="늘한 소개"> 소개 </a><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://images.velog.io/images/wwwssj0309/post/e2262211-93c1-46a2-b72c-345c5c22a683/1.jpg" alt="늘한 예전 블로그"> 예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"> <h1 class="text-4xl pb-2 font-semibold"><span class="tf">📐</span> PEP-1</h1></div> <p class="opacity-50 pb-2">2023-11-15</p></div> <div class="content-container md py-4 svelte-a35t19"><p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/PEP1/2023-11-15-02-20-40.png.webp" alt="PEP-1 thumbnail" width="700"></p> <br> <br> <h1 data-svelte-h="svelte-1g7sv7t">PEP</h1> <ul data-svelte-h="svelte-f46xkn"><li>PEP 는 Python 커뮤니티에서 Python 언어의 발전을 위해서 제안된 문서이다.</li> <li>PEP-1, PEP-8 처럼 번호가 붙어서 관리된다.</li> <li>PEP 가 무엇인지에 대해서도 PEP-1 을 통해서 정의되어있다.</li> <li>이 글에서는 <strong>PEP-1 의 내용에 기반해서 설명</strong><ul><li>다만 PEP-1 이 PEP 운영에 대한 너무 디테일한 내용도 많이 담고 있어서 좀 줄여서 정리했다.</li></ul></li></ul> <p data-svelte-h="svelte-1wi742g">그럼 한 번 PEP 에 대해서 알아봅시다.</p> <br> <br> <h2 data-svelte-h="svelte-1r6l4s">PEP 는 무엇인가</h2> <ul data-svelte-h="svelte-kr2iox"><li><strong>Python Enhancement Proposal</strong> (Python 개선 제안) 의 약자</li> <li>Python 커뮤니티와 밀접하게 연결된 창구로서 Python 의 <strong>새로운 기능을 설명하는 일종의 설계문서</strong>.</li> <li>주 대상은 CPython 인터프리터 개발자와, 이들이 선출한 운영위원회, 그리고 Python 언어 스펙을 구현하는 개발자.</li> <li>그러나 Python 커뮤니티의 다른 부분에서도 규칙을 문서화하는데 사용될 수 있다.</li></ul> <br> <br> <h2 data-svelte-h="svelte-ztgx9g">PEP 의 종류</h2> <ol data-svelte-h="svelte-18qtiph"><li><strong>표준 PEP</strong> :<ul><li>Standard Track PEP</li> <li><strong>Python 의 새로운 기능</strong>이나 구현을 설명하는 문서</li> <li>PEP-221(import as), PEP-343(with), PEP-586(Literal Types), <strong>PEP-634</strong>(match)</li></ul></li> <li><strong>정보 PEP</strong> :<ul><li>Information PEP</li> <li>Python 커뮤니티에 <strong>일반적인 지침 또는 정보</strong>를 제공하는 문서.</li> <li>새 기능을 제안(Propose)하는게 아님.</li> <li>때때로 Python 커뮤니티의 합의를 거치지 않았을 수 있기에, <strong>무시하는 것도 OK</strong>.</li> <li><strong>PEP-20</strong>(Zen of Python), PEP-3333(WSGI), PEP-636(match turorial)</li></ul></li> <li><strong>프로세스 PEP</strong><ul><li>Process PEP</li> <li>Python 언어 그 자체보다는 주위 환경에 대한 내용 포함.</li> <li><strong>많은 부분이 PEP 운영 자체에 대한 내용</strong>.</li> <li>정보 PEP 와 달리 프로세스 PEP 내용은 무시하지 않는것이 좋을 것.</li> <li>PEP-1(PEP purpose), <strong>PEP-8</strong>(Style Guide), PEP-676(PEP Infra Process)</li></ul></li></ol> <br> <br> <h2 data-svelte-h="svelte-1lji4r0">PEP workflow</h2> <p data-svelte-h="svelte-a344e0">PEP 가 실제로 등록되는 과정이다. 너무 디테일한 내용이 많아서 Flow 만 볼 수 있을 정도로 줄였다.</p> <br> <h3 data-svelte-h="svelte-zyd2v2">1. Python 에 대한 아이디어로 시작하기</h3> <ul data-svelte-h="svelte-nmk820"><li>PEP 프로세스는 Python에 대한 새로운 아이디어로 시작.</li> <li>하나의 PEP에는 하나의 핵심 제안이나 새로운 아이디어가 포함되는 것이 좋다</li> <li>지정된 스타일과 형식을 사용하여 PEP를 작성</li> <li>적절한 포럼에서 토론을 이끌기</li> <li>아이디어에 대한 커뮤니티의 공감대를 형성</li> <li>일반적으로 <a href="https://discuss.python.org/" rel="nofollow">discuss.python</a>의 <a href="https://discuss.python.org/c/ideas/6" rel="nofollow">아이디어 카테고리에</a> 게시하는게 좋은 방법</li></ul> <br> <h3 data-svelte-h="svelte-100oeqr">2. PEP 제출</h3> <ul data-svelte-h="svelte-1kfsnml"><li>PEP 제출의 조건 : 조력자가 필요<ul><li>PEP 의 공동 저자 중 <strong>Python 코어 개발자</strong>가 있거나</li> <li>없다면 PEP 진행과정에 멘토의 역할을 해줄 <strong>PEP 스폰서</strong>를 선정해야한다</li></ul></li> <li>조력자의 검토 후 제안서를 GitHub 풀 리퀘스트를 통해 PEP 초안으로 제출</li></ul> <br> <h3 data-svelte-h="svelte-tthly2">3. PEP 논의</h3> <ul data-svelte-h="svelte-iea2j5"><li>PEP 번호가 할당되고 초안이 PEP 저장소에 커밋되면</li> <li>해당 내용을 PEP 초안으로서 논의할 수 있는 토론 장소를 정해야함</li> <li>PEP 작성자는 토론을 위한 합리적인 장소를 직접 선택 가능</li> <li>최근에는 <a href="https://discuss.python.org/" rel="nofollow">discuss.python</a>의 <a href="https://discuss.python.org/c/peps/19" rel="nofollow">PEP 카테고리</a>가 대부분의 신규 PEP에게 선호됨</li> <li>PEP 작성자는 검토를 위해 제출하기 전에 PEP에 대한 커뮤니티 피드백을 수집할 책임이 있다.</li></ul> <br> <h3 data-svelte-h="svelte-1b0gfxn">4. PEP 검토 및 결정</h3> <ul data-svelte-h="svelte-1fnld3w"><li>저자와 스폰서가 최종 검토 준비가 되었다고 판단하면, 운영 위원회 이슈를 개설할 수 있다.</li> <li>이슈가 개설되면 <strong>운영 위원회가 공식적으로 검토</strong>를 시작.</li> <li>PEP가 수락되면 구현을 완료하고 메인 소스코드에 통합되면서 “최종” 상태가 된다.</li></ul> <p data-svelte-h="svelte-fw38ka">이 과정에 오면 PEP 가 정식적으로 Python 생태계의 일원이 된다.</p> <br> <br> <h2 data-svelte-h="svelte-1p44nnu">PEP 의 구성요소</h2> <p data-svelte-h="svelte-17w4zlr">일반적으로 각 PEP 에는 다음과 같은 부분/섹션이 포함되어야 함<br>
@@ -39,7 +39,7 @@
 			
 			<script>
 				{
-					__sveltekit_1fhjy67 = {
+					__sveltekit_hie0bi = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -49,8 +49,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.6c9ae62a.js"),
-						import("./_app/immutable/entry/app.7637d4d7.js")
+						import("./_app/immutable/entry/start.665a81b3.js"),
+						import("./_app/immutable/entry/app.2654125c.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
