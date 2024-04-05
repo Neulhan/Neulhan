@@ -1,13 +1,14 @@
 ---
-title: Webp 로 개인블로그 웹 퍼포먼스 개선하기
-description: 개인 블로그 검색엔진최적화(SEO) 작업 내용
-date: '2024-04-04'
+title: 블로그 이미지 Webp 로 싹 변경하기
+description: 내가 블로그에 올리는 사진은 보통 4K 모니터 스크린샷이다. 이미지가 선명해서 좋긴한데 용량이 크다보니, 웹페이지에서 이미지를 로딩하는데 시간이 오래 걸린다. 그래서 png 이미지를 webp 로 전부 교체하면서 결정.
+date: '2024-04-05'
 categories:
-    - design
-    - art
-published: false
-thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-11-10-37.png.webp
+    - webp
+published: true
+thumbnail: https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-20-55-30.png.webp
 ---
+
+![](https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-20-55-30.png.webp)
 
 내가 블로그에 올리는 사진은 보통 4K 모니터 스크린샷이다.
 
@@ -59,7 +60,7 @@ cwebp -q 40 screenshot.png -o screenshot.webp
 <br>
 
 내 블로그 이미지 파일 경로는 다음과 같아서,  
-<img width="300", src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-11-32-24.png.webp">
+<img width="300" src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-11-32-24.png.webp">
 
 <br>
 <br>
@@ -89,7 +90,7 @@ done
 
 결과는 아래와 같이 전부 webp 로 변환 완료
 
-<img width="300", src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-12-43-08.png.webp">
+<img width="300" src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-12-43-08.png.webp">
 
 <br>
 <br>
@@ -190,4 +191,9 @@ fi
 
 와 같은 과정이 자동으로 수행되게 해두었다.
 
-webp 환경 구축하기
+<br>
+<br>
+
+tmp 디렉토리에 파일을 넣는건 vscode 의 pasteImage 라는 확장을 사용중인데, 이건 다음에 다뤄볼 기회가 있으면 다뤄보도록 하겠다.
+
+끝!
