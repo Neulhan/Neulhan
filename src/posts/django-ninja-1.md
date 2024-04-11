@@ -1,4 +1,5 @@
 ---
+slug: django-ninja-1
 emoji: 🥷
 title: django-ninja 1.0 릴리즈
 description: 내가 좋아하는 django-ninja 가 드디어 1.0 릴리즈. 뭐가 바뀌었는지 알아보자. Pydantic v2 가 러스트로 완전히 다시 작성되고, 이런 개선점이 있었다고 한다. 더불어 django-ninja 도 성능이 평균 10% 정도 좋아지고, parsing/serializing 관련에서는 거의 4배 가까이 좋아졌다고.
