@@ -1,4 +1,4 @@
-import{s as Lt,y as Z,z as Bt,n as Tt}from"./scheduler.1916e345.js";import{S as Mt,i as Pt,r as tt,u as et,v as lt,d as nt,t as at,w as st,g as r,s as p,m as qt,h as i,x as d,c as m,j as wt,n as At,f as l,a as n,y as kt}from"./index.5c9dac44.js";import{M as zt,g as jt,a as $t}from"./mdsvex.218628b2.js";import{I as Et}from"./img.1bc7d088.js";function Dt(k){let a,_=`python 과 rust 서버 응답속도 비교.
+import{s as Lt,y as Z,z as Bt,n as Tt}from"./scheduler.1916e345.js";import{S as Mt,i as Pt,r as tt,u as et,v as lt,d as nt,t as at,w as st,g as r,s as p,m as qt,h as i,x as d,c as m,j as wt,n as At,f as l,a as n,y as kt}from"./index.ec981381.js";import{M as zt,g as jt,a as $t}from"./mdsvex.285645f5.js";import{I as Et}from"./img.1bdfd061.js";function Dt(k){let a,_=`python 과 rust 서버 응답속도 비교.
 python 을 메인언어로 쓰다보면 늘 듣게되는 이야기. python 은 느리다.
 느리면 얼마나 느린지를 대강 파악해두면 python 외의 대안이 필요한 경우를 구분할 수 있을 것.`,h,u,s=`techempower 라는 곳에서 진행하는 web framework benchmark 라는게 있다.
 <a href="https://www.techempower.com/benchmarks/" rel="nofollow">https://www.techempower.com/benchmarks/</a>`,o,f,Y,v,j,x,rt=`다만 실제 서비스를 운영하는 개발자 입장에서 봤을 때는 비교가 확실하지 않은게,<br/>
