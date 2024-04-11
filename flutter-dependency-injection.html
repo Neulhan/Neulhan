@@ -4,35 +4,22 @@
         <meta charset="utf-8" />
         <link rel="icon" href="./favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!-- Google tag (gtag.js) -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-TQE5NFT4DN"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || []
-            function gtag() {
-                dataLayer.push(arguments)
-            }
-            gtag('js', new Date())
-
-            gtag('config', 'G-TQE5NFT4DN')
-        </script>
-
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+        <link
+            href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+        />
         
-		<link href="./_app/immutable/assets/0.f4fda45a.css" rel="stylesheet">
-		<link href="./_app/immutable/assets/3.23bda755.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.647ef92d.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.1916e345.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.1bfcc464.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.50f0a952.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.5c9dac44.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.84ba3407.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/stores.8188d137.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/each.e59479a4.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/3.0efc540d.js"><title>Flutter 의존성 주입과 테스트</title><!-- HEAD_svelte-57aoaq_START --><link rel="canonical" href="https://blog.neulhan.com/flutter-dependency-injection"><!-- HEAD_svelte-57aoaq_END --><!-- HEAD_svelte-ujbvpk_START --><meta name="description" content="개인 프로젝트에서 Flutter 로 clean 함을 적용해볼 일이 생겼다. 일단 백엔드 없이 FireStore 만 써서 진행중인데, 나중에 백엔드 확장이 될 것 같다. 먼저 필요한 기능들을 인터페이스로 만든다."><meta property="og:type" content="article"><meta property="og:title" content="Flutter 의존성 주입과 테스트"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-04-13-57.png.webp"><!-- HEAD_svelte-ujbvpk_END -->
+		<link href="./_app/immutable/assets/0.4e77f880.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/3.23bda755.css" rel="stylesheet"><title>Flutter 의존성 주입과 테스트</title><!-- HEAD_svelte-57aoaq_START --><link rel="canonical" href="https://blog.neulhan.com/flutter-dependency-injection"><!-- HEAD_svelte-57aoaq_END --><!-- HEAD_svelte-ujbvpk_START --><meta name="description" content="개인 프로젝트에서 Flutter 로 clean 함을 적용해볼 일이 생겼다. 일단 백엔드 없이 FireStore 만 써서 진행중인데, 나중에 백엔드 확장이 될 것 같다. 먼저 필요한 기능들을 인터페이스로 만든다."><meta property="og:type" content="article"><meta property="og:title" content="Flutter 의존성 주입과 테스트"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-의존성-주입과-테스트/2023-11-19-04-13-57.png.webp"><!-- HEAD_svelte-ujbvpk_END -->
     </head>
     <body data-sveltekit-preload-data="hover">
         <div style="display: contents">   <div class="app flex flex-col"><div class="bg-white w-full p-4 shrink-0 flex justify-between content-center border-b border-slate-200"><div class="logo" data-svelte-h="svelte-1lqcucv"><a href="/" class="font-semibold text-2xl flex flex-nowrap"><span class="tf mr-2">🦉</span> 개발자 늘한</a></div> <nav class="flex"><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://github.com/Neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="늘한 소개"> 소개 </a><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://images.velog.io/images/wwwssj0309/post/e2262211-93c1-46a2-b72c-345c5c22a683/1.jpg" alt="늘한 예전 블로그"> 예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"> <h1 class="text-4xl pb-2 font-semibold"><span class="tf">🧪</span> Flutter 의존성 주입과 테스트</h1></div> <p class="opacity-50 pb-2">2023-11-20</p></div> <div class="content-container md py-4 svelte-a35t19"><h1 data-svelte-h="svelte-1ls67hg">들어가며</h1> <p data-svelte-h="svelte-1ll0u1k">개인 프로젝트에서 플러터를 사용중인데 의존성 주입을 적용해볼 일이 생겼다.</p> <p data-svelte-h="svelte-1ihjguo">백엔드를 지금은 FireStore 를 쓰고 있는데, 나중에 직접 백엔드 서버를 구축할 예정이다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/flutter-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/2023-11-19-04-13-57.png.webp" alt="flutter 의존성 주입" width="700"></p> <p data-svelte-h="svelte-1930b79">이런 상황에서 잘못하면 코드가 덕지덕지 붙어서 껌딱지처럼 떼어내기가 어려워진다.</p> <p data-svelte-h="svelte-1e2wguf">이럴 때 필요한게 의존성 주입을 통한 느슨한 연결.</p> <p data-svelte-h="svelte-1a19fkv">서버와 연결되는 부분을 <strong>인터페이스를 통해서 정의</strong>해두고, 필요에 맞게 인터페이스에 맞는 구현체를 <strong>의존성 주입을 통해 사용</strong>하면 나중에 간단하게 백엔드 교체가 가능하다.</p> <br> <br> <h1 data-svelte-h="svelte-plwwnb">Interface</h1> <ul data-svelte-h="svelte-zlb2nc"><li>먼저 필요한 기능들을 인터페이스로 만든다.</li> <li>아직은 CRUD 만 존재한다</li></ul> <pre class="language-dart"><!-- HTML_TAG_START --><code class="language-dart"><span class="token keyword">abstract</span> <span class="token keyword">interface</span> <span class="token keyword">class</span> <span class="token class-name">CapsulePackageRepo</span> <span class="token punctuation">&#123;</span>
@@ -178,32 +165,6 @@ dart 에서는 equal 메서드와 hashcode 메서드를 간단하게 만들기�
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment">//...</span>
 <span class="token punctuation">&#125;</span>
-</code><!-- HTML_TAG_END --></pre> <br><br> <h1 data-svelte-h="svelte-1hmxnju">마무리</h1> <p data-svelte-h="svelte-w28h4e">끝!</p> </div> <hr> <div class="flex justify-between flex-col sm:flex-row sm:content-start"><button data-svelte-h="svelte-1anfkcs"><span class="tf">👈</span> 목록으로 돌아가기</button> <button class="sm:mt-0 mt-2 relative" data-svelte-h="svelte-wc677q"><span class="tf pointer-events-none">😁</span> 부족한 글 읽어주셔서 감사합니다</button></div> <hr> <div data-svelte-h="svelte-ofcyfb"><script src="https://giscus.app/client.js" data-repo="Neulhan/Neulhan" data-repo-id="MDEwOlJlcG9zaXRvcnkyODc0NzE2OTA=" data-category="Announcements" data-category-id="DIC_kwDOESJ4Ss4CeXnk" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="ko" data-loading="lazy" crossorigin="anonymous" async></script></div></article></main> </div> 
-			
-			<script>
-				{
-					__sveltekit_zzyyev = {
-						base: new URL(".", location).pathname.slice(0, -1),
-						env: {}
-					};
-
-					const element = document.currentScript.parentElement;
-
-					const data = [null,null];
-
-					Promise.all([
-						import("./_app/immutable/entry/start.647ef92d.js"),
-						import("./_app/immutable/entry/app.50f0a952.js")
-					]).then(([kit, app]) => {
-						kit.start(app, element, {
-							node_ids: [0, 3],
-							data,
-							form: null,
-							error: null
-						});
-					});
-				}
-			</script>
-		</div>
+</code><!-- HTML_TAG_END --></pre> <br><br> <h1 data-svelte-h="svelte-1hmxnju">마무리</h1> <p data-svelte-h="svelte-w28h4e">끝!</p> </div> <hr> <div class="flex justify-between flex-col sm:flex-row sm:content-start" data-svelte-h="svelte-m0adqg"><a href="javascript:window.history.back();"><span class="tf">👈</span> 목록으로 돌아가기</a> <div class="sm:mt-0 mt-2 relative"><span class="tf pointer-events-none">😁</span> 부족한 글 읽어주셔서 감사합니다</div></div> <hr> <div data-svelte-h="svelte-ofcyfb"><script src="https://giscus.app/client.js" data-repo="Neulhan/Neulhan" data-repo-id="MDEwOlJlcG9zaXRvcnkyODc0NzE2OTA=" data-category="Announcements" data-category-id="DIC_kwDOESJ4Ss4CeXnk" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="ko" data-loading="lazy" crossorigin="anonymous" async></script></div></article></main> </div> </div>
     </body>
 </html>
