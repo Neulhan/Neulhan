@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="./favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-TQE5NFT4DN"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            function gtag() {
+                dataLayer.push(arguments)
+            }
+            gtag('js', new Date())
+
+            gtag('config', 'G-TQE5NFT4DN')
+        </script>
+
+        
+		<link href="./_app/immutable/assets/0.f4fda45a.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/3.23bda755.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.647ef92d.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.1916e345.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.1bfcc464.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.50f0a952.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.5c9dac44.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.84ba3407.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.8188d137.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/each.e59479a4.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.0efc540d.js"><title>블로그 이미지 Webp 로 싹 변경하기</title><!-- HEAD_svelte-57aoaq_START --><link rel="canonical" href="https://blog.neulhan.com/blog-image-webp"><!-- HEAD_svelte-57aoaq_END --><!-- HEAD_svelte-ujbvpk_START --><meta name="description" content="내가 블로그에 올리는 사진은 보통 4K 모니터 스크린샷이다. 이미지가 선명해서 좋긴한데 용량이 크다보니, 웹페이지에서 이미지를 로딩하는데 시간이 오래 걸린다. 그래서 png 이미지를 webp 로 전부 교체하면서 결정."><meta property="og:type" content="article"><meta property="og:title" content="블로그 이미지 Webp 로 싹 변경하기"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-20-55-30.png.webp"><!-- HEAD_svelte-ujbvpk_END -->
+    </head>
+    <body data-sveltekit-preload-data="hover">
+        <div style="display: contents">   <div class="app flex flex-col"><div class="bg-white w-full p-4 shrink-0 flex justify-between content-center border-b border-slate-200"><div class="logo" data-svelte-h="svelte-1lqcucv"><a href="/" class="font-semibold text-2xl flex flex-nowrap"><span class="tf mr-2">🦉</span> 개발자 늘한</a></div> <nav class="flex"><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://github.com/Neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="늘한 소개"> 소개 </a><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://images.velog.io/images/wwwssj0309/post/e2262211-93c1-46a2-b72c-345c5c22a683/1.jpg" alt="늘한 예전 블로그"> 예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"> <h1 class="text-4xl pb-2 font-semibold"><span class="tf"></span> 블로그 이미지 Webp 로 싹 변경하기</h1></div> <p class="opacity-50 pb-2">2024-04-05</p></div> <div class="content-container md py-4 svelte-a35t19"><p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-20-55-30.png.webp" width="700"></p> <p data-svelte-h="svelte-n7859l">내가 블로그에 올리는 사진은 보통 4K 모니터 스크린샷이다.</p> <p data-svelte-h="svelte-1igvacg">이미지가 선명해서 좋긴한데 용량이 크다보니, 웹페이지에서 이미지를 로딩하는데 시간이 오래 걸린다.</p> <br> <br> <p data-svelte-h="svelte-owild8">그래서 png 이미지를 webp 로 전부 교체하면서 결정.</p> <p data-svelte-h="svelte-1s0ath3">webp 는 구글에서 만든, 웹에 최적화 되어있는 압축 이미지 포맷이다.</p> <p data-svelte-h="svelte-sxymu5">예전에 IE 가 살아있을 때는 호환성이 안 좋다 뭐다 했는데, 이젠 다 옛날 이야기.</p> <br> <br> <h2 data-svelte-h="svelte-135gocw">작업 1. 기존 이미지 변경</h2> <p data-svelte-h="svelte-1gy9dwx">일단 블로그에 이미 올라가있는 사진들을 모두 webp 로 바꿔주는 작업을 시작한다.</p> <br> <br> <h3 data-svelte-h="svelte-1fzjwd0">webp 설치</h3> <p data-svelte-h="svelte-pi51dl">작업을 위해서 Mac 터미널 에서 webp 를 설치해준다.</p> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">brew <span class="token function">install</span> webp</code><!-- HTML_TAG_END --></pre> <br> <br> <p data-svelte-h="svelte-1iaajx4">간단한 사용 방법은 아래와 같다.</p> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">cwebp <span class="token parameter variable">-q</span> <span class="token number">40</span> screenshot.png <span class="token parameter variable">-o</span> screenshot.webp</code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-ghznti">-q 옵션은 압축 퀄리티를 의미하는데, 보통 80% 를 권장한다고 한다. 근데 나는 블로그에 고화질 사진을 올릴 일이 없어서 (보통 개발 스크린샷니깐..) 40% 로 줬다.</p> <p data-svelte-h="svelte-hab4ok">-o 는 webp 컴파일 결과물의 파일명을 지정해준다.</p> <br> <br> <p data-svelte-h="svelte-fd1eu4">내 블로그 이미지 파일 경로는 다음과 같아서,</p> <img width="300" src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-11-32-24.png.webp"> <br> <br> <p data-svelte-h="svelte-336v81">src/posts/images 폴더 아래의 모든 디렉토리에 대해서,<br>
+디렉토리 하위에 존재하는 파일을 모두 webp 로 바꿔주는 커맨드를 짜면 된다.</p> <pre class="language-bash"><!-- HTML_TAG_START --><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token assign-left variable">p</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>
+
+<span class="token comment"># src/posts/images 하위의 모든 디렉토리에 대해서 반복</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">dir</span> <span class="token keyword">in</span>  <span class="token variable">$p</span>/src/posts/images/*/<span class="token punctuation">;</span> <span class="token keyword">do</span>
+
+ <span class="token comment"># 해당 디렉토리에 존재하는 파일 목록을 ls 로 불러와서</span>
+ <span class="token comment"># | 파이프로 xargs 에 보냅니다. 파일 하나하나마다 반복한다는 뜻</span>
+ <span class="token comment"># cwebp 를 실행합니다. 출력이 너무 많아서 quiet 옵션 사용.</span>
+ <span class="token function">ls</span> <span class="token variable">$dir</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token parameter variable">-I</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> cwebp <span class="token parameter variable">-q</span> <span class="token number">40</span> <span class="token variable">$dir</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token parameter variable">-o</span> <span class="token variable">$dir</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>.webp <span class="token parameter variable">-quiet</span>
+<span class="token keyword">done</span></code><!-- HTML_TAG_END --></pre> <p data-svelte-h="svelte-1fll9gr">-quiet 은 안 써주면 webp 로 컴파일 하는 결과를 구구절절 써줘서 조용히 하라고 넣어줬다.</p> <br> <br> <p data-svelte-h="svelte-8ob85t">결과는 아래와 같이 전부 webp 로 변환 완료</p> <img width="300" src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-04-05-12-43-08.png.webp"> <br> <br> <p data-svelte-h="svelte-1ohag89">블로그 글 markdown 에 박혀있는 .png 파일 이름은 vscode 에서 검색해서 한번에 싹 바꿔줬다.</p> <br> <br> <br> <h2 data-svelte-h="svelte-3d8v6p">작업 2. 새로 업로드하는 이미지 webp 로 바꾸기</h2> <p data-svelte-h="svelte-62qwub">이미 업로드 된 이미지를 webp로 바꿔줬으니, 앞으로 올릴 이미지도 webp 로 바꾸는 방법을 만들어본다.</p> <p data-svelte-h="svelte-7i8fdo">tmp 라는 디렉토리의 파일 변경을 감지해서, 해당 이미지를 webp 로 바꾸고 S3 에 업로드하도록 스크립트를 구성했다.</p> <p data-svelte-h="svelte-yvt6zj">파일 변경 감지는 fswatch 로 했는데 brew 로 설치해주면 된다.</p> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">brew <span class="token function">install</span> fswatch</code><!-- HTML_TAG_END --></pre> <br> <br> <p data-svelte-h="svelte-1uo7e8y">파일 변경을 감지해서 해당 파일 경로를 ./script.sh 의 첫번째 인자로 넘겨주며 실행하는 커맨드를 package.json 에 등록했다.</p> <pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token comment">// package.json</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"web"</span><span class="token punctuation">,</span>
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// fswatch</span>
+        <span class="token property">"syncs3"</span><span class="token operator">:</span> <span class="token string">"fswatch -0 -rt tmp | xargs -0 -n1 -I&#123;&#125; ./script.sh &#123;&#125;"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    ...
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre> <br> <br> <p data-svelte-h="svelte-1crj9ot">아래는 script.sh 의 내용</p> <pre class="language-bash"><!-- HTML_TAG_START --><code class="language-bash"><span class="token comment"># script.sh 내용</span>
+
+<span class="token comment"># $1 = "Thu Apr 4 15:41:33 2024 /Users/neulhan/Dev/blog/Neulhan/tmp/1.png"</span>
+
+<span class="token assign-left variable">file_path</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$1</span>"</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $6&#125;'</span><span class="token variable">)</span></span>
+<span class="token comment"># file_path = /Users/neulhan/Dev/blog/Neulhan/tmp/1.png</span>
+
+<span class="token assign-left variable">preext</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$&#123;file_path<span class="token operator">##</span>*.&#125;</span>"</span>
+<span class="token comment"># preext = png</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$preext</span>"</span> <span class="token operator">==</span> <span class="token string">"webp"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token comment"># 컴파일된 webp 가 새로 생성되는 경우에도 파일 변경을 감지하길래 분기</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># fswatch 가 파일이 삭제된 경우에도 감지하길래 분기</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token variable">$file_path</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token assign-left variable">newext</span><span class="token operator">=</span><span class="token string">".webp"</span>
+
+    <span class="token assign-left variable">new_file_path</span><span class="token operator">=</span><span class="token variable">$file_path</span><span class="token variable">$newext</span>
+    <span class="token comment"># new_file_path=/Users/neulhan/Dev/blog/Neulhan/tmp/1.png.webp</span>
+
+    cwebp <span class="token parameter variable">-q</span> <span class="token number">40</span> <span class="token variable">$file_path</span> <span class="token parameter variable">-o</span> <span class="token variable">$new_file_path</span> <span class="token parameter variable">-quiet</span>
+    <span class="token comment"># webp 로 컴파일</span>
+
+    <span class="token function">rm</span> <span class="token variable">$file_path</span>
+    <span class="token comment"># png 파일 삭제</span>
+
+    aws s3 <span class="token function">sync</span> tmp/ s3://neulhan-blog/images <span class="token parameter variable">--profile</span><span class="token operator">=</span>neulhan
+    <span class="token comment"># s3 에 업로드</span>
+
+    <span class="token function">sleep</span> <span class="token number">5</span>
+
+    <span class="token function">rm</span> <span class="token variable">$new_file_path</span>
+    <span class="token comment"># webp 도 삭제</span>
+<span class="token keyword">else</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"[deleted] <span class="token variable">$1</span> "</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+<span class="token keyword">fi</span>
+</code><!-- HTML_TAG_END --></pre> <br> <br> <p data-svelte-h="svelte-tgyihx">이제 tmp 디렉토리에 새 png 파일이 들어오면,</p> <ol data-svelte-h="svelte-1upgmyq"><li>png -&gt; webp 로 바꿔줌</li> <li>기존 png 파일 삭제</li> <li>S3 에 webp 업로드</li> <li>webp 파일도 삭제</li></ol> <p data-svelte-h="svelte-qtxx0w">와 같은 과정이 자동으로 수행되게 해두었다.</p> <br> <br> <p data-svelte-h="svelte-1rouai8">tmp 디렉토리에 파일을 넣는건 vscode 의 pasteImage 라는 확장을 사용중인데, 이건 다음에 다뤄볼 기회가 있으면 다뤄보도록 하겠다.</p> <p data-svelte-h="svelte-w28h4e">끝!</p> </div> <hr> <div class="flex justify-between flex-col sm:flex-row sm:content-start"><button data-svelte-h="svelte-1anfkcs"><span class="tf">👈</span> 목록으로 돌아가기</button> <button class="sm:mt-0 mt-2 relative" data-svelte-h="svelte-wc677q"><span class="tf pointer-events-none">😁</span> 부족한 글 읽어주셔서 감사합니다</button></div> <hr> <div data-svelte-h="svelte-ofcyfb"><script src="https://giscus.app/client.js" data-repo="Neulhan/Neulhan" data-repo-id="MDEwOlJlcG9zaXRvcnkyODc0NzE2OTA=" data-category="Announcements" data-category-id="DIC_kwDOESJ4Ss4CeXnk" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="ko" data-loading="lazy" crossorigin="anonymous" async></script></div></article></main> </div> 
+			
+			<script>
+				{
+					__sveltekit_zzyyev = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.647ef92d.js"),
+						import("./_app/immutable/entry/app.50f0a952.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+    </body>
+</html>
