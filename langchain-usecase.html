@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-XJDD8QBH8T"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            function gtag() {
+                dataLayer.push(arguments)
+            }
+            gtag('js', new Date())
+
+            gtag('config', 'G-XJDD8QBH8T')
+        </script>
+
         <meta charset="utf-8" />
         <link rel="icon" href="./favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,18 +32,19 @@
             crossorigin
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
         />
+
         
 		<link href="./_app/immutable/assets/0.ac23f90c.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/3.23bda755.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.b9e9a149.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.b18395ff.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.1916e345.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.0f2ad771.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.1cb243f1.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.7fb70b7e.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.b049ebae.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.ec981381.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.842e9bde.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/stores.ca03f1f5.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.c62da097.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.b70642e7.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/each.e59479a4.js">
 		<link rel="modulepreload" href="./_app/immutable/nodes/3.f9a0f9d3.js"><title>Langchain 이 제시하는 UseCases</title><!-- HEAD_svelte-57aoaq_START --><link rel="canonical" href="https://blog.neulhan.com/langchain-usecase"><!-- HEAD_svelte-57aoaq_END --><!-- HEAD_svelte-ujbvpk_START --><meta name="description" content="Langchain 공식문서에서 제시하는 유스케이스 다수. 1. 데이터 참조해서 답변하기 Langchain 을 이용하면 RAG 어플리케이션을 쉽게 구현 가능 존재하는 데이터 소스 (SQL, GraphQL, API, 파일데이터, 검색데이터 등등) 를 연결만 해주면, LLM 은 데이터에서"><meta property="og:type" content="article"><meta property="og:title" content="Langchain 이 제시하는 UseCases"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/Langchain-이-제시하는-UseCases/2023-12-16-01-41-41.png.webp"><!-- HEAD_svelte-ujbvpk_END -->
     </head>
@@ -37,7 +53,7 @@
 			
 			<script>
 				{
-					__sveltekit_p1732w = {
+					__sveltekit_yu8vsr = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -47,8 +63,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.b9e9a149.js"),
-						import("./_app/immutable/entry/app.7fb70b7e.js")
+						import("./_app/immutable/entry/start.b18395ff.js"),
+						import("./_app/immutable/entry/app.b049ebae.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
