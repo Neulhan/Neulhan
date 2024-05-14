@@ -1,4 +1,4 @@
-import{s as xe,y as Tt,z as ne,n as fe}from"./scheduler.1916e345.js";import{S as Ce,i as ge,r as le,u as pe,v as oe,d as ue,t as ie,w as ce,g as a,s as p,H as Q,h as l,x as i,c as o,j as G,f as e,B as Y,k as Z,a as s}from"./index.ec981381.js";import{M as Le,g as de,a as se}from"./mdsvex.285645f5.js";import{I as he}from"./img.1bdfd061.js";function be(K){let u,v=`생성형 AI 는 올해 아주 핫하다.
+import{s as xe,y as Tt,z as ne,n as fe}from"./scheduler.683807b4.js";import{S as Ce,i as ge,r as le,u as pe,v as oe,d as ue,t as ie,w as ce,g as a,s as p,H as Q,h as l,x as i,c as o,j as G,f as e,B as Y,k as Z,a as s}from"./index.949589b5.js";import{M as Le,g as de,a as se}from"./mdsvex.35f0d827.js";import{I as he}from"./img.99105116.js";function be(K){let u,v=`생성형 AI 는 올해 아주 핫하다.
 나는 개발자로 일하면서 꽤 오랜 시간동안 곁눈질 하다가 이제서야 LLM 을 제대로 들여다보고 있다.
 LLM 어플리케이션을 만들기 위해 뒤늦게 기술들을 살펴보고 있는 경험을 공유한다.`,_,m,c="LLM",r,k,Ht=`몇 달 전에 “ChatGPT Prompt Engineering for Developers” 라는 강의를 보면서 LLM 에 대한 개념은 좀 탑재했었다.
 LLM 은 Large Language Model 의 약자이다.

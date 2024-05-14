@@ -34,22 +34,37 @@
         />
 
         
-		<link href="./_app/immutable/assets/0.9750b89f.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/0.aa18b1d1.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/3.23bda755.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.e3555cc5.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.1916e345.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.46701a8d.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.8ec601f7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.683807b4.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.7dff81c5.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.1b1b0e21.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.59b211aa.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.ec981381.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.044c2dd9.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/stores.16e8c024.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/each.e59479a4.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/3.f9a0f9d3.js"><title>rust wasm-pack malloc error</title><!-- HEAD_svelte-57aoaq_START --><link rel="canonical" href="https://blog.neulhan.com/rust-wasmpack-malloc-error"><!-- HEAD_svelte-57aoaq_END --><!-- HEAD_svelte-ujbvpk_START --><meta name="description" content="아래 명령어로 rust 프로젝트를 번들링, npm 에 배포해서 사용해왔다. wasm-pack build --release --target bundler 근데 npm 배포 없이 빌드 결과물을 index.html 에서 불러와서 테스트하려니깐 아래와 같은 에러 발생"><meta property="og:type" content="article"><meta property="og:title" content="rust wasm-pack malloc error"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-41-53.png.webp"><!-- HEAD_svelte-ujbvpk_END -->
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.949589b5.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.e6b3b3ca.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.f996fd54.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.4d068507.js"><title>rust wasm-pack malloc error</title><!-- HEAD_svelte-57aoaq_START --><link rel="canonical" href="https://blog.neulhan.com/rust-wasmpack-malloc-error"><!-- HEAD_svelte-57aoaq_END --><!-- HEAD_svelte-zl2pue_START --><!-- HTML_TAG_START --><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "rust wasm-pack malloc error",
+  "image": [
+    "https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-41-53.png.webp"
+  ],
+  "datePublished": "2024-04-02T09:20:00+09:00",
+  "dateModified": "2024-04-02T09:20:00+09:00",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Neulhan",
+      "url": "https://blog.neulhan.com/about"
+    }
+  ]
+}</script><!-- HTML_TAG_END --><meta name="description" content="아래 명령어로 rust 프로젝트를 번들링, npm 에 배포해서 사용해왔다. wasm-pack build --release --target bundler 근데 npm 배포 없이 빌드 결과물을 index.html 에서 불러와서 테스트하려니깐 아래와 같은 에러 발생"><meta property="og:type" content="article"><meta property="og:title" content="rust wasm-pack malloc error"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-41-53.png.webp"><!-- HEAD_svelte-zl2pue_END -->
     </head>
     <body data-sveltekit-preload-data="hover">
-        <div style="display: contents">   <div class="app flex flex-col"><div class="bg-white w-full p-4 shrink-0 flex justify-between content-center border-b border-slate-200"><div class="logo" data-svelte-h="svelte-1lqcucv"><a href="/" class="font-semibold text-2xl flex flex-nowrap"><span class="tf mr-2">🦉</span> 개발자 늘한</a></div> <nav class="flex"><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://github.com/Neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="늘한 소개"> 소개 </a><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="https://velog.io/@neulhan" target="_blank"><img class="rounded-2xl w-6 mr-2" src="https://images.velog.io/images/wwwssj0309/post/e2262211-93c1-46a2-b72c-345c5c22a683/1.jpg" alt="늘한 예전 블로그"> 예전 블로그 </a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"> <h1 class="text-4xl pb-2 font-semibold"><span class="tf">😱</span> rust wasm-pack malloc error</h1></div> <p class="opacity-50 pb-2">2024-04-02</p></div> <div class="content-container md py-4 svelte-a35t19"><p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-41-53.png.webp" width="700"></p> <p data-svelte-h="svelte-m325e8">아래 명령어로 rust 프로젝트를 번들링, npm 에 배포해서 사용해왔다.</p> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">wasm-pack build <span class="token parameter variable">--release</span> <span class="token parameter variable">--target</span> bundler</code><!-- HTML_TAG_END --></pre> <br> <h2 data-svelte-h="svelte-1moqm8h">문제발생</h2> <p data-svelte-h="svelte-rvvfjc">근데 npm 배포 없이 빌드 결과물을 index.html 에서 불러와서 테스트하려니깐 아래와 같은 에러 발생</p> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">Uncaught TypeError: malloc is not a function
+        <div style="display: contents">   <div class="app flex flex-col"><div class="bg-white w-full p-4 shrink-0 flex justify-between content-center border-b border-slate-200" data-svelte-h="svelte-i8ektw"><div class="logo"><a href="/" class="font-semibold text-2xl flex flex-nowrap"><span class="tf mr-2">🦉</span> 개발자 늘한</a></div> <nav class="flex"><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="/about">소개</a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"> <h1 class="text-4xl pb-2 font-semibold"><span class="tf">😱</span> rust wasm-pack malloc error</h1></div> <p class="opacity-50 pb-2">2024-04-02</p></div> <div class="content-container md py-4 svelte-a35t19"><p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-41-53.png.webp" width="700"></p> <p data-svelte-h="svelte-m325e8">아래 명령어로 rust 프로젝트를 번들링, npm 에 배포해서 사용해왔다.</p> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">wasm-pack build <span class="token parameter variable">--release</span> <span class="token parameter variable">--target</span> bundler</code><!-- HTML_TAG_END --></pre> <br> <h2 data-svelte-h="svelte-1moqm8h">문제발생</h2> <p data-svelte-h="svelte-rvvfjc">근데 npm 배포 없이 빌드 결과물을 index.html 에서 불러와서 테스트하려니깐 아래와 같은 에러 발생</p> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">Uncaught TypeError: malloc is not a function
     at passStringToWasm0 (fallingrs_bg.js:144:21)
     at new FallingConfig (fallingrs_bg.js:261:22)
     at new FallingJS (index.js:19:7)
@@ -65,11 +80,11 @@
         <span class="token keyword">const</span> len0 <span class="token operator">=</span> <span class="token constant">WASM_VECTOR_LEN</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre> <p data-svelte-h="svelte-1aervrl"><code>passStringToWasm0</code> 을 할 때 사용하는 <code>wasm.__wbindgen_malloc</code> 이 undefined 로 나오는 이슈이다.</p> <br> <br> <br> <h2 data-svelte-h="svelte-11ar0pq">해결</h2> <p data-svelte-h="svelte-x4yshe">이것저것 해보다 아래 명령어로 바꿔주고 코드를 약간 수정하니 해결</p> <h3 data-svelte-h="svelte-o5y0b5">1. 빌드 타겟 변경</h3> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">wasm-pack build <span class="token parameter variable">--dev</span> <span class="token parameter variable">--target</span> web</code><!-- HTML_TAG_END --></pre> <br> <br> <br> <p data-svelte-h="svelte-1npvbrr">wasm-pack build —target 옵션의 <code>bundler</code> 와 <code>web</code> 은 아래와 같은 차이가 있다고 한다.</p> <table data-svelte-h="svelte-3aqbrk"><thead><tr><th>Option</th> <th>Usage</th> <th>Description</th></tr></thead> <tbody><tr><td><code>bundler</code></td> <td>Bundler</td> <td>Outputs JS that is suitable for interoperation with a Bundler like Webpack. You’ll import the JS and the module key is specified in package.json. sideEffects: false is by default.</td></tr> <tr><td><code>web</code></td> <td>Native in browser</td> <td>Outputs JS that can be natively imported as an ES module in a browser, but the WebAssembly must be manually instantiated and loaded.</td></tr></tbody></table> <br> <br> <p data-svelte-h="svelte-if6f1k">npm 에는 bundler 옵션으로 fallingrs 를 배포했었고,<br>
-fallingjs 에서 dependency 로 가져와서 webpack 으로 번들링을 했기 때문에 잘 동작한 것이다.</p> <p data-svelte-h="svelte-okln8t">그런데 번들링 없이 그냥 사용하려니 문제가 발생한 것.</p> <br> <br> <h3 data-svelte-h="svelte-1owh1i7">2. 코드 수정</h3> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-03-14.png.webp" width="700"></p> <p data-svelte-h="svelte-5p5mc3">wasm-pack 의 빌드 타겟이 web 인 경우 wasm 이 init 되는 걸 체크하고 이후에 wasm 코드를 사용해야한다.</p> <p data-svelte-h="svelte-1fouch8">빌드 타겟을 bundler 로 하고 webpack 으로 번들링 되는 경우에는 이와같은 init 코드 없이도 잘 동작했는데, 타겟 web 의 경우 init 이 필수인 것으로 보인다.</p> </div> <hr> <div class="flex justify-between flex-col sm:flex-row sm:content-start" data-svelte-h="svelte-m0adqg"><a href="javascript:window.history.back();"><span class="tf">👈</span> 목록으로 돌아가기</a> <div class="sm:mt-0 mt-2 relative"><span class="tf pointer-events-none">😁</span> 부족한 글 읽어주셔서 감사합니다</div></div> <hr> <div data-svelte-h="svelte-ofcyfb"><script src="https://giscus.app/client.js" data-repo="Neulhan/Neulhan" data-repo-id="MDEwOlJlcG9zaXRvcnkyODc0NzE2OTA=" data-category="Announcements" data-category-id="DIC_kwDOESJ4Ss4CeXnk" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="ko" data-loading="lazy" crossorigin="anonymous" async></script></div></article></main> </div> 
+fallingjs 에서 dependency 로 가져와서 webpack 으로 번들링을 했기 때문에 잘 동작한 것이다.</p> <p data-svelte-h="svelte-okln8t">그런데 번들링 없이 그냥 사용하려니 문제가 발생한 것.</p> <br> <br> <h3 data-svelte-h="svelte-1owh1i7">2. 코드 수정</h3> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/rust-wasm-pack-malloc-error/2024-04-03-09-03-14.png.webp" width="700"></p> <p data-svelte-h="svelte-5p5mc3">wasm-pack 의 빌드 타겟이 web 인 경우 wasm 이 init 되는 걸 체크하고 이후에 wasm 코드를 사용해야한다.</p> <p data-svelte-h="svelte-1fouch8">빌드 타겟을 bundler 로 하고 webpack 으로 번들링 되는 경우에는 이와같은 init 코드 없이도 잘 동작했는데, 타겟 web 의 경우 init 이 필수인 것으로 보인다.</p> </div> <hr> <div class="flex justify-between flex-col sm:flex-row sm:content-start" data-svelte-h="svelte-s1ma3t"><a href="javascript:window.history.back();"><span class="tf">👈</span> 목록으로 돌아가기</a> <div class="sm:mt-0 mt-2 relative"><span class="tf pointer-events-none">😁</span> 읽어주셔서 감사합니다</div></div> <hr> <div data-svelte-h="svelte-ofcyfb"><script src="https://giscus.app/client.js" data-repo="Neulhan/Neulhan" data-repo-id="MDEwOlJlcG9zaXRvcnkyODc0NzE2OTA=" data-category="Announcements" data-category-id="DIC_kwDOESJ4Ss4CeXnk" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="ko" data-loading="lazy" crossorigin="anonymous" async></script></div></article></main> </div> 
 			
 			<script>
 				{
-					__sveltekit_yhn6c8 = {
+					__sveltekit_h6axqv = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -79,8 +94,8 @@ fallingjs 에서 dependency 로 가져와서 webpack 으로 번들링을 했기 
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.e3555cc5.js"),
-						import("./_app/immutable/entry/app.1b1b0e21.js")
+						import("./_app/immutable/entry/start.8ec601f7.js"),
+						import("./_app/immutable/entry/app.59b211aa.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],

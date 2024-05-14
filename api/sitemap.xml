@@ -8,8 +8,18 @@
                 <url>
                     <loc>https://blog.neulhan.com/</loc>
                     <changefreq>daily</changefreq>
+                </url>		
+                <url>
+                    <loc>https://blog.neulhan.com/about</loc>
+                    <changefreq>daily</changefreq>
                 </url>
                 <url>
+                        <lastmod>2024-05-13</lastmod>
+                        <loc>https://blog.neulhan.com/django-recommendation-system/</loc>
+                        <changefreq>monthly</changefreq>
+                        <priority>1</priority>
+                    </url>
+                    ,<url>
                         <lastmod>2024-04-05</lastmod>
                         <loc>https://blog.neulhan.com/blog-image-webp/</loc>
                         <changefreq>monthly</changefreq>

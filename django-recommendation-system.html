@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-XJDD8QBH8T"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            function gtag() {
+                dataLayer.push(arguments)
+            }
+            gtag('js', new Date())
+
+            gtag('config', 'G-XJDD8QBH8T')
+        </script>
+
+        <meta charset="utf-8" />
+        <link rel="icon" href="./favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+        <link
+            href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+        />
+
+        
+		<link href="./_app/immutable/assets/0.aa18b1d1.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/3.23bda755.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.8ec601f7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.683807b4.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.7dff81c5.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.59b211aa.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.949589b5.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.e6b3b3ca.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.f996fd54.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.4d068507.js"><title>django 추천시스템 가장 쉽게 구현하기</title><!-- HEAD_svelte-57aoaq_START --><link rel="canonical" href="https://blog.neulhan.com/django-recommendation-system"><!-- HEAD_svelte-57aoaq_END --><!-- HEAD_svelte-zl2pue_START --><!-- HTML_TAG_START --><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "django 추천시스템 가장 쉽게 구현하기",
+  "image": [
+    "https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-05-13-11-18-00.png.webp"
+  ],
+  "datePublished": "2024-05-13T09:20:00+09:00",
+  "dateModified": "2024-05-13T09:20:00+09:00",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Neulhan",
+      "url": "https://blog.neulhan.com/about"
+    }
+  ]
+}</script><!-- HTML_TAG_END --><meta name="description" content="django 에서 추천시스템을 구현하려면 어떻게 해야할까요? 정말 다양한 방법이 있겠지만, Keep it simple 이란 말이 있듯이 가장 간단하게 구현해볼 수 있는 방법을 알아봅시다. 컨텐츠가 서로 얼마나 유사한지를 비교해서 유사도가 높은 컨텐츠를 추천해주는 방식입니다."><meta property="og:type" content="article"><meta property="og:title" content="django 추천시스템 가장 쉽게 구현하기"><meta property="og:image" content="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-05-13-11-18-00.png.webp"><!-- HEAD_svelte-zl2pue_END -->
+    </head>
+    <body data-sveltekit-preload-data="hover">
+        <div style="display: contents">   <div class="app flex flex-col"><div class="bg-white w-full p-4 shrink-0 flex justify-between content-center border-b border-slate-200" data-svelte-h="svelte-i8ektw"><div class="logo"><a href="/" class="font-semibold text-2xl flex flex-nowrap"><span class="tf mr-2">🦉</span> 개발자 늘한</a></div> <nav class="flex"><a class="flex items-center py-1 px-2 hover:bg-slate-100 cursor-pointer" href="/about">소개</a></nav> </div> <main> <article class="container p-4 sm:p-12 mx-auto max-w-3xl bg-white"><div class="content-head"><div class="flex"> <h1 class="text-4xl pb-2 font-semibold"><span class="tf">🔍</span> django 추천시스템 가장 쉽게 구현하기</h1></div> <p class="opacity-50 pb-2">2024-05-13</p></div> <div class="content-container md py-4 svelte-a35t19"><p data-svelte-h="svelte-ivvbql">django 에서 추천시스템을 구현하려면 어떻게 해야할까요?</p> <p data-svelte-h="svelte-1cgajqu">정말 다양한 방법이 있겠지만, <code>Keep it simple</code> 이란 말이 있듯이 가장 간단하게 구현해볼 수 있는 방법을 알아봅시다.</p> <br> <br> <h2 data-svelte-h="svelte-ltgtq">컨텐츠 유사도 기반 추천시스템</h2> <p data-svelte-h="svelte-15x1ig5">컨텐츠가 서로 얼마나 유사한지를 비교해서 유사도가 높은 컨텐츠를 추천해주는 방식입니다.</p> <p data-svelte-h="svelte-1hxwnp9">컨텐츠끼리 얼마나 유사한지를 알려면 컨텐츠를 좌표로 변환해야 합니다.</p> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">컨텐츠A =&gt; [8, 15]
+컨텐츠B =&gt; [12, 13]
+컨텐츠C =&gt; [6, 5]</code><!-- HTML_TAG_END --></pre> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-05-13-11-18-00.png.webp" alt="embedding" width="700"></p> <br> <br> <p data-svelte-h="svelte-1k2uyjf">좌표로 표현된 컨텐츠 끼리는 서로의 거리를 계산할 수 있습니다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-05-13-11-22-55.png.webp" width="700"></p> <p data-svelte-h="svelte-nh2ot0">위 예시는 2차원으로 표현했지만, 3, 4차원… 1만차원도 동일합니다.</p> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">컨텐츠A =&gt; [81.31231, 15.59872, ... 12.34123]
+컨텐츠B =&gt; [12.12314, 13.67893, ... 83.31564]
+컨텐츠C =&gt; [461.9872, 5.354166, ... 13.67243]</code><!-- HTML_TAG_END --></pre> <p data-svelte-h="svelte-1aqz690">이러한 컨텐츠의 수학적 표현을 임베딩이라고 부릅니다.</p> <br> <br> <h2 data-svelte-h="svelte-1rjd4fb">임베딩</h2> <p data-svelte-h="svelte-17plq9n">텍스트, 이미지, 비디오 모두 임베딩으로 변환될 수 있습니다.</p> <p data-svelte-h="svelte-1v8wc14">유사도를 잘 비교하기 위해서는 문서가 적절한 AI 모델을 통해 임베딩되어야 합니다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-05-13-11-43-58.png.webp" width="700"></p> <p data-svelte-h="svelte-dmpajt">제가 추천하는 임베딩 모델은 OpenAI 의 최신 임베딩 모델인 <code>text-embedding-3-small</code> 입니다.</p> <br> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-05-04-00-10-08.png.webp" width="700"></p> <br> <p data-svelte-h="svelte-afxlyh"><code>text-embedding-3-small</code> 은 텍스트를 1,536 차원의 임베딩으로 만들어줍니다.<br>
+비용도 매우 저렴하고, 한글에 대한 임베딩 성능도 꽤 괜찮습니다. 개인적인 의견이지만, 지금 기준으로는 더 좋은 임베딩 모델이 없는 것 같습니다.</p> <p data-svelte-h="svelte-o0xmnc">해당 모델을 사용하는데 드는 비용은 1백만 토큰에 0.02달러 입니다.<br>
+대략 책 5 ~ 10권을 통째로 임베딩 해도 27원 정도 드는 셈이네요.</p> <br> <br> <h3 data-svelte-h="svelte-ci2rvm">openai embedding 사용방법</h3> <p data-svelte-h="svelte-1d7niir">openai 임베딩 모델을 사용하기 위해서는 먼저 python 패키지를 설치해줘야 합니다.</p> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">pip <span class="token function">install</span> openai</code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-qcdceh">그리고 실제 사용 방식은 아래와 같습니다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">from</span> openai <span class="token keyword">import</span> OpenAI
+
+
+client <span class="token operator">=</span> OpenAI<span class="token punctuation">(</span>api_key<span class="token operator">=</span><span class="token string">"sk-proj-blahblahblahblahblahblah"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">create_embedding</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> client<span class="token punctuation">.</span>embeddings<span class="token punctuation">.</span>create<span class="token punctuation">(</span>
+        <span class="token builtin">input</span><span class="token operator">=</span><span class="token punctuation">[</span>text<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        model<span class="token operator">=</span><span class="token string">"text-embedding-3-small"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>embedding
+
+
+embedding1 <span class="token operator">=</span> create_embedding<span class="token punctuation">(</span><span class="token string">"django 는 강력한 python 웹프레임워크입니다."</span><span class="token punctuation">)</span>
+embedding2 <span class="token operator">=</span> create_embedding<span class="token punctuation">(</span><span class="token string">"python 은 처음 배우기 좋은 프로그래밍 언어입니다."</span><span class="token punctuation">)</span>
+embedding3 <span class="token operator">=</span> create_embedding<span class="token punctuation">(</span><span class="token string">"react 와 함께 프론트엔드 개발하기"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>embedding1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>embedding2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>embedding3<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-1bhz039">실행 결과는 다음과 같습니다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">0.014779764227569103</span><span class="token punctuation">,</span> <span class="token number">0.04431036859750748</span><span class="token punctuation">,</span> <span class="token number">0.006599314045161009</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">0.03325946256518364</span><span class="token punctuation">,</span> <span class="token number">0.030886657536029816</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.04379631578922272</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">0.0325852669775486</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.01150344405323267</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.0028920010663568974</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">]</span></code><!-- HTML_TAG_END --></pre> <br> <br> <h3 data-svelte-h="svelte-112tujb">embedding 간 유사도 계산</h3> <p data-svelte-h="svelte-9x90kb">유사도 계산에는 다양한 방법이 사용되지만, 가장 널리 사용되는 코사인 유사도를 기반으로 계산해봅시다.</p> <p data-svelte-h="svelte-18q2mn3">scipy 라는 라이브러리를 이용하면 쉽게 계산해볼 수 있습니다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">from</span> scipy <span class="token keyword">import</span> spatial
+
+
+<span class="token comment"># django 는 강력한 python 웹프레임워크입니다. vs python 은 처음 배우기 좋은 프로그래밍 언어입니다.</span>
+result1 <span class="token operator">=</span> spatial<span class="token punctuation">.</span>distance<span class="token punctuation">.</span>cosine<span class="token punctuation">(</span>embedding1<span class="token punctuation">,</span> embedding2<span class="token punctuation">)</span>
+
+<span class="token comment"># django 는 강력한 python 웹프레임워크입니다. vs react 와 함께 프론트엔드 개발하기</span>
+result2 <span class="token operator">=</span> spatial<span class="token punctuation">.</span>distance<span class="token punctuation">.</span>cosine<span class="token punctuation">(</span>embedding1<span class="token punctuation">,</span> embedding3<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-145t1b6">실행결과 (숫자가 0에 가까울 수록 유사함)</p> <pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">0.5632394123335309
+0.7933444694105125</code><!-- HTML_TAG_END --></pre> <br> <br> <h2 data-svelte-h="svelte-1u4a3mn">벡터 데이터베이스</h2> <p data-svelte-h="svelte-9egeuw">유사도 비교를 위해 모든 컨텐츠를 매번 새로 임베딩할 필요는 없습니다.</p> <p data-svelte-h="svelte-1tjzlal">대신 컨텐츠를 미리 임베딩하여 데이터베이스에 저장해두고, 필요할 때 꺼내서 계산하면 됩니다.</p> <p data-svelte-h="svelte-1ktvygi">이러한 저장을 전문적으로 하는 데이터베이스를 벡터 스토어, 혹은 벡터 데이터베이스라고 부릅니다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-05-13-12-21-21.png.webp" width="700"></p> <br> <p data-svelte-h="svelte-xfljoo">Pinecone, Chroma, FAISS 등 여러가지 옵션이 존재하지만, django 에서 가장 간단한 방법은 역시 Postgres 일 것 같습니다.</p> <p data-svelte-h="svelte-1s33yft">벡터 데이터베이스를 별도로 운용하는 것은 시스템 복잡도를 필요 이상으로 늘릴 수 있습니다.</p> <p data-svelte-h="svelte-1kz3swn">Postgres 는 메인 데이터베이스로서 동작하면서, 동시에 벡터 데이터베이스의 역할을 훌륭하게 수행할 수 있습니다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-05-13-12-26-49.png.webp" width="700"></p> <br> <br> <h3 data-svelte-h="svelte-98ryae">pgvector</h3> <p data-svelte-h="svelte-1ewnyf9">Postgres 가 벡터 데이터베이스의 역할을 하기 위해서는 pgvector 라는 Postgres 확장을 설치해야합니다.</p> <p data-svelte-h="svelte-hnkule">아래 pgvector github 에서 본인의 환경에 맞는 방식으로 pgvector 를 설치해줍니다.
+<a href="https://github.com/pgvector/pgvector" rel="nofollow">https://github.com/pgvector/pgvector</a></p> <p data-svelte-h="svelte-1rzr4o0">window, mac, linux, docker 등의 환경을 지원합니다.</p> <p data-svelte-h="svelte-t3f8hb">저는 mac 환경에서 <code>brew</code> 를 통해 설치하였습니다.</p> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">brew <span class="token function">install</span> pgvector</code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-uvsp1f">설치 이후에 아래와 같은 명령어를 psql 에서 입력해주면 pgvector 확장이 활성화됩니다.</p> <pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">CREATE</span> EXTENSION vector<span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre> <br> <br> <h2 data-svelte-h="svelte-109ew1z">django pgvector</h2> <p data-svelte-h="svelte-rs6me8">Postgres 에 pgvector 를 추가했으면 이제 django 에서 활용할 차례입니다.</p> <p data-svelte-h="svelte-1cghl0q">python 의 pgvector 라이브러리를 통해 django 의 모델에 VectorField 를 추가할 수 있습니다.</p> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-05-04-00-12-19.png.webp" alt="pgvector python" width="700"></p> <p data-svelte-h="svelte-1nluanl">먼저 pgvector python 패키지를 설치합니다.</p> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">pip <span class="token function">install</span> pgvector</code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-1ge9x2r">django ORM 을 그대로 활용해서 임베딩을 사용할 수 있다는 점이 정말 큰 장점으로 작용합니다.</p> <p data-svelte-h="svelte-nqun83">사용 방법은 아래와 같습니다.</p> <br> <p data-svelte-h="svelte-pqs2g">빈 마이그레이션 파일을 만들어주고,</p> <pre class="language-shell"><!-- HTML_TAG_START --><code class="language-shell">python manage.py makemigrations items <span class="token parameter variable">--empty</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-1ci389q">마이그레이션 파일 안에 벡터 확장을 사용하겠다는 코드를 아래와 같이 작성해줍니다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">from</span> pgvector<span class="token punctuation">.</span>django <span class="token keyword">import</span> VectorExtension
+
+<span class="token keyword">class</span> <span class="token class-name">Migration</span><span class="token punctuation">(</span>migrations<span class="token punctuation">.</span>Migration<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    operations <span class="token operator">=</span> <span class="token punctuation">[</span>
+        VectorExtension<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-19st96e">그리고 임베딩을 저장할 필드를 모델에 추가해주기만 하면 준비는 끝납니다.<br>
+이제 임베딩을 Postgres 에 저장할 수 있습니다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token comment"># models.py</span>
+<span class="token keyword">from</span> pgvector<span class="token punctuation">.</span>django <span class="token keyword">import</span> VectorField
+
+<span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    title <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span>
+    content <span class="token operator">=</span> models<span class="token punctuation">.</span>TextField<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># openai의 text-embedding-3-small 모델에 맞게 1,536 차원으로 설정</span>
+    embedding <span class="token operator">=</span> VectorField<span class="token punctuation">(</span>dimensions<span class="token operator">=</span><span class="token number">1536</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre> <br> <h3 data-svelte-h="svelte-xvgd38">django pgvector 유사도 정렬</h3> <p data-svelte-h="svelte-ooe5ge">임베딩 이후에 유사도 기준 정렬을 하려면 아래와 같이 코드를 작성할 수 있습니다.</p> <p data-svelte-h="svelte-1xqjqow">먼저 embedding 을 추가하는 코드를 작성합니다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token comment"># models.py</span>
+<span class="token keyword">from</span> openai <span class="token keyword">import</span> OpenAI
+<span class="token keyword">from</span> pgvector<span class="token punctuation">.</span>django <span class="token keyword">import</span> VectorField
+
+
+client <span class="token operator">=</span> OpenAI<span class="token punctuation">(</span>api_key<span class="token operator">=</span><span class="token string">"sk-proj-blahblahblahblahblahblah"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    title <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span>
+    content <span class="token operator">=</span> models<span class="token punctuation">.</span>TextField<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    embedding <span class="token operator">=</span> VectorField<span class="token punctuation">(</span>dimensions<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">create_embedding</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> client<span class="token punctuation">.</span>embeddings<span class="token punctuation">.</span>create<span class="token punctuation">(</span>
+            <span class="token builtin">input</span><span class="token operator">=</span><span class="token punctuation">[</span>self<span class="token punctuation">.</span>title<span class="token punctuation">,</span> self<span class="token punctuation">.</span>content<span class="token punctuation">]</span><span class="token punctuation">,</span>
+            model<span class="token operator">=</span><span class="token string">"text-embedding-3-small"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>embedding
+
+    <span class="token keyword">def</span> <span class="token function">save</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>arg<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 모델이 DB 에 저장될 때 마다 title 과 content 로 임베딩 생성</span>
+        self<span class="token punctuation">.</span>embedding <span class="token operator">=</span> self<span class="token punctuation">.</span>create_embedding<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token operator">*</span>arg<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-1ktxy8f">item object 를 생성해줍니다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python">Item<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>create<span class="token punctuation">(</span>
+    title<span class="token operator">=</span><span class="token string">"갤럭시 S22 Ultra 128gb A급 팝니다"</span><span class="token punctuation">,</span>
+    content<span class="token operator">=</span><span class="token string">"배터리 성능 77%이지만 배터리 교체하셔서 사용하시는게 좋을 듯 합니다"</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+Item<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>create<span class="token punctuation">(</span>
+    title<span class="token operator">=</span><span class="token string">"갤럭시 Z플립3 블랙"</span><span class="token punctuation">,</span>
+    content<span class="token operator">=</span><span class="token string">"투명케이스 포함. 생활기스 조금 있는 s급"</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+Item<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>create<span class="token punctuation">(</span>
+    title<span class="token operator">=</span><span class="token string">"캐논 렌즈 EF 50mm 팝니다"</span><span class="token punctuation">,</span>
+    content<span class="token operator">=</span><span class="token string">"렌즈 링에 녹 없으며 사용감 있지만 성능에는 문제 없습니다."</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+Item<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>create<span class="token punctuation">(</span>
+    title<span class="token operator">=</span><span class="token string">"소니 카메라 zv-1f 판매합니다"</span><span class="token punctuation">,</span>
+    content<span class="token operator">=</span><span class="token string">"카메라 + 슈팅그립 + 여친렌즈. 충전기 포함입니다"</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre> <br> <p data-svelte-h="svelte-168viwi">코사인 유사도를 사용하려면 같은 방법으로 import 하여 사용 가능합니다.</p> <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">from</span> pgvector<span class="token punctuation">.</span>django <span class="token keyword">import</span> CosineDistance
+
+
+<span class="token keyword">def</span> <span class="token function">my_view</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> item_pk<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    my_item <span class="token operator">=</span> Item<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token builtin">id</span><span class="token operator">=</span>item_pk<span class="token punctuation">)</span>
+
+    distance <span class="token operator">=</span> CosineDistance<span class="token punctuation">(</span><span class="token string">'embedding'</span><span class="token punctuation">,</span> my_item<span class="token punctuation">.</span>embedding<span class="token punctuation">)</span>
+    recommendations <span class="token operator">=</span> Item<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>exclude<span class="token punctuation">(</span><span class="token builtin">id</span><span class="token operator">=</span>item_pk<span class="token punctuation">)</span><span class="token punctuation">.</span>order_by<span class="token punctuation">(</span>distance<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+    context <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">"recommendations"</span><span class="token punctuation">:</span> recommendations
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">"item_detail.html"</span><span class="token punctuation">,</span> context<span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre> <br> <p><img src="https://neulhan-blog.s3.ap-northeast-2.amazonaws.com/images/2024-05-13-16-32-27.png.webp" width="700"></p> <p data-svelte-h="svelte-5jqsw7">이렇게 간단하게 django 에 추천시스템을 구현해볼 수 있습니다.</p> <br> <br> </div> <hr> <div class="flex justify-between flex-col sm:flex-row sm:content-start" data-svelte-h="svelte-s1ma3t"><a href="javascript:window.history.back();"><span class="tf">👈</span> 목록으로 돌아가기</a> <div class="sm:mt-0 mt-2 relative"><span class="tf pointer-events-none">😁</span> 읽어주셔서 감사합니다</div></div> <hr> <div data-svelte-h="svelte-ofcyfb"><script src="https://giscus.app/client.js" data-repo="Neulhan/Neulhan" data-repo-id="MDEwOlJlcG9zaXRvcnkyODc0NzE2OTA=" data-category="Announcements" data-category-id="DIC_kwDOESJ4Ss4CeXnk" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="ko" data-loading="lazy" crossorigin="anonymous" async></script></div></article></main> </div> 
+			
+			<script>
+				{
+					__sveltekit_h6axqv = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.8ec601f7.js"),
+						import("./_app/immutable/entry/app.59b211aa.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+    </body>
+</html>
