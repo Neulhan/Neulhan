@@ -21,5 +21,4 @@ IT는 비즈니스를 서포트 하기에 가치있다고 믿습니다.
 
 [![](https://img.shields.io/static/v1?label=&message=Blog&color=00FFFF)](https://blog.neulhan.com)
 [![](https://img.shields.io/static/v1?label=&message=Github&color=181717&logo=Github)](https://github.com/Neulhan/)
-[![](https://img.shields.io/static/v1?label=&message=LinkedIn&color=0A66C2&logo=LinkedIn)](https://www.linkedin.com/in/%EC%8B%A0%ED%95%9C%EA%B2%B0/)
 [![](https://img.shields.io/static/v1?label=&message=YouTube&color=FF0000&logo=YouTube)](https://www.youtube.com/channel/UCdrsvg9_y6njpdQZsSP-Tbw)
